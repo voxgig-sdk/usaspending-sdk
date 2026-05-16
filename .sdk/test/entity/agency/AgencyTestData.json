@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "agency": {
+      "AGENCY00": {
+        "code": "s28",
+        "id": "AGENCY00",
+        "name": "s2a",
+        "total_obligation": 43
+      },
+      "AGENCY01": {
+        "code": "s50",
+        "id": "AGENCY01",
+        "name": "s52",
+        "total_obligation": 83
+      },
+      "AGENCY02": {
+        "code": "s78",
+        "id": "AGENCY02",
+        "name": "s7a",
+        "total_obligation": 123
+      }
+    }
+  },
+  "new": {
+    "agency": {
+      "agency_ref01": {
+        "code": "sa0",
+        "name": "sa2",
+        "total_obligation": 163
+      }
+    }
+  }
+}

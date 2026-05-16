@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "USAspending API Documentation"
+        url: "https://api.usaspending.gov/"
+      }
+      description: "The USAspending API provides public access to comprehensive U.S. government spending data, including federal contracts and grants. It helps users understand spending trends and accountability through award and agency breakdowns, as mandated by the DATA Act. The data include spending on awards (e.g., who received federal contracts or grants, geographic breakdowns, agency breakdowns) and account-level information such as federal employee compensation."
+      license: {
+        name: "Open Source"
+        url: "https://github.com/fedspendingtransparency/usaspending-api"
+      }
+      servers: [
+        {
+          description: "Production API Server (Version 2)"
+          url: "https://api.usaspending.gov/api/v2"
+        }
+      ]
+      termsOfService: "http://fedspendingtransparency.github.io"
+      title: "USAspending API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}

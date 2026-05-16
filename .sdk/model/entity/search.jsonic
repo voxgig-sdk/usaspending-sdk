@@ -1,0 +1,91 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "field"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "filter"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "geo_layer"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "page"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "page_metadata"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "scope"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "search"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/search/spending_by_award/"
+          parts: [
+            "search"
+            "spending_by_award"
+          ]
+          select: {
+            "$action": "spending_by_award"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/search/spending_by_geography/"
+          parts: [
+            "search"
+            "spending_by_geography"
+          ]
+          select: {
+            "$action": "spending_by_geography"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

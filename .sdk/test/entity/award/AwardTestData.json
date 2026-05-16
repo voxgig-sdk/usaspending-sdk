@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "award": {
+      "AWARD00": {
+        "agency": {},
+        "amount": 61,
+        "description": "s3e",
+        "id": "AWARD00",
+        "recipient": {},
+        "type": "s41"
+      },
+      "AWARD01": {
+        "agency": {},
+        "amount": 121,
+        "description": "s7a",
+        "id": "AWARD01",
+        "recipient": {},
+        "type": "s7d"
+      },
+      "AWARD02": {
+        "agency": {},
+        "amount": 181,
+        "description": "sb6",
+        "id": "AWARD02",
+        "recipient": {},
+        "type": "sb9"
+      }
+    }
+  },
+  "new": {
+    "award": {
+      "award_ref01": {
+        "agency": {},
+        "amount": 241,
+        "description": "sf2",
+        "recipient": {},
+        "type": "sf5"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+# Entity: account
+
+main: kit: entity: account: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "account_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "total_budgetary_resource"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  name: "account"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "fiscal_year"
+                orig: "fiscal_year"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/accounts/"
+          parts: [
+            "accounts"
+          ]
+          select: {
+            exist: [
+              "fiscal_year"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

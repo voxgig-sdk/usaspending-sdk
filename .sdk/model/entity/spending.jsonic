@@ -1,0 +1,71 @@
+# Entity: spending
+
+main: kit: entity: spending: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "breakdown"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "fiscal_year"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total_spending"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  name: "spending"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "agency"
+                orig: "agency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "fiscal_year"
+                orig: "fiscal_year"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/spending/"
+          parts: [
+            "spending"
+          ]
+          select: {
+            exist: [
+              "agency"
+              "fiscal_year"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

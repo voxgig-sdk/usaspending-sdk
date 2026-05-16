@@ -1,0 +1,568 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "USAspending API",
+    "description": "The USAspending API provides public access to comprehensive U.S. government spending data, including federal contracts and grants. It helps users understand spending trends and accountability through award and agency breakdowns, as mandated by the DATA Act. The data include spending on awards (e.g., who received federal contracts or grants, geographic breakdowns, agency breakdowns) and account-level information such as federal employee compensation.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "USAspending API Documentation",
+      "url": "https://api.usaspending.gov/"
+    },
+    "termsOfService": "http://fedspendingtransparency.github.io",
+    "license": {
+      "name": "Open Source",
+      "url": "https://github.com/fedspendingtransparency/usaspending-api"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.usaspending.gov/api/v2",
+      "description": "Production API Server (Version 2)"
+    }
+  ],
+  "paths": {
+    "/awards/": {
+      "get": {
+        "summary": "List Awards",
+        "description": "Retrieves a list of federal awards including contracts and grants.",
+        "operationId": "listAwards",
+        "tags": [
+          "Awards"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of awards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "page_metadata": {
+                      "type": "object",
+                      "properties": {
+                        "page": {
+                          "type": "integer"
+                        },
+                        "count": {
+                          "type": "integer"
+                        },
+                        "hasNext": {
+                          "type": "boolean"
+                        },
+                        "hasPrevious": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "recipient": {
+                            "type": "object"
+                          },
+                          "amount": {
+                            "type": "number"
+                          },
+                          "agency": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/spending/": {
+      "get": {
+        "summary": "Get Spending Data",
+        "description": "Retrieves comprehensive U.S. government spending data with various breakdowns.",
+        "operationId": "getSpending",
+        "tags": [
+          "Spending"
+        ],
+        "parameters": [
+          {
+            "name": "fiscal_year",
+            "in": "query",
+            "description": "Federal fiscal year for the spending data",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "agency",
+            "in": "query",
+            "description": "Filter by agency code or name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with spending data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_spending": {
+                      "type": "number"
+                    },
+                    "fiscal_year": {
+                      "type": "integer"
+                    },
+                    "breakdown": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agencies/": {
+      "get": {
+        "summary": "List Agencies",
+        "description": "Retrieves a list of federal agencies with their spending information.",
+        "operationId": "listAgencies",
+        "tags": [
+          "Agencies"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort field and direction",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "name",
+                "-name",
+                "amount",
+                "-amount"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of agencies",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          },
+                          "total_obligations": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/spending_by_geography/": {
+      "post": {
+        "summary": "Search Spending by Geography",
+        "description": "Retrieves spending data broken down by geographic location.",
+        "operationId": "searchSpendingByGeography",
+        "tags": [
+          "Search",
+          "Geography"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scope": {
+                    "type": "string",
+                    "enum": [
+                      "place_of_performance",
+                      "recipient_location"
+                    ],
+                    "description": "Geographic scope for the search"
+                  },
+                  "geo_layer": {
+                    "type": "string",
+                    "enum": [
+                      "state",
+                      "county",
+                      "district"
+                    ],
+                    "description": "Geographic layer granularity"
+                  },
+                  "filters": {
+                    "type": "object",
+                    "properties": {
+                      "time_period": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with geographic spending breakdown",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "shape_code": {
+                            "type": "string"
+                          },
+                          "display_name": {
+                            "type": "string"
+                          },
+                          "aggregated_amount": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/spending_by_award/": {
+      "post": {
+        "summary": "Search Spending by Award",
+        "description": "Search and filter spending data by award criteria.",
+        "operationId": "searchSpendingByAward",
+        "tags": [
+          "Search",
+          "Awards"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "filters": {
+                    "type": "object",
+                    "properties": {
+                      "keywords": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "award_type_codes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "agencies": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      },
+                      "time_period": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  },
+                  "fields": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "default": 10
+                  },
+                  "page": {
+                    "type": "integer",
+                    "default": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with filtered awards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "page_metadata": {
+                      "type": "object"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts/": {
+      "get": {
+        "summary": "List Federal Accounts",
+        "description": "Retrieves account-level spending data such as federal employee compensation.",
+        "operationId": "listAccounts",
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "fiscal_year",
+            "in": "query",
+            "description": "Federal fiscal year",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with account data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "account_number": {
+                            "type": "string"
+                          },
+                          "account_name": {
+                            "type": "string"
+                          },
+                          "total_budgetary_resources": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Awards",
+      "description": "Endpoints for accessing federal award data including contracts and grants"
+    },
+    {
+      "name": "Spending",
+      "description": "Endpoints for accessing comprehensive spending data"
+    },
+    {
+      "name": "Agencies",
+      "description": "Endpoints for accessing federal agency information and spending"
+    },
+    {
+      "name": "Search",
+      "description": "Advanced search endpoints for filtering and querying spending data"
+    },
+    {
+      "name": "Geography",
+      "description": "Endpoints for geographic breakdowns of spending data"
+    },
+    {
+      "name": "Accounts",
+      "description": "Endpoints for account-level spending data"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# BasicSpendingFlow
+
+main: kit: flow: BasicSpendingFlow:
+{
+  entity: "spending",
+  kind: "basic",
+  name: "BasicSpendingFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "spending_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSpendingFlow"
+}

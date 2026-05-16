@@ -1,0 +1,22 @@
+# BasicAwardFlow
+
+main: kit: flow: BasicAwardFlow:
+{
+  entity: "award",
+  kind: "basic",
+  name: "BasicAwardFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "award_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAwardFlow"
+}

@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "field": [],
+        "filter": {},
+        "geo_layer": "s52",
+        "limit": "s53",
+        "page": "s54",
+        "page_metadata": {},
+        "result": [],
+        "scope": "s57"
+      },
+      "SEARCH01": {
+        "field": [],
+        "filter": {},
+        "geo_layer": "sa2",
+        "limit": "sa3",
+        "page": "sa4",
+        "page_metadata": {},
+        "result": [],
+        "scope": "sa7"
+      },
+      "SEARCH02": {
+        "field": [],
+        "filter": {},
+        "geo_layer": "sf2",
+        "limit": "sf3",
+        "page": "sf4",
+        "page_metadata": {},
+        "result": [],
+        "scope": "sf7"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "field": [],
+        "filter": {},
+        "geo_layer": "s142",
+        "limit": "s143",
+        "page": "s144",
+        "page_metadata": {},
+        "result": [],
+        "scope": "s147"
+      }
+    }
+  }
+}

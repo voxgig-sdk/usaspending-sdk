@@ -1,0 +1,43 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 5
+  metrics: count: path: 6
+  metrics: count: method: 6
+
+  entity: account: {
+    path: "/accounts/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: agency: {
+    path: "/agencies/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: award: {
+    path: "/awards/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: search: {
+    path: "/search/spending_by_award/": {
+      action: "spending_by_award": {}
+      op: create: method: *POST
+    }
+    path: "/search/spending_by_geography/": {
+      action: "spending_by_geography": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: spending: {
+    path: "/spending/": {
+      op: list: method: *GET
+    }
+  }
+
+}

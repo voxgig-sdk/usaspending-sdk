@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "spending": {
+      "SPENDING00": {
+        "breakdown": [],
+        "fiscal_year": "s1f",
+        "total_spending": 32
+      },
+      "SPENDING01": {
+        "breakdown": [],
+        "fiscal_year": "s3d",
+        "total_spending": 62
+      },
+      "SPENDING02": {
+        "breakdown": [],
+        "fiscal_year": "s5b",
+        "total_spending": 92
+      }
+    }
+  },
+  "new": {
+    "spending": {
+      "spending_ref01": {
+        "breakdown": [],
+        "fiscal_year": "s79",
+        "total_spending": 122
+      }
+    }
+  }
+}
