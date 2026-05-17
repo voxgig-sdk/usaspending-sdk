@@ -9,7 +9,8 @@
         "page": "s54",
         "page_metadata": {},
         "result": [],
-        "scope": "s57"
+        "scope": "s57",
+        "id": "SEARCH00"
       },
       "SEARCH01": {
         "field": [],
@@ -19,7 +20,8 @@
         "page": "sa4",
         "page_metadata": {},
         "result": [],
-        "scope": "sa7"
+        "scope": "sa7",
+        "id": "SEARCH01"
       },
       "SEARCH02": {
         "field": [],
@@ -29,7 +31,8 @@
         "page": "sf4",
         "page_metadata": {},
         "result": [],
-        "scope": "sf7"
+        "scope": "sf7",
+        "id": "SEARCH02"
       }
     }
   },

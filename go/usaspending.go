@@ -1,10 +1,10 @@
 package voxgigusaspendingsdk
 
 import (
-	"github.com/voxgig-sdk/usaspending-sdk/core"
-	"github.com/voxgig-sdk/usaspending-sdk/entity"
-	"github.com/voxgig-sdk/usaspending-sdk/feature"
-	_ "github.com/voxgig-sdk/usaspending-sdk/utility"
+	"github.com/voxgig-sdk/usaspending-sdk/go/core"
+	"github.com/voxgig-sdk/usaspending-sdk/go/entity"
+	"github.com/voxgig-sdk/usaspending-sdk/go/feature"
+	_ "github.com/voxgig-sdk/usaspending-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

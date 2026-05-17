@@ -5,14 +5,14 @@ The Golang SDK for the Usaspending API. Provides an entity-oriented interface us
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/usaspending-sdk
+go get github.com/voxgig-sdk/usaspending-sdk/go
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/usaspending-sdk=../path/to/github.com/voxgig-sdk/usaspending-sdk
+go mod edit -replace github.com/voxgig-sdk/usaspending-sdk/go=../path/to/github.com/voxgig-sdk/usaspending-sdk/go
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "github.com/voxgig-sdk/usaspending-sdk"
-    "github.com/voxgig-sdk/usaspending-sdk/core"
+    sdk "github.com/voxgig-sdk/usaspending-sdk/go"
+    "github.com/voxgig-sdk/usaspending-sdk/go/core"
 )
 
 func main() {
@@ -483,7 +483,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-github.com/voxgig-sdk/usaspending-sdk/
+github.com/voxgig-sdk/usaspending-sdk/go/
 ├── usaspending.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -492,7 +492,7 @@ github.com/voxgig-sdk/usaspending-sdk/
 └── test/               # Test suites
 ```
 
-The root package (`github.com/voxgig-sdk/usaspending-sdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/usaspending-sdk/go`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

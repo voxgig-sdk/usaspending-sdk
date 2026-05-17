@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/usaspending-sdk"
-	"github.com/voxgig-sdk/usaspending-sdk/core"
+	sdk "github.com/voxgig-sdk/usaspending-sdk/go"
+	"github.com/voxgig-sdk/usaspending-sdk/go/core"
 )
 
 func TestAgencyDirect(t *testing.T) {
