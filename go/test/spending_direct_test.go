@@ -93,14 +93,12 @@ func spendingDirectSetup(mockres any) *spendingDirectSetupResult {
 	env := envOverride(map[string]any{
 		"USASPENDING_TEST_SPENDING_ENTID": map[string]any{},
 		"USASPENDING_TEST_LIVE":    "FALSE",
-		"USASPENDING_APIKEY":       "NONE",
 	})
 
 	live := env["USASPENDING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["USASPENDING_APIKEY"],
 		}
 		client := sdk.NewUsaspendingSDK(mergedOpts)
 

@@ -93,14 +93,12 @@ func agencyDirectSetup(mockres any) *agencyDirectSetupResult {
 	env := envOverride(map[string]any{
 		"USASPENDING_TEST_AGENCY_ENTID": map[string]any{},
 		"USASPENDING_TEST_LIVE":    "FALSE",
-		"USASPENDING_APIKEY":       "NONE",
 	})
 
 	live := env["USASPENDING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["USASPENDING_APIKEY"],
 		}
 		client := sdk.NewUsaspendingSDK(mergedOpts)
 

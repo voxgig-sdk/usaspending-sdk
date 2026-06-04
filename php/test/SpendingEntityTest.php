@@ -86,7 +86,6 @@ function spending_basic_setup($extra)
         "USASPENDING_TEST_SPENDING_ENTID" => $idmap,
         "USASPENDING_TEST_LIVE" => "FALSE",
         "USASPENDING_TEST_EXPLAIN" => "FALSE",
-        "USASPENDING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function spending_basic_setup($extra)
     if ($env["USASPENDING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["USASPENDING_APIKEY"],
             ],
             $extra ?? [],
         ]);

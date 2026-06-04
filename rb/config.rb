@@ -15,9 +15,6 @@ module UsaspendingConfig
       },
       "options" => {
         "base" => "https://api.usaspending.gov/api/v2",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

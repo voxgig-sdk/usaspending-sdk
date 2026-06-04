@@ -77,7 +77,6 @@ def search_basic_setup(extra)
     "USASPENDING_TEST_SEARCH_ENTID" => idmap,
     "USASPENDING_TEST_LIVE" => "FALSE",
     "USASPENDING_TEST_EXPLAIN" => "FALSE",
-    "USASPENDING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -89,7 +88,6 @@ def search_basic_setup(extra)
   if env["USASPENDING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["USASPENDING_APIKEY"],
       },
       extra || {},
     ])
