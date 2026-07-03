@@ -10,7 +10,7 @@ The PHP SDK for the Usaspending API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/usaspending-sdk
+composer require voxgig-sdk/usaspending
 ```
 
 

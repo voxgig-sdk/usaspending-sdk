@@ -10,7 +10,7 @@ The Python SDK for the Usaspending API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install usaspending-sdk
+pip install voxgig-sdk-usaspending
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The Lua SDK for the Usaspending API — an entity-oriented client using Lua conv
 
 ## Install
 ```bash
-luarocks install usaspending-sdk
+luarocks install voxgig-sdk-usaspending
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The TypeScript SDK for the Usaspending API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install usaspending
+npm install @voxgig-sdk/usaspending
 ```
 ## Tutorial: your first API call
 

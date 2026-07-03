@@ -10,13 +10,13 @@ The Ruby SDK for the Usaspending API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install usaspending-sdk
+gem install voxgig-sdk-usaspending
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "usaspending-sdk"
+gem "voxgig-sdk-usaspending"
 ```
 
 Then run:
