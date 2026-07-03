@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://api.usaspending.gov/api/v2",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -29,42 +32,44 @@ func MakeConfig() map[string]any {
 			"account": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "account_name",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "account_number",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "total_budgetary_resource",
 						"req": false,
 						"type": "`$NUMBER`",
-						"active": true,
 						"index$": 2,
 					},
 				},
 				"name": "account",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "fiscal_year",
 											"orig": "fiscal_year",
 											"reqd": false,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 								},
@@ -82,11 +87,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},
@@ -97,49 +100,51 @@ func MakeConfig() map[string]any {
 			"agency": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "code",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "id",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "name",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "total_obligation",
 						"req": false,
 						"type": "`$NUMBER`",
-						"active": true,
 						"index$": 3,
 					},
 				},
 				"name": "agency",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "sort",
 											"orig": "sort",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -157,11 +162,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},
@@ -172,73 +175,75 @@ func MakeConfig() map[string]any {
 			"award": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "agency",
 						"req": false,
 						"type": "`$OBJECT`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "amount",
 						"req": false,
 						"type": "`$NUMBER`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "description",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "id",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "recipient",
 						"req": false,
 						"type": "`$OBJECT`",
-						"active": true,
 						"index$": 4,
 					},
 					map[string]any{
+						"active": true,
 						"name": "type",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 5,
 					},
 				},
 				"name": "award",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": 10,
 											"kind": "query",
 											"name": "limit",
 											"orig": "limit",
 											"reqd": false,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": 1,
 											"kind": "query",
 											"name": "page",
 											"orig": "page",
 											"reqd": false,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 								},
@@ -257,11 +262,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},
@@ -272,68 +275,71 @@ func MakeConfig() map[string]any {
 			"search": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "field",
 						"req": false,
 						"type": "`$ARRAY`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "filter",
 						"req": false,
 						"type": "`$OBJECT`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "geo_layer",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "limit",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "page",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 4,
 					},
 					map[string]any{
+						"active": true,
 						"name": "page_metadata",
 						"req": false,
 						"type": "`$OBJECT`",
-						"active": true,
 						"index$": 5,
 					},
 					map[string]any{
+						"active": true,
 						"name": "result",
 						"req": false,
 						"type": "`$ARRAY`",
-						"active": true,
 						"index$": 6,
 					},
 					map[string]any{
+						"active": true,
 						"name": "scope",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 7,
 					},
 				},
 				"name": "search",
 				"op": map[string]any{
 					"create": map[string]any{
+						"input": "data",
 						"name": "create",
 						"points": []any{
 							map[string]any{
+								"active": true,
+								"args": map[string]any{},
 								"method": "POST",
 								"orig": "/search/spending_by_award/",
 								"parts": []any{
@@ -347,11 +353,11 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
-								"args": map[string]any{},
 								"index$": 0,
 							},
 							map[string]any{
+								"active": true,
+								"args": map[string]any{},
 								"method": "POST",
 								"orig": "/search/spending_by_geography/",
 								"parts": []any{
@@ -365,12 +371,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
-								"args": map[string]any{},
 								"index$": 1,
 							},
 						},
-						"input": "data",
 						"key$": "create",
 					},
 				},
@@ -381,50 +384,52 @@ func MakeConfig() map[string]any {
 			"spending": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "breakdown",
 						"req": false,
 						"type": "`$ARRAY`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "fiscal_year",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "total_spending",
 						"req": false,
 						"type": "`$NUMBER`",
-						"active": true,
 						"index$": 2,
 					},
 				},
 				"name": "spending",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "agency",
 											"orig": "agency",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "fiscal_year",
 											"orig": "fiscal_year",
 											"reqd": false,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 									},
 								},
@@ -443,11 +448,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},

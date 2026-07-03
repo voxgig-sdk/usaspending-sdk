@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'USASPENDING_TEST_AGENCY_ENTID': {},
     'USASPENDING_TEST_LIVE': 'FALSE',
+    'USASPENDING_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.USASPENDING_TEST_LIVE
 
   if (live) {
     const client = new UsaspendingSDK({
+      apikey: env.USASPENDING_APIKEY,
     })
 
     let idmap: any = env['USASPENDING_TEST_AGENCY_ENTID']

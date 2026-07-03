@@ -22,26 +22,7 @@ main: {
       termsOfService: "http://fedspendingtransparency.github.io"
       title: "USAspending API"
       version: "2.0.0"
-      tagline: "Query US federal spending data — agencies, awards, contracts, grants, and account balances from USAspending.gov"
-      homepage: "https://www.usaspending.gov/"
-      docs_url: "https://api.usaspending.gov/docs/intro-tutorial"
-      license_short: "Open source / US Government public domain"
-      license_md: `- Data published by the U.S. Department of the Treasury under the DATA Act
-- API source code is open source (see [fedspendingtransparency/usaspending-api](https://github.com/fedspendingtransparency/usaspending-api) on GitHub)
-- As a US federal government work, content is generally in the public domain; verify attribution requirements before redistribution`
-      about_md: `The [USAspending API](https://api.usaspending.gov/) is the public data interface for [USAspending.gov](https://www.usaspending.gov/), the official source of US federal government spending data. It is maintained by the Bureau of the Fiscal Service at the U.S. Department of the Treasury and reports data collected under the Digital Accountability and Transparency Act (DATA Act).
-
-The API exposes federal spending records including contracts, grants, loans, and other financial assistance, alongside agency budgets and account-level balances. Both \`GET\` endpoints (for specific records) and \`POST\` endpoints (for advanced filtered searches across awards and spending) are supported.
-
-The service is open and does not require authentication or an API key. The underlying codebase is open source on GitHub at [fedspendingtransparency/usaspending-api](https://github.com/fedspendingtransparency/usaspending-api).`
-      entity_desc: {
-        account: "Federal account balances and budgetary resources, including treasury account and federal account level financial data."
-        agency: "Top-tier and sub-tier federal agency reference data and agency spending profiles (e.g. `/api/v2/references/toptier_agencies/`)."
-        award: "Individual federal awards — contracts, grants, loans, and other financial assistance — with detail endpoints for award records."
-        search: "Advanced filtered search across awards and transactions using POST requests with multi-field filter payloads (e.g. `spending_by_award`)."
-        spending: "Aggregated spending breakdowns by agency, category, geography, or time period."
-      }
-      auth: false
     }
   }
 }
+

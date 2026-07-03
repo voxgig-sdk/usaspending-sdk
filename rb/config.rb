@@ -15,6 +15,9 @@ module UsaspendingConfig
       },
       "options" => {
         "base" => "https://api.usaspending.gov/api/v2",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -30,42 +33,44 @@ module UsaspendingConfig
         "account" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "account_name",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "account_number",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "total_budgetary_resource",
               "req" => false,
               "type" => "`$NUMBER`",
-              "active" => true,
               "index$" => 2,
             },
           ],
           "name" => "account",
           "op" => {
             "list" => {
+              "input" => "data",
               "name" => "list",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "kind" => "query",
                         "name" => "fiscal_year",
                         "orig" => "fiscal_year",
                         "reqd" => false,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -83,11 +88,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "list",
             },
           },
@@ -98,49 +101,51 @@ module UsaspendingConfig
         "agency" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "code",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "id",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "name",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 2,
             },
             {
+              "active" => true,
               "name" => "total_obligation",
               "req" => false,
               "type" => "`$NUMBER`",
-              "active" => true,
               "index$" => 3,
             },
           ],
           "name" => "agency",
           "op" => {
             "list" => {
+              "input" => "data",
               "name" => "list",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -158,11 +163,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "list",
             },
           },
@@ -173,73 +176,75 @@ module UsaspendingConfig
         "award" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "agency",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "amount",
               "req" => false,
               "type" => "`$NUMBER`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "description",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 2,
             },
             {
+              "active" => true,
               "name" => "id",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 3,
             },
             {
+              "active" => true,
               "name" => "recipient",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 4,
             },
             {
+              "active" => true,
               "name" => "type",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 5,
             },
           ],
           "name" => "award",
           "op" => {
             "list" => {
+              "input" => "data",
               "name" => "list",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "example" => 10,
                         "kind" => "query",
                         "name" => "limit",
                         "orig" => "limit",
                         "reqd" => false,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => 1,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
                         "reqd" => false,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -258,11 +263,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "list",
             },
           },
@@ -273,68 +276,71 @@ module UsaspendingConfig
         "search" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "field",
               "req" => false,
               "type" => "`$ARRAY`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "filter",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "geo_layer",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 2,
             },
             {
+              "active" => true,
               "name" => "limit",
               "req" => false,
               "type" => "`$INTEGER`",
-              "active" => true,
               "index$" => 3,
             },
             {
+              "active" => true,
               "name" => "page",
               "req" => false,
               "type" => "`$INTEGER`",
-              "active" => true,
               "index$" => 4,
             },
             {
+              "active" => true,
               "name" => "page_metadata",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 5,
             },
             {
+              "active" => true,
               "name" => "result",
               "req" => false,
               "type" => "`$ARRAY`",
-              "active" => true,
               "index$" => 6,
             },
             {
+              "active" => true,
               "name" => "scope",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 7,
             },
           ],
           "name" => "search",
           "op" => {
             "create" => {
+              "input" => "data",
               "name" => "create",
               "points" => [
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "POST",
                   "orig" => "/search/spending_by_award/",
                   "parts" => [
@@ -348,11 +354,11 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "args" => {},
                   "index$" => 0,
                 },
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "POST",
                   "orig" => "/search/spending_by_geography/",
                   "parts" => [
@@ -366,12 +372,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "args" => {},
                   "index$" => 1,
                 },
               ],
-              "input" => "data",
               "key$" => "create",
             },
           },
@@ -382,50 +385,52 @@ module UsaspendingConfig
         "spending" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "breakdown",
               "req" => false,
               "type" => "`$ARRAY`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "fiscal_year",
               "req" => false,
               "type" => "`$INTEGER`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "total_spending",
               "req" => false,
               "type" => "`$NUMBER`",
-              "active" => true,
               "index$" => 2,
             },
           ],
           "name" => "spending",
           "op" => {
             "list" => {
+              "input" => "data",
               "name" => "list",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "kind" => "query",
                         "name" => "agency",
                         "orig" => "agency",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "kind" => "query",
                         "name" => "fiscal_year",
                         "orig" => "fiscal_year",
                         "reqd" => false,
                         "type" => "`$INTEGER`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -444,11 +449,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "list",
             },
           },

@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://api.usaspending.gov/api/v2",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -30,42 +33,44 @@ def make_config():
       "account": {
         "fields": [
           {
+            "active": True,
             "name": "account_name",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "account_number",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "total_budgetary_resource",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 2,
           },
         ],
         "name": "account",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "fiscal_year",
                       "orig": "fiscal_year",
                       "reqd": False,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                 },
@@ -83,11 +88,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -98,49 +101,51 @@ def make_config():
       "agency": {
         "fields": [
           {
+            "active": True,
             "name": "code",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "id",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "name",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "total_obligation",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "agency",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -158,11 +163,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -173,73 +176,75 @@ def make_config():
       "award": {
         "fields": [
           {
+            "active": True,
             "name": "agency",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "amount",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "description",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "id",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "recipient",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "type",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 5,
           },
         ],
         "name": "award",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": 10,
                       "kind": "query",
                       "name": "limit",
                       "orig": "limit",
                       "reqd": False,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": 1,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
                       "reqd": False,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                 },
@@ -258,11 +263,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -273,68 +276,71 @@ def make_config():
       "search": {
         "fields": [
           {
+            "active": True,
             "name": "field",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "filter",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "geo_layer",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "limit",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "page",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "page_metadata",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 5,
           },
           {
+            "active": True,
             "name": "result",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 6,
           },
           {
+            "active": True,
             "name": "scope",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 7,
           },
         ],
         "name": "search",
         "op": {
           "create": {
+            "input": "data",
             "name": "create",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/search/spending_by_award/",
                 "parts": [
@@ -348,11 +354,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 0,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/search/spending_by_geography/",
                 "parts": [
@@ -366,12 +372,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 1,
               },
             ],
-            "input": "data",
             "key$": "create",
           },
         },
@@ -382,50 +385,52 @@ def make_config():
       "spending": {
         "fields": [
           {
+            "active": True,
             "name": "breakdown",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "fiscal_year",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "total_spending",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 2,
           },
         ],
         "name": "spending",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "agency",
                       "orig": "agency",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "fiscal_year",
                       "orig": "fiscal_year",
                       "reqd": False,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                 },
@@ -444,11 +449,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },

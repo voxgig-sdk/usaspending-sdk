@@ -86,6 +86,7 @@ function search_basic_setup(extra)
     ["USASPENDING_TEST_SEARCH_ENTID"] = idmap,
     ["USASPENDING_TEST_LIVE"] = "FALSE",
     ["USASPENDING_TEST_EXPLAIN"] = "FALSE",
+    ["USASPENDING_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -97,6 +98,7 @@ function search_basic_setup(extra)
   if env["USASPENDING_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["USASPENDING_APIKEY"],
       },
       extra or {},
     })

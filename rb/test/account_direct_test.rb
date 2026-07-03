@@ -62,12 +62,14 @@ def account_direct_setup(mockres)
   env = Runner.env_override({
     "USASPENDING_TEST_ACCOUNT_ENTID" => {},
     "USASPENDING_TEST_LIVE" => "FALSE",
+    "USASPENDING_APIKEY" => "NONE",
   })
 
   live = env["USASPENDING_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["USASPENDING_APIKEY"],
     }
     client = UsaspendingSDK.new(merged_opts)
     return {

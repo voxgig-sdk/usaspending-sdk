@@ -61,12 +61,14 @@ def _award_direct_setup(mockres):
     env = runner.env_override({
         "USASPENDING_TEST_AWARD_ENTID": {},
         "USASPENDING_TEST_LIVE": "FALSE",
+        "USASPENDING_APIKEY": "NONE",
     })
 
     live = env.get("USASPENDING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("USASPENDING_APIKEY"),
         }
         client = UsaspendingSDK(merged_opts)
         return {

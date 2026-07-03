@@ -68,12 +68,14 @@ function spending_direct_setup($mockres)
     $env = Runner::env_override([
         "USASPENDING_TEST_SPENDING_ENTID" => [],
         "USASPENDING_TEST_LIVE" => "FALSE",
+        "USASPENDING_APIKEY" => "NONE",
     ]);
 
     $live = $env["USASPENDING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["USASPENDING_APIKEY"],
         ];
         $client = new UsaspendingSDK($merged_opts);
         return [

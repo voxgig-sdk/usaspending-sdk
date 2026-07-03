@@ -1,16 +1,8 @@
 # Usaspending SDK
 
-Query US federal spending data — agencies, awards, contracts, grants, and account balances from USAspending.gov
+USAspending API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About USAspending API
-
-The [USAspending API](https://api.usaspending.gov/) is the public data interface for [USAspending.gov](https://www.usaspending.gov/), the official source of US federal government spending data. It is maintained by the Bureau of the Fiscal Service at the U.S. Department of the Treasury and reports data collected under the Digital Accountability and Transparency Act (DATA Act).
-
-The API exposes federal spending records including contracts, grants, loans, and other financial assistance, alongside agency budgets and account-level balances. Both `GET` endpoints (for specific records) and `POST` endpoints (for advanced filtered searches across awards and spending) are supported.
-
-The service is open and does not require authentication or an API key. The underlying codebase is open source on GitHub at [fedspendingtransparency/usaspending-api](https://github.com/fedspendingtransparency/usaspending-api).
 
 ## Try it
 
@@ -44,29 +36,31 @@ gem install usaspending-sdk
 luarocks install usaspending-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { UsaspendingSDK } from 'usaspending'
 
-const client = new UsaspendingSDK({})
+const client = new UsaspendingSDK({
+  apikey: process.env.USASPENDING_APIKEY,
+})
 
 // List all accounts
 const accounts = await client.Account().list()
+console.log(accounts.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -96,11 +90,11 @@ The API exposes 5 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Account** | Federal account balances and budgetary resources, including treasury account and federal account level financial data. | `/accounts/` |
-| **Agency** | Top-tier and sub-tier federal agency reference data and agency spending profiles (e.g. `/api/v2/references/toptier_agencies/`). | `/agencies/` |
-| **Award** | Individual federal awards — contracts, grants, loans, and other financial assistance — with detail endpoints for award records. | `/awards/` |
-| **Search** | Advanced filtered search across awards and transactions using POST requests with multi-field filter payloads (e.g. `spending_by_award`). | `/search/spending_by_award/` |
-| **Spending** | Aggregated spending breakdowns by agency, category, geography, or time period. | `/spending/` |
+| **Account** |  | `/accounts/` |
+| **Agency** |  | `/agencies/` |
+| **Award** |  | `/awards/` |
+| **Search** |  | `/search/spending_by_award/` |
+| **Spending** |  | `/spending/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,12 +104,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from usaspending_sdk import UsaspendingSDK
 
-client = UsaspendingSDK({})
+client = UsaspendingSDK({
+    "apikey": os.environ.get("USASPENDING_APIKEY"),
+})
 
 # List all accounts
-accounts, err = client.Account(None).list(None, None)
+accounts, err = client.Account().list()
+print(accounts)
 ```
 
 ### PHP
@@ -124,10 +122,13 @@ accounts, err = client.Account(None).list(None, None)
 <?php
 require_once 'usaspending_sdk.php';
 
-$client = new UsaspendingSDK([]);
+$client = new UsaspendingSDK([
+    "apikey" => getenv("USASPENDING_APIKEY"),
+]);
 
 // List all accounts
-[$accounts, $err] = $client->Account(null)->list(null, null);
+[$accounts, $err] = $client->Account()->list();
+print_r($accounts);
 ```
 
 ### Golang
@@ -135,10 +136,13 @@ $client = new UsaspendingSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/usaspending-sdk/go"
 
-client := sdk.NewUsaspendingSDK(map[string]any{})
+client := sdk.NewUsaspendingSDK(map[string]any{
+    "apikey": os.Getenv("USASPENDING_APIKEY"),
+})
 
 // List all accounts
 accounts, err := client.Account(nil).List(nil, nil)
+fmt.Println(accounts)
 ```
 
 ### Ruby
@@ -146,10 +150,13 @@ accounts, err := client.Account(nil).List(nil, nil)
 ```ruby
 require_relative "Usaspending_sdk"
 
-client = UsaspendingSDK.new({})
+client = UsaspendingSDK.new({
+  "apikey" => ENV["USASPENDING_APIKEY"],
+})
 
 # List all accounts
-accounts, err = client.Account(nil).list(nil, nil)
+accounts, err = client.Account().list
+puts accounts
 ```
 
 ### Lua
@@ -157,10 +164,13 @@ accounts, err = client.Account(nil).list(nil, nil)
 ```lua
 local sdk = require("usaspending_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("USASPENDING_APIKEY"),
+})
 
 -- List all accounts
-local accounts, err = client:Account(nil):list(nil, nil)
+local accounts, err = client:Account():list()
+print(accounts)
 ```
 
 ## Unit testing in offline mode
@@ -179,25 +189,21 @@ const result = await client.Account().load({ id: 'test01' })
 ### Python
 
 ```python
-client = UsaspendingSDK.test(None, None)
-result, err = client.Account(None).load(
-    {"id": "test01"}, None
-)
+client = UsaspendingSDK.test()
+result, err = client.Account().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = UsaspendingSDK::test(null, null);
-[$result, $err] = $client->Account(null)->load(
-    ["id" => "test01"], null
-);
+$client = UsaspendingSDK::test();
+[$result, $err] = $client->Account()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Account(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -206,19 +212,15 @@ result, err := client.Account(nil).Load(
 ### Ruby
 
 ```ruby
-client = UsaspendingSDK.test(nil, nil)
-result, err = client.Account(nil).load(
-  { "id" => "test01" }, nil
-)
+client = UsaspendingSDK.test
+result, err = client.Account().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Account(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Account():load({ id = "test01" })
 ```
 
 ## How it works
@@ -322,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the USAspending API
-
-- Upstream: [https://www.usaspending.gov/](https://www.usaspending.gov/)
-- API docs: [https://api.usaspending.gov/docs/intro-tutorial](https://api.usaspending.gov/docs/intro-tutorial)
-
-- Data published by the U.S. Department of the Treasury under the DATA Act
-- API source code is open source (see [fedspendingtransparency/usaspending-api](https://github.com/fedspendingtransparency/usaspending-api) on GitHub)
-- As a US federal government work, content is generally in the public domain; verify attribution requirements before redistribution
 
 ---
 

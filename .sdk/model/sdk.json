@@ -1,9 +1,670 @@
 {
-  "name": "usaspending",
-  "origin": "voxgig-sdk",
   "def": "usaspending_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "account": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "account_name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "account_number",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "total_budgetary_resource",
+              "req": false,
+              "type": "`$NUMBER`"
+            }
+          ],
+          "name": "account",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "fiscal_year",
+                        "orig": "fiscal_year",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/accounts/",
+                  "parts": [
+                    "accounts"
+                  ],
+                  "select": {
+                    "exist": [
+                      "fiscal_year"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "agency": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "code",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "total_obligation",
+              "req": false,
+              "type": "`$NUMBER`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "agency",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "sort",
+                        "orig": "sort",
+                        "reqd": false,
+                        "type": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/agencies/",
+                  "parts": [
+                    "agencies"
+                  ],
+                  "select": {
+                    "exist": [
+                      "sort"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "award": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "agency",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "amount",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "description",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "recipient",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "type",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "award",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "example": 10,
+                        "kind": "query",
+                        "name": "limit",
+                        "orig": "limit",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      },
+                      {
+                        "active": true,
+                        "example": 1,
+                        "kind": "query",
+                        "name": "page",
+                        "orig": "page",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/awards/",
+                  "parts": [
+                    "awards"
+                  ],
+                  "select": {
+                    "exist": [
+                      "limit",
+                      "page"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "search": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "field",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "filter",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "geo_layer",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "limit",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "page",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "page_metadata",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "result",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "scope",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "search",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/search/spending_by_award/",
+                  "parts": [
+                    "search",
+                    "spending_by_award"
+                  ],
+                  "select": {
+                    "$action": "spending_by_award"
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "POST",
+                  "orig": "/search/spending_by_geography/",
+                  "parts": [
+                    "search",
+                    "spending_by_geography"
+                  ],
+                  "select": {
+                    "$action": "spending_by_geography"
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "spending": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "breakdown",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "fiscal_year",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "total_spending",
+              "req": false,
+              "type": "`$NUMBER`"
+            }
+          ],
+          "name": "spending",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "agency",
+                        "orig": "agency",
+                        "reqd": false,
+                        "type": "`$STRING`"
+                      },
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "fiscal_year",
+                        "orig": "fiscal_year",
+                        "reqd": false,
+                        "type": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/spending/",
+                  "parts": [
+                    "spending"
+                  ],
+                  "select": {
+                    "exist": [
+                      "agency",
+                      "fiscal_year"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicAccountFlow": {
+          "active": true,
+          "entity": "account",
+          "key$": "BasicAccountFlow",
+          "kind": "basic",
+          "name": "BasicAccountFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "account_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicAgencyFlow": {
+          "active": true,
+          "entity": "agency",
+          "key$": "BasicAgencyFlow",
+          "kind": "basic",
+          "name": "BasicAgencyFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "agency_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicAwardFlow": {
+          "active": true,
+          "entity": "award",
+          "key$": "BasicAwardFlow",
+          "kind": "basic",
+          "name": "BasicAwardFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "award_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicSearchFlow": {
+          "active": true,
+          "entity": "search",
+          "key$": "BasicSearchFlow",
+          "kind": "basic",
+          "name": "BasicSearchFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "search_ref01"
+              },
+              "match": {},
+              "op": "create",
+              "spec": [],
+              "valid": []
+            }
+          ]
+        },
+        "BasicSpendingFlow": {
+          "active": true,
+          "entity": "spending",
+          "key$": "BasicSpendingFlow",
+          "kind": "basic",
+          "name": "BasicSpendingFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "spending_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "info": {
         "contact": {
           "name": "USAspending API Documentation",
@@ -22,690 +683,35 @@
         ],
         "termsOfService": "http://fedspendingtransparency.github.io",
         "title": "USAspending API",
-        "version": "2.0.0",
-        "tagline": "Query US federal spending data — agencies, awards, contracts, grants, and account balances from USAspending.gov",
-        "homepage": "https://www.usaspending.gov/",
-        "docs_url": "https://api.usaspending.gov/docs/intro-tutorial",
-        "license_short": "Open source / US Government public domain",
-        "license_md": "- Data published by the U.S. Department of the Treasury under the DATA Act\n- API source code is open source (see [fedspendingtransparency/usaspending-api](https://github.com/fedspendingtransparency/usaspending-api) on GitHub)\n- As a US federal government work, content is generally in the public domain; verify attribution requirements before redistribution",
-        "about_md": "The [USAspending API](https://api.usaspending.gov/) is the public data interface for [USAspending.gov](https://www.usaspending.gov/), the official source of US federal government spending data. It is maintained by the Bureau of the Fiscal Service at the U.S. Department of the Treasury and reports data collected under the Digital Accountability and Transparency Act (DATA Act).\n\nThe API exposes federal spending records including contracts, grants, loans, and other financial assistance, alongside agency budgets and account-level balances. Both `GET` endpoints (for specific records) and `POST` endpoints (for advanced filtered searches across awards and spending) are supported.\n\nThe service is open and does not require authentication or an API key. The underlying codebase is open source on GitHub at [fedspendingtransparency/usaspending-api](https://github.com/fedspendingtransparency/usaspending-api).",
-        "entity_desc": {
-          "account": "Federal account balances and budgetary resources, including treasury account and federal account level financial data.",
-          "agency": "Top-tier and sub-tier federal agency reference data and agency spending profiles (e.g. `/api/v2/references/toptier_agencies/`).",
-          "award": "Individual federal awards — contracts, grants, loans, and other financial assistance — with detail endpoints for award records.",
-          "search": "Advanced filtered search across awards and transactions using POST requests with multi-field filter payloads (e.g. `spending_by_award`).",
-          "spending": "Aggregated spending breakdowns by agency, category, geography, or time period."
-        },
-        "auth": false
+        "version": "2.0.0"
       },
-      "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
-        },
-        "docs_order": [
-          "ts",
-          "py",
-          "php",
-          "go",
-          "rb",
-          "lua"
-        ]
-      },
-      "entity": {
-        "account": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "account_name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "account_number",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "total_budgetary_resource",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            }
-          ],
-          "name": "account",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "args": {
-                    "query": [
-                      {
-                        "kind": "query",
-                        "name": "fiscal_year",
-                        "orig": "fiscal_year",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      }
-                    ]
-                  },
-                  "method": "GET",
-                  "orig": "/accounts/",
-                  "parts": [
-                    "accounts"
-                  ],
-                  "select": {
-                    "exist": [
-                      "fiscal_year"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "agency": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "code",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "total_obligation",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            }
-          ],
-          "id": {
-            "field": "id",
-            "name": "id"
-          },
-          "name": "agency",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "args": {
-                    "query": [
-                      {
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
-                      }
-                    ]
-                  },
-                  "method": "GET",
-                  "orig": "/agencies/",
-                  "parts": [
-                    "agencies"
-                  ],
-                  "select": {
-                    "exist": [
-                      "sort"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "award": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "agency",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "amount",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "description",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "recipient",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "type",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "id": {
-            "field": "id",
-            "name": "id"
-          },
-          "name": "award",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "args": {
-                    "query": [
-                      {
-                        "example": 10,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      },
-                      {
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      }
-                    ]
-                  },
-                  "method": "GET",
-                  "orig": "/awards/",
-                  "parts": [
-                    "awards"
-                  ],
-                  "select": {
-                    "exist": [
-                      "limit",
-                      "page"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "search": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "field",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "filter",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "geo_layer",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "limit",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "page",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "page_metadata",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "result",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "scope",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "search",
-          "op": {
-            "create": {
-              "name": "create",
-              "points": [
-                {
-                  "method": "POST",
-                  "orig": "/search/spending_by_award/",
-                  "parts": [
-                    "search",
-                    "spending_by_award"
-                  ],
-                  "select": {
-                    "$action": "spending_by_award"
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {}
-                },
-                {
-                  "method": "POST",
-                  "orig": "/search/spending_by_geography/",
-                  "parts": [
-                    "search",
-                    "spending_by_geography"
-                  ],
-                  "select": {
-                    "$action": "spending_by_geography"
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "spending": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "breakdown",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "fiscal_year",
-              "req": false,
-              "type": "`$INTEGER`",
-              "active": true
-            },
-            {
-              "name": "total_spending",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            }
-          ],
-          "name": "spending",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "args": {
-                    "query": [
-                      {
-                        "kind": "query",
-                        "name": "agency",
-                        "orig": "agency",
-                        "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
-                      },
-                      {
-                        "kind": "query",
-                        "name": "fiscal_year",
-                        "orig": "fiscal_year",
-                        "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
-                      }
-                    ]
-                  },
-                  "method": "GET",
-                  "orig": "/spending/",
-                  "parts": [
-                    "spending"
-                  ],
-                  "select": {
-                    "exist": [
-                      "agency",
-                      "fiscal_year"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        }
-      },
-      "feature": {
-        "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
-          "active": true,
-          "config": {
-            "options": {
-              "active": false
-            }
-          },
-          "hook": {
-            "PostConstruct": {
-              "active": true,
-              "await": false
-            },
-            "PostConstructEntity": {
-              "active": true,
-              "await": false
-            },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
-              "await": false
-            },
-            "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
-              "active": true,
-              "await": false
-            },
-            "PreRequest": {
-              "active": true,
-              "await": false
-            },
-            "PreResponse": {
-              "active": true,
-              "await": false
-            },
-            "PreResult": {
-              "active": true,
-              "await": false
-            },
-            "PreTarget": {
-              "active": false,
-              "await": false
-            },
-            "PostOperation": {
-              "active": false,
-              "await": false
-            }
-          },
-          "target": {
-            "ts": {
-              "deps": {}
-            },
-            "go": {
-              "deps": {}
-            },
-            "lua": {
-              "deps": {}
-            },
-            "php": {
-              "deps": {}
-            },
-            "py": {
-              "deps": {}
-            },
-            "rb": {
-              "deps": {}
-            },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
-              "deps": {}
-            }
-          }
-        }
-      },
-      "flow": {
-        "BasicAccountFlow": {
-          "entity": "account",
-          "kind": "basic",
-          "name": "BasicAccountFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "account_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicAccountFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicAgencyFlow": {
-          "entity": "agency",
-          "kind": "basic",
-          "name": "BasicAgencyFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "agency_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicAgencyFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicAwardFlow": {
-          "entity": "award",
-          "kind": "basic",
-          "name": "BasicAwardFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "award_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicAwardFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicSearchFlow": {
-          "entity": "search",
-          "kind": "basic",
-          "name": "BasicSearchFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "search_ref01"
-              },
-              "op": "create",
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": [],
-              "valid": []
-            }
-          ],
-          "key$": "BasicSearchFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicSpendingFlow": {
-          "entity": "spending",
-          "kind": "basic",
-          "name": "BasicSpendingFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "spending_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicSpendingFlow",
-          "active": true,
-          "param": {}
-        }
-      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "usaspending"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "usaspending"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -720,19 +726,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "usaspending"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -747,138 +753,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "usaspending"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "usaspending"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "usaspending"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "usaspending"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "usaspending"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "usaspending"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "usaspending"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "usaspending"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "usaspending"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "usaspending",
+  "origin": "voxgig-sdk"
 }
