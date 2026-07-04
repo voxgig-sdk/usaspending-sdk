@@ -43,8 +43,7 @@ class AccountEntityTest < Minitest::Test
     account_ref01_ent = client.Account(nil)
     account_ref01_match = {}
 
-    account_ref01_list_result, err = account_ref01_ent.list(account_ref01_match, nil)
-    assert_nil err
+    account_ref01_list_result = account_ref01_ent.list(account_ref01_match, nil)
     assert account_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def account_basic_setup(extra)
     "USASPENDING_TEST_ACCOUNT_ENTID" => idmap,
     "USASPENDING_TEST_LIVE" => "FALSE",
     "USASPENDING_TEST_EXPLAIN" => "FALSE",
-    "USASPENDING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def account_basic_setup(extra)
   if env["USASPENDING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["USASPENDING_APIKEY"],
       },
       extra || {},
     ])

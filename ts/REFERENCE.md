@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -158,7 +157,7 @@ Alias for `UsaspendingSDK.test()`.
 ## AccountEntity
 
 ```ts
-const account = client.Account()
+const account = client.account
 ```
 
 ### Fields
@@ -176,7 +175,7 @@ const account = client.Account()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Account().list()
+const results = await client.account.list()
 ```
 
 ### Common Methods
@@ -210,7 +209,7 @@ Return a copy of the entity options.
 ## AgencyEntity
 
 ```ts
-const agency = client.Agency()
+const agency = client.agency
 ```
 
 ### Fields
@@ -229,7 +228,7 @@ const agency = client.Agency()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Agency().list()
+const results = await client.agency.list()
 ```
 
 ### Common Methods
@@ -263,7 +262,7 @@ Return a copy of the entity options.
 ## AwardEntity
 
 ```ts
-const award = client.Award()
+const award = client.award
 ```
 
 ### Fields
@@ -284,7 +283,7 @@ const award = client.Award()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Award().list()
+const results = await client.award.list()
 ```
 
 ### Common Methods
@@ -318,7 +317,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.Search()
+const search = client.search
 ```
 
 ### Fields
@@ -341,7 +340,7 @@ const search = client.Search()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.Search().create({
+const result = await client.search.create({
 })
 ```
 
@@ -376,7 +375,7 @@ Return a copy of the entity options.
 ## SpendingEntity
 
 ```ts
-const spending = client.Spending()
+const spending = client.spending
 ```
 
 ### Fields
@@ -394,7 +393,7 @@ const spending = client.Spending()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Spending().list()
+const results = await client.spending.list()
 ```
 
 ### Common Methods

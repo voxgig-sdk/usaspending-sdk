@@ -6,6 +6,8 @@ import { AwardEntity } from './entity/AwardEntity'
 import { SearchEntity } from './entity/SearchEntity'
 import { SpendingEntity } from './entity/SpendingEntity'
 
+export type * from './UsaspendingTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -206,30 +208,70 @@ class UsaspendingSDK {
 
 
 
+  _account?: AccountEntity
+
+  // Idiomatic facade: `client.account.list()` / `client.account.load({ id })`.
+  get account(): AccountEntity {
+    return (this._account ??= new AccountEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.account` instead. */
   Account(data?: any) {
     const self = this
     return new AccountEntity(self,data)
   }
 
 
+  _agency?: AgencyEntity
+
+  // Idiomatic facade: `client.agency.list()` / `client.agency.load({ id })`.
+  get agency(): AgencyEntity {
+    return (this._agency ??= new AgencyEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.agency` instead. */
   Agency(data?: any) {
     const self = this
     return new AgencyEntity(self,data)
   }
 
 
+  _award?: AwardEntity
+
+  // Idiomatic facade: `client.award.list()` / `client.award.load({ id })`.
+  get award(): AwardEntity {
+    return (this._award ??= new AwardEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.award` instead. */
   Award(data?: any) {
     const self = this
     return new AwardEntity(self,data)
   }
 
 
+  _search?: SearchEntity
+
+  // Idiomatic facade: `client.search.list()` / `client.search.load({ id })`.
+  get search(): SearchEntity {
+    return (this._search ??= new SearchEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.search` instead. */
   Search(data?: any) {
     const self = this
     return new SearchEntity(self,data)
   }
 
 
+  _spending?: SpendingEntity
+
+  // Idiomatic facade: `client.spending.list()` / `client.spending.load({ id })`.
+  get spending(): SpendingEntity {
+    return (this._spending ??= new SpendingEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.spending` instead. */
   Spending(data?: any) {
     const self = this
     return new SpendingEntity(self,data)

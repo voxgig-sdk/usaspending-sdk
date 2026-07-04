@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Account,
+  AccountListMatch,
+} from '../UsaspendingTypes'
 
 // TODO: needs Entity superclass
-class AccountEntity extends UsaspendingEntityBase {
+class AccountEntity extends UsaspendingEntityBase<Account> {
 
   constructor(client: UsaspendingSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class AccountEntity extends UsaspendingEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: AccountListMatch, ctrl?: Control): Promise<Account[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class AccountEntity extends UsaspendingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Account[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

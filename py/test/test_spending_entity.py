@@ -50,8 +50,7 @@ class TestSpendingEntity:
         spending_ref01_ent = client.Spending(None)
         spending_ref01_match = {}
 
-        spending_ref01_list_result, err = spending_ref01_ent.list(spending_ref01_match, None)
-        assert err is None
+        spending_ref01_list_result = spending_ref01_ent.list(spending_ref01_match, None)
         assert isinstance(spending_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _spending_basic_setup(extra):
         "USASPENDING_TEST_SPENDING_ENTID": idmap,
         "USASPENDING_TEST_LIVE": "FALSE",
         "USASPENDING_TEST_EXPLAIN": "FALSE",
-        "USASPENDING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _spending_basic_setup(extra):
     if env.get("USASPENDING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("USASPENDING_APIKEY"),
             },
             extra or {},
         ])

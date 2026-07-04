@@ -144,16 +144,23 @@ class UsaspendingSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class UsaspendingSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,35 +212,90 @@ class UsaspendingSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def account(self):
+        """Idiomatic facade: client.account.list() / client.account.load({"id": ...})."""
+        from entity.account_entity import AccountEntity
+        cached = getattr(self, "_account", None)
+        if cached is None:
+            cached = AccountEntity(self, None)
+            self._account = cached
+        return cached
 
     def Account(self, data=None):
+        # Deprecated: use client.account instead.
         from entity.account_entity import AccountEntity
         return AccountEntity(self, data)
 
 
+    @property
+    def agency(self):
+        """Idiomatic facade: client.agency.list() / client.agency.load({"id": ...})."""
+        from entity.agency_entity import AgencyEntity
+        cached = getattr(self, "_agency", None)
+        if cached is None:
+            cached = AgencyEntity(self, None)
+            self._agency = cached
+        return cached
+
     def Agency(self, data=None):
+        # Deprecated: use client.agency instead.
         from entity.agency_entity import AgencyEntity
         return AgencyEntity(self, data)
 
 
+    @property
+    def award(self):
+        """Idiomatic facade: client.award.list() / client.award.load({"id": ...})."""
+        from entity.award_entity import AwardEntity
+        cached = getattr(self, "_award", None)
+        if cached is None:
+            cached = AwardEntity(self, None)
+            self._award = cached
+        return cached
+
     def Award(self, data=None):
+        # Deprecated: use client.award instead.
         from entity.award_entity import AwardEntity
         return AwardEntity(self, data)
 
 
+    @property
+    def search(self):
+        """Idiomatic facade: client.search.list() / client.search.load({"id": ...})."""
+        from entity.search_entity import SearchEntity
+        cached = getattr(self, "_search", None)
+        if cached is None:
+            cached = SearchEntity(self, None)
+            self._search = cached
+        return cached
+
     def Search(self, data=None):
+        # Deprecated: use client.search instead.
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
+    @property
+    def spending(self):
+        """Idiomatic facade: client.spending.list() / client.spending.load({"id": ...})."""
+        from entity.spending_entity import SpendingEntity
+        cached = getattr(self, "_spending", None)
+        if cached is None:
+            cached = SpendingEntity(self, None)
+            self._spending = cached
+        return cached
+
     def Spending(self, data=None):
+        # Deprecated: use client.spending instead.
         from entity.spending_entity import SpendingEntity
         return SpendingEntity(self, data)
 

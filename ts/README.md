@@ -9,9 +9,12 @@ The TypeScript SDK for the Usaspending API — a type-safe, entity-oriented clie
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/usaspending
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/usaspending-sdk/releases](https://github.com/voxgig-sdk/usaspending-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UsaspendingSDK } from 'usaspending'
+import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
 
-const client = new UsaspendingSDK({
-  apikey: process.env.USASPENDING_APIKEY,
-})
+const client = new UsaspendingSDK()
 ```
 
 ### 2. List accounts
 
 ```ts
-const result = await client.Account().list()
+const result = await client.account.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = UsaspendingSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.account.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new UsaspendingSDK({ apikey: '...' })
+const client = new UsaspendingSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.account
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new UsaspendingSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 USASPENDING_TEST_LIVE=TRUE
-USASPENDING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new UsaspendingSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new UsaspendingSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -331,7 +328,7 @@ API path: `/spending/`
 
 ### Account
 
-Create an instance: `const account = client.Account()`
+Create an instance: `const account = client.account`
 
 #### Operations
 
@@ -350,13 +347,13 @@ Create an instance: `const account = client.Account()`
 #### Example: List
 
 ```ts
-const accounts = await client.Account().list()
+const accounts = await client.account.list()
 ```
 
 
 ### Agency
 
-Create an instance: `const agency = client.Agency()`
+Create an instance: `const agency = client.agency`
 
 #### Operations
 
@@ -376,13 +373,13 @@ Create an instance: `const agency = client.Agency()`
 #### Example: List
 
 ```ts
-const agencys = await client.Agency().list()
+const agencys = await client.agency.list()
 ```
 
 
 ### Award
 
-Create an instance: `const award = client.Award()`
+Create an instance: `const award = client.award`
 
 #### Operations
 
@@ -404,13 +401,13 @@ Create an instance: `const award = client.Award()`
 #### Example: List
 
 ```ts
-const awards = await client.Award().list()
+const awards = await client.award.list()
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -434,14 +431,14 @@ Create an instance: `const search = client.Search()`
 #### Example: Create
 
 ```ts
-const search = await client.Search().create({
+const search = await client.search.create({
 })
 ```
 
 
 ### Spending
 
-Create an instance: `const spending = client.Spending()`
+Create an instance: `const spending = client.spending`
 
 #### Operations
 
@@ -460,7 +457,7 @@ Create an instance: `const spending = client.Spending()`
 #### Example: List
 
 ```ts
-const spendings = await client.Spending().list()
+const spendings = await client.spending.list()
 ```
 
 
@@ -521,7 +518,7 @@ usaspending/
 Import the SDK from the package root:
 
 ```ts
-import { UsaspendingSDK } from 'usaspending'
+import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
 ```
 
 ### Entity state
@@ -531,11 +528,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const account = client.account
+await account.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// account.data() now returns the loaded account data
+// account.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

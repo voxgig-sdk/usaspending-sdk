@@ -245,26 +245,41 @@ func (sdk *UsaspendingSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// Account returns a Account entity bound to this client.
+// Idiomatic usage: client.Account(nil).List(nil, nil) or
+// client.Account(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UsaspendingSDK) Account(data map[string]any) UsaspendingEntity {
 	return NewAccountEntityFunc(sdk, data)
 }
 
 
+// Agency returns a Agency entity bound to this client.
+// Idiomatic usage: client.Agency(nil).List(nil, nil) or
+// client.Agency(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UsaspendingSDK) Agency(data map[string]any) UsaspendingEntity {
 	return NewAgencyEntityFunc(sdk, data)
 }
 
 
+// Award returns a Award entity bound to this client.
+// Idiomatic usage: client.Award(nil).List(nil, nil) or
+// client.Award(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UsaspendingSDK) Award(data map[string]any) UsaspendingEntity {
 	return NewAwardEntityFunc(sdk, data)
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UsaspendingSDK) Search(data map[string]any) UsaspendingEntity {
 	return NewSearchEntityFunc(sdk, data)
 }
 
 
+// Spending returns a Spending entity bound to this client.
+// Idiomatic usage: client.Spending(nil).List(nil, nil) or
+// client.Spending(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UsaspendingSDK) Spending(data map[string]any) UsaspendingEntity {
 	return NewSpendingEntityFunc(sdk, data)
 }

@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'USASPENDING_TEST_ACCOUNT_ENTID': idmap,
     'USASPENDING_TEST_LIVE': 'FALSE',
     'USASPENDING_TEST_EXPLAIN': 'FALSE',
-    'USASPENDING_APIKEY': 'NONE',
   })
 
   idmap = env['USASPENDING_TEST_ACCOUNT_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new UsaspendingSDK(merge([
       {
-        apikey: env.USASPENDING_APIKEY,
       },
       extra
     ]))

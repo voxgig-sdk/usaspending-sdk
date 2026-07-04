@@ -50,8 +50,7 @@ class AccountEntityTest extends TestCase
         $account_ref01_ent = $client->Account(null);
         $account_ref01_match = [];
 
-        [$account_ref01_list_result, $err] = $account_ref01_ent->list($account_ref01_match, null);
-        $this->assertNull($err);
+        $account_ref01_list_result = $account_ref01_ent->list($account_ref01_match, null);
         $this->assertIsArray($account_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function account_basic_setup($extra)
         "USASPENDING_TEST_ACCOUNT_ENTID" => $idmap,
         "USASPENDING_TEST_LIVE" => "FALSE",
         "USASPENDING_TEST_EXPLAIN" => "FALSE",
-        "USASPENDING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function account_basic_setup($extra)
     if ($env["USASPENDING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["USASPENDING_APIKEY"],
             ],
             $extra ?? [],
         ]);

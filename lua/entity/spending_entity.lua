@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch SpendingListMatch
+---@param ctrl? table
+---@return Spending[]
+---@return string? err
 function SpendingEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

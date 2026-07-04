@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata SearchCreateData
+---@param ctrl? table
+---@return Search
+---@return string? err
 function SearchEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

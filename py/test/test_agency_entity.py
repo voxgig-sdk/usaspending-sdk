@@ -50,8 +50,7 @@ class TestAgencyEntity:
         agency_ref01_ent = client.Agency(None)
         agency_ref01_match = {}
 
-        agency_ref01_list_result, err = agency_ref01_ent.list(agency_ref01_match, None)
-        assert err is None
+        agency_ref01_list_result = agency_ref01_ent.list(agency_ref01_match, None)
         assert isinstance(agency_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _agency_basic_setup(extra):
         "USASPENDING_TEST_AGENCY_ENTID": idmap,
         "USASPENDING_TEST_LIVE": "FALSE",
         "USASPENDING_TEST_EXPLAIN": "FALSE",
-        "USASPENDING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _agency_basic_setup(extra):
     if env.get("USASPENDING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("USASPENDING_APIKEY"),
             },
             extra or {},
         ])

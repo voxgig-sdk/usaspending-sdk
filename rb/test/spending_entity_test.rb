@@ -43,8 +43,7 @@ class SpendingEntityTest < Minitest::Test
     spending_ref01_ent = client.Spending(nil)
     spending_ref01_match = {}
 
-    spending_ref01_list_result, err = spending_ref01_ent.list(spending_ref01_match, nil)
-    assert_nil err
+    spending_ref01_list_result = spending_ref01_ent.list(spending_ref01_match, nil)
     assert spending_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def spending_basic_setup(extra)
     "USASPENDING_TEST_SPENDING_ENTID" => idmap,
     "USASPENDING_TEST_LIVE" => "FALSE",
     "USASPENDING_TEST_EXPLAIN" => "FALSE",
-    "USASPENDING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def spending_basic_setup(extra)
   if env["USASPENDING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["USASPENDING_APIKEY"],
       },
       extra || {},
     ])

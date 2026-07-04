@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch AccountListMatch
+---@param ctrl? table
+---@return Account[]
+---@return string? err
 function AccountEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

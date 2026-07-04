@@ -50,8 +50,7 @@ class SpendingEntityTest extends TestCase
         $spending_ref01_ent = $client->Spending(null);
         $spending_ref01_match = [];
 
-        [$spending_ref01_list_result, $err] = $spending_ref01_ent->list($spending_ref01_match, null);
-        $this->assertNull($err);
+        $spending_ref01_list_result = $spending_ref01_ent->list($spending_ref01_match, null);
         $this->assertIsArray($spending_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function spending_basic_setup($extra)
         "USASPENDING_TEST_SPENDING_ENTID" => $idmap,
         "USASPENDING_TEST_LIVE" => "FALSE",
         "USASPENDING_TEST_EXPLAIN" => "FALSE",
-        "USASPENDING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function spending_basic_setup($extra)
     if ($env["USASPENDING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["USASPENDING_APIKEY"],
             ],
             $extra ?? [],
         ]);

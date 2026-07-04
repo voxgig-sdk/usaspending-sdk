@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Search,
+  SearchCreateData,
+} from '../UsaspendingTypes'
 
 // TODO: needs Entity superclass
-class SearchEntity extends UsaspendingEntityBase {
+class SearchEntity extends UsaspendingEntityBase<Search> {
 
   constructor(client: UsaspendingSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class SearchEntity extends UsaspendingEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: SearchCreateData, ctrl?: Control): Promise<Search> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class SearchEntity extends UsaspendingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Search> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

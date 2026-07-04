@@ -45,6 +45,7 @@ class AwardEntity
     end
   end
 
+  # @return [Award, Hash] the current Award data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class AwardEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Award fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class AwardEntity
   
 
   
+  # List Award items matching the given filter.
+  #
+  # @param reqmatch [AwardListMatch, Hash, nil] match filter (any subset of Award fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Award>, Array] the matching Award items; raises UsaspendingError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

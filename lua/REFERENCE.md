@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -100,7 +99,7 @@ same parameters as `direct()`.
 ## AccountEntity
 
 ```lua
-local account = client:Account(nil)
+local account = client:account(nil)
 ```
 
 ### Fields
@@ -118,7 +117,7 @@ local account = client:Account(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Account():list()
+local results, err = client:account():list()
 ```
 
 ### Common Methods
@@ -154,7 +153,7 @@ Return the entity name.
 ## AgencyEntity
 
 ```lua
-local agency = client:Agency(nil)
+local agency = client:agency(nil)
 ```
 
 ### Fields
@@ -173,7 +172,7 @@ local agency = client:Agency(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Agency():list()
+local results, err = client:agency():list()
 ```
 
 ### Common Methods
@@ -209,7 +208,7 @@ Return the entity name.
 ## AwardEntity
 
 ```lua
-local award = client:Award(nil)
+local award = client:award(nil)
 ```
 
 ### Fields
@@ -230,7 +229,7 @@ local award = client:Award(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Award():list()
+local results, err = client:award():list()
 ```
 
 ### Common Methods
@@ -266,7 +265,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:Search(nil)
+local search = client:search(nil)
 ```
 
 ### Fields
@@ -289,7 +288,7 @@ local search = client:Search(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:Search():create({
+local result, err = client:search():create({
 })
 ```
 
@@ -326,7 +325,7 @@ Return the entity name.
 ## SpendingEntity
 
 ```lua
-local spending = client:Spending(nil)
+local spending = client:spending(nil)
 ```
 
 ### Fields
@@ -344,7 +343,7 @@ local spending = client:Spending(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Spending():list()
+local results, err = client:spending():list()
 ```
 
 ### Common Methods

@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'Usaspending_types'
+
 
 class UsaspendingSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class UsaspendingSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class UsaspendingSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue UsaspendingError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = UsaspendingHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class UsaspendingSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,40 +198,75 @@ class UsaspendingSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.account.list / client.account.load({ "id" => ... })
+  def account
+    require_relative 'entity/account_entity'
+    @account ||= AccountEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.account instead.
   def Account(data = nil)
     require_relative 'entity/account_entity'
     AccountEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.agency.list / client.agency.load({ "id" => ... })
+  def agency
+    require_relative 'entity/agency_entity'
+    @agency ||= AgencyEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.agency instead.
   def Agency(data = nil)
     require_relative 'entity/agency_entity'
     AgencyEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.award.list / client.award.load({ "id" => ... })
+  def award
+    require_relative 'entity/award_entity'
+    @award ||= AwardEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.award instead.
   def Award(data = nil)
     require_relative 'entity/award_entity'
     AwardEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.search.list / client.search.load({ "id" => ... })
+  def search
+    require_relative 'entity/search_entity'
+    @search ||= SearchEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.search instead.
   def Search(data = nil)
     require_relative 'entity/search_entity'
     SearchEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.spending.list / client.spending.load({ "id" => ... })
+  def spending
+    require_relative 'entity/spending_entity'
+    @spending ||= SpendingEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.spending instead.
   def Spending(data = nil)
     require_relative 'entity/spending_entity'
     SpendingEntity.new(self, data)

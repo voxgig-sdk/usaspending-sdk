@@ -50,8 +50,7 @@ class TestAwardEntity:
         award_ref01_ent = client.Award(None)
         award_ref01_match = {}
 
-        award_ref01_list_result, err = award_ref01_ent.list(award_ref01_match, None)
-        assert err is None
+        award_ref01_list_result = award_ref01_ent.list(award_ref01_match, None)
         assert isinstance(award_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _award_basic_setup(extra):
         "USASPENDING_TEST_AWARD_ENTID": idmap,
         "USASPENDING_TEST_LIVE": "FALSE",
         "USASPENDING_TEST_EXPLAIN": "FALSE",
-        "USASPENDING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _award_basic_setup(extra):
     if env.get("USASPENDING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("USASPENDING_APIKEY"),
             },
             extra or {},
         ])

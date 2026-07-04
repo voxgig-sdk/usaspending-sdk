@@ -43,8 +43,7 @@ class SearchEntityTest extends TestCase
         $search_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.search"), "search_ref01"));
 
-        [$search_ref01_data_result, $err] = $search_ref01_ent->create($search_ref01_data, null);
-        $this->assertNull($err);
+        $search_ref01_data_result = $search_ref01_ent->create($search_ref01_data, null);
         $search_ref01_data = Helpers::to_map($search_ref01_data_result);
         $this->assertNotNull($search_ref01_data);
 
@@ -80,7 +79,6 @@ function search_basic_setup($extra)
         "USASPENDING_TEST_SEARCH_ENTID" => $idmap,
         "USASPENDING_TEST_LIVE" => "FALSE",
         "USASPENDING_TEST_EXPLAIN" => "FALSE",
-        "USASPENDING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -92,7 +90,6 @@ function search_basic_setup($extra)
     if ($env["USASPENDING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["USASPENDING_APIKEY"],
             ],
             $extra ?? [],
         ]);
