@@ -208,70 +208,35 @@ class UsaspendingSDK {
 
 
 
-  _account?: AccountEntity
-
-  // Idiomatic facade: `client.account.list()` / `client.account.load({ id })`.
-  get account(): AccountEntity {
-    return (this._account ??= new AccountEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.account` instead. */
+  // Entity access: `client.Account().list()` / `client.Account().load({ id })`.
   Account(data?: any) {
     const self = this
     return new AccountEntity(self,data)
   }
 
 
-  _agency?: AgencyEntity
-
-  // Idiomatic facade: `client.agency.list()` / `client.agency.load({ id })`.
-  get agency(): AgencyEntity {
-    return (this._agency ??= new AgencyEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.agency` instead. */
+  // Entity access: `client.Agency().list()` / `client.Agency().load({ id })`.
   Agency(data?: any) {
     const self = this
     return new AgencyEntity(self,data)
   }
 
 
-  _award?: AwardEntity
-
-  // Idiomatic facade: `client.award.list()` / `client.award.load({ id })`.
-  get award(): AwardEntity {
-    return (this._award ??= new AwardEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.award` instead. */
+  // Entity access: `client.Award().list()` / `client.Award().load({ id })`.
   Award(data?: any) {
     const self = this
     return new AwardEntity(self,data)
   }
 
 
-  _search?: SearchEntity
-
-  // Idiomatic facade: `client.search.list()` / `client.search.load({ id })`.
-  get search(): SearchEntity {
-    return (this._search ??= new SearchEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.search` instead. */
+  // Entity access: `client.Search().list()` / `client.Search().load({ id })`.
   Search(data?: any) {
     const self = this
     return new SearchEntity(self,data)
   }
 
 
-  _spending?: SpendingEntity
-
-  // Idiomatic facade: `client.spending.list()` / `client.spending.load({ id })`.
-  get spending(): SpendingEntity {
-    return (this._spending ??= new SpendingEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.spending` instead. */
+  // Entity access: `client.Spending().list()` / `client.Spending().load({ id })`.
   Spending(data?: any) {
     const self = this
     return new SpendingEntity(self,data)

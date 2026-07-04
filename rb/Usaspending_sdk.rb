@@ -208,65 +208,35 @@ class UsaspendingSDK
   end
 
 
-  # Idiomatic facade: client.account.list / client.account.load({ "id" => ... })
-  def account
-    require_relative 'entity/account_entity'
-    @account ||= AccountEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.account instead.
+  # Canonical facade: client.Account.list / client.Account.load({ "id" => ... })
   def Account(data = nil)
     require_relative 'entity/account_entity'
     AccountEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.agency.list / client.agency.load({ "id" => ... })
-  def agency
-    require_relative 'entity/agency_entity'
-    @agency ||= AgencyEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.agency instead.
+  # Canonical facade: client.Agency.list / client.Agency.load({ "id" => ... })
   def Agency(data = nil)
     require_relative 'entity/agency_entity'
     AgencyEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.award.list / client.award.load({ "id" => ... })
-  def award
-    require_relative 'entity/award_entity'
-    @award ||= AwardEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.award instead.
+  # Canonical facade: client.Award.list / client.Award.load({ "id" => ... })
   def Award(data = nil)
     require_relative 'entity/award_entity'
     AwardEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.search.list / client.search.load({ "id" => ... })
-  def search
-    require_relative 'entity/search_entity'
-    @search ||= SearchEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.search instead.
+  # Canonical facade: client.Search.list / client.Search.load({ "id" => ... })
   def Search(data = nil)
     require_relative 'entity/search_entity'
     SearchEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.spending.list / client.spending.load({ "id" => ... })
-  def spending
-    require_relative 'entity/spending_entity'
-    @spending ||= SpendingEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.spending instead.
+  # Canonical facade: client.Spending.list / client.Spending.load({ "id" => ... })
   def Spending(data = nil)
     require_relative 'entity/spending_entity'
     SpendingEntity.new(self, data)

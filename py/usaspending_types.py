@@ -4,97 +4,91 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Account:
-    account_name: Optional[str] = None
-    account_number: Optional[str] = None
-    total_budgetary_resource: Optional[float] = None
+class Account(TypedDict, total=False):
+    account_name: str
+    account_number: str
+    total_budgetary_resource: float
 
 
-@dataclass
-class AccountListMatch:
-    account_name: Optional[str] = None
-    account_number: Optional[str] = None
-    total_budgetary_resource: Optional[float] = None
+class AccountListMatch(TypedDict, total=False):
+    account_name: str
+    account_number: str
+    total_budgetary_resource: float
 
 
-@dataclass
-class Agency:
-    code: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    total_obligation: Optional[float] = None
+class Agency(TypedDict, total=False):
+    code: str
+    id: str
+    name: str
+    total_obligation: float
 
 
-@dataclass
-class AgencyListMatch:
-    code: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    total_obligation: Optional[float] = None
+class AgencyListMatch(TypedDict, total=False):
+    code: str
+    id: str
+    name: str
+    total_obligation: float
 
 
-@dataclass
-class Award:
-    agency: Optional[dict] = None
-    amount: Optional[float] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    recipient: Optional[dict] = None
-    type: Optional[str] = None
+class Award(TypedDict, total=False):
+    agency: dict
+    amount: float
+    description: str
+    id: str
+    recipient: dict
+    type: str
 
 
-@dataclass
-class AwardListMatch:
-    agency: Optional[dict] = None
-    amount: Optional[float] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    recipient: Optional[dict] = None
-    type: Optional[str] = None
+class AwardListMatch(TypedDict, total=False):
+    agency: dict
+    amount: float
+    description: str
+    id: str
+    recipient: dict
+    type: str
 
 
-@dataclass
-class Search:
-    field: Optional[list] = None
-    filter: Optional[dict] = None
-    geo_layer: Optional[str] = None
-    limit: Optional[int] = None
-    page: Optional[int] = None
-    page_metadata: Optional[dict] = None
-    result: Optional[list] = None
-    scope: Optional[str] = None
+class Search(TypedDict, total=False):
+    field: list
+    filter: dict
+    geo_layer: str
+    limit: int
+    page: int
+    page_metadata: dict
+    result: list
+    scope: str
 
 
-@dataclass
-class SearchCreateData:
-    field: Optional[list] = None
-    filter: Optional[dict] = None
-    geo_layer: Optional[str] = None
-    limit: Optional[int] = None
-    page: Optional[int] = None
-    page_metadata: Optional[dict] = None
-    result: Optional[list] = None
-    scope: Optional[str] = None
+class SearchCreateData(TypedDict, total=False):
+    field: list
+    filter: dict
+    geo_layer: str
+    limit: int
+    page: int
+    page_metadata: dict
+    result: list
+    scope: str
 
 
-@dataclass
-class Spending:
-    breakdown: Optional[list] = None
-    fiscal_year: Optional[int] = None
-    total_spending: Optional[float] = None
+class Spending(TypedDict, total=False):
+    breakdown: list
+    fiscal_year: int
+    total_spending: float
 
 
-@dataclass
-class SpendingListMatch:
-    breakdown: Optional[list] = None
-    fiscal_year: Optional[int] = None
-    total_spending: Optional[float] = None
-
+class SpendingListMatch(TypedDict, total=False):
+    breakdown: list
+    fiscal_year: int
+    total_spending: float

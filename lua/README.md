@@ -31,17 +31,17 @@ local sdk = require("usaspending_sdk")
 local client = sdk.new()
 ```
 
-### 2. List accounts
+### 2. List account records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:account():list()
+local accounts, err = client:Account():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(accounts) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:account():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Account():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -167,9 +167,9 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
-| `Account` | `(data) -> AccountEntity` | Create a Account entity instance. |
-| `Agency` | `(data) -> AgencyEntity` | Create a Agency entity instance. |
-| `Award` | `(data) -> AwardEntity` | Create a Award entity instance. |
+| `Account` | `(data) -> AccountEntity` | Create an Account entity instance. |
+| `Agency` | `(data) -> AgencyEntity` | Create an Agency entity instance. |
+| `Award` | `(data) -> AwardEntity` | Create an Award entity instance. |
 | `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 | `Spending` | `(data) -> SpendingEntity` | Create a Spending entity instance. |
 
@@ -193,17 +193,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local account, err = client:Account():load({ id = "example_id" })
+    if err then error(err) end
+    -- account is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -283,7 +288,7 @@ API path: `/spending/`
 
 ### Account
 
-Create an instance: `const account = client.account`
+Create an instance: `local account = client:Account(nil)`
 
 #### Operations
 
@@ -301,14 +306,14 @@ Create an instance: `const account = client.account`
 
 #### Example: List
 
-```ts
-const accounts = await client.account.list()
+```lua
+local accounts, err = client:Account():list()
 ```
 
 
 ### Agency
 
-Create an instance: `const agency = client.agency`
+Create an instance: `local agency = client:Agency(nil)`
 
 #### Operations
 
@@ -327,14 +332,14 @@ Create an instance: `const agency = client.agency`
 
 #### Example: List
 
-```ts
-const agencys = await client.agency.list()
+```lua
+local agencys, err = client:Agency():list()
 ```
 
 
 ### Award
 
-Create an instance: `const award = client.award`
+Create an instance: `local award = client:Award(nil)`
 
 #### Operations
 
@@ -355,14 +360,14 @@ Create an instance: `const award = client.award`
 
 #### Example: List
 
-```ts
-const awards = await client.award.list()
+```lua
+local awards, err = client:Award():list()
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `local search = client:Search(nil)`
 
 #### Operations
 
@@ -385,15 +390,15 @@ Create an instance: `const search = client.search`
 
 #### Example: Create
 
-```ts
-const search = await client.search.create({
+```lua
+local search, err = client:Search():create({
 })
 ```
 
 
 ### Spending
 
-Create an instance: `const spending = client.spending`
+Create an instance: `local spending = client:Spending(nil)`
 
 #### Operations
 
@@ -411,8 +416,8 @@ Create an instance: `const spending = client.spending`
 
 #### Example: List
 
-```ts
-const spendings = await client.spending.list()
+```lua
+local spendings, err = client:Spending():list()
 ```
 
 
@@ -487,7 +492,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local account = client:account()
+local account = client:Account()
 account:load({ id = "example_id" })
 
 -- account:data_get() now returns the loaded account data

@@ -31,14 +31,16 @@ from usaspending_sdk import UsaspendingSDK
 client = UsaspendingSDK()
 ```
 
-### 2. List accounts
+### 2. List account records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.account.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    accounts = client.Account().list({})
+    for account in accounts:
+        print(account)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = UsaspendingSDK.test()
 
-result = client.account.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+account = client.Account().load({"id": "test01"})
+# account contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,9 +166,9 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Account` | `(data) -> AccountEntity` | Create a Account entity instance. |
-| `Agency` | `(data) -> AgencyEntity` | Create a Agency entity instance. |
-| `Award` | `(data) -> AwardEntity` | Create a Award entity instance. |
+| `Account` | `(data) -> AccountEntity` | Create an Account entity instance. |
+| `Agency` | `(data) -> AgencyEntity` | Create an Agency entity instance. |
+| `Award` | `(data) -> AwardEntity` | Create an Award entity instance. |
 | `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 | `Spending` | `(data) -> SpendingEntity` | Create a Spending entity instance. |
 
@@ -283,7 +286,7 @@ API path: `/spending/`
 
 ### Account
 
-Create an instance: `const account = client.account`
+Create an instance: `account = client.Account()`
 
 #### Operations
 
@@ -301,14 +304,14 @@ Create an instance: `const account = client.account`
 
 #### Example: List
 
-```ts
-const accounts = await client.account.list()
+```python
+accounts = client.Account().list({})
 ```
 
 
 ### Agency
 
-Create an instance: `const agency = client.agency`
+Create an instance: `agency = client.Agency()`
 
 #### Operations
 
@@ -327,14 +330,14 @@ Create an instance: `const agency = client.agency`
 
 #### Example: List
 
-```ts
-const agencys = await client.agency.list()
+```python
+agencys = client.Agency().list({})
 ```
 
 
 ### Award
 
-Create an instance: `const award = client.award`
+Create an instance: `award = client.Award()`
 
 #### Operations
 
@@ -355,14 +358,14 @@ Create an instance: `const award = client.award`
 
 #### Example: List
 
-```ts
-const awards = await client.award.list()
+```python
+awards = client.Award().list({})
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search()`
 
 #### Operations
 
@@ -385,15 +388,15 @@ Create an instance: `const search = client.search`
 
 #### Example: Create
 
-```ts
-const search = await client.search.create({
+```python
+search = client.Search().create({
 })
 ```
 
 
 ### Spending
 
-Create an instance: `const spending = client.spending`
+Create an instance: `spending = client.Spending()`
 
 #### Operations
 
@@ -411,8 +414,8 @@ Create an instance: `const spending = client.spending`
 
 #### Example: List
 
-```ts
-const spendings = await client.spending.list()
+```python
+spendings = client.Spending().list({})
 ```
 
 
@@ -486,7 +489,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-account = client.account
+account = client.Account()
 account.load({"id": "example_id"})
 
 # account.data_get() now returns the loaded account data

@@ -233,10 +233,10 @@ class UsaspendingSDK
 
     private $_account = null;
 
-    // Idiomatic facade: $client->account()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Account() (PHP method
-    // names are case-insensitive).
-    public function account($data = null)
+    // Canonical facade: $client->Account()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->account()
+    // resolves here too.
+    public function Account($data = null)
     {
         require_once __DIR__ . '/entity/account_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class UsaspendingSDK
 
     private $_agency = null;
 
-    // Idiomatic facade: $client->agency()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Agency() (PHP method
-    // names are case-insensitive).
-    public function agency($data = null)
+    // Canonical facade: $client->Agency()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->agency()
+    // resolves here too.
+    public function Agency($data = null)
     {
         require_once __DIR__ . '/entity/agency_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class UsaspendingSDK
 
     private $_award = null;
 
-    // Idiomatic facade: $client->award()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Award() (PHP method
-    // names are case-insensitive).
-    public function award($data = null)
+    // Canonical facade: $client->Award()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->award()
+    // resolves here too.
+    public function Award($data = null)
     {
         require_once __DIR__ . '/entity/award_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class UsaspendingSDK
 
     private $_search = null;
 
-    // Idiomatic facade: $client->search()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Search() (PHP method
-    // names are case-insensitive).
-    public function search($data = null)
+    // Canonical facade: $client->Search()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->search()
+    // resolves here too.
+    public function Search($data = null)
     {
         require_once __DIR__ . '/entity/search_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class UsaspendingSDK
 
     private $_spending = null;
 
-    // Idiomatic facade: $client->spending()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Spending() (PHP method
-    // names are case-insensitive).
-    public function spending($data = null)
+    // Canonical facade: $client->Spending()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->spending()
+    // resolves here too.
+    public function Spending($data = null)
     {
         require_once __DIR__ . '/entity/spending_entity.php';
         if ($data === null) {

@@ -29,18 +29,16 @@ require_once 'usaspending_sdk.php';
 $client = new UsaspendingSDK();
 ```
 
-### 2. List accounts
+### 2. List account records
 
 ```php
 try {
-    $result = $client->account()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Account records — iterate directly.
+    $accounts = $client->Account()->list();
+    foreach ($accounts as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = UsaspendingSDK::test();
+$client = UsaspendingSDK::test([
+    "entity" => ["account" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->account()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$account = $client->Account()->load(["id" => "test01"]);
+print_r($account);
 ```
 
 ### Use a custom fetch function
@@ -171,9 +173,9 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Account` | `($data): AccountEntity` | Create a Account entity instance. |
-| `Agency` | `($data): AgencyEntity` | Create a Agency entity instance. |
-| `Award` | `($data): AwardEntity` | Create a Award entity instance. |
+| `Account` | `($data): AccountEntity` | Create an Account entity instance. |
+| `Agency` | `($data): AgencyEntity` | Create an Agency entity instance. |
+| `Award` | `($data): AwardEntity` | Create an Award entity instance. |
 | `Search` | `($data): SearchEntity` | Create a Search entity instance. |
 | `Spending` | `($data): SpendingEntity` | Create a Spending entity instance. |
 
@@ -291,7 +293,7 @@ API path: `/spending/`
 
 ### Account
 
-Create an instance: `const account = client.account`
+Create an instance: `$account = $client->Account();`
 
 #### Operations
 
@@ -309,14 +311,15 @@ Create an instance: `const account = client.account`
 
 #### Example: List
 
-```ts
-const accounts = await client.account.list()
+```php
+// list() returns an array of Account records (throws on error).
+$accounts = $client->Account()->list();
 ```
 
 
 ### Agency
 
-Create an instance: `const agency = client.agency`
+Create an instance: `$agency = $client->Agency();`
 
 #### Operations
 
@@ -335,14 +338,15 @@ Create an instance: `const agency = client.agency`
 
 #### Example: List
 
-```ts
-const agencys = await client.agency.list()
+```php
+// list() returns an array of Agency records (throws on error).
+$agencys = $client->Agency()->list();
 ```
 
 
 ### Award
 
-Create an instance: `const award = client.award`
+Create an instance: `$award = $client->Award();`
 
 #### Operations
 
@@ -363,14 +367,15 @@ Create an instance: `const award = client.award`
 
 #### Example: List
 
-```ts
-const awards = await client.award.list()
+```php
+// list() returns an array of Award records (throws on error).
+$awards = $client->Award()->list();
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `$search = $client->Search();`
 
 #### Operations
 
@@ -393,15 +398,15 @@ Create an instance: `const search = client.search`
 
 #### Example: Create
 
-```ts
-const search = await client.search.create({
-})
+```php
+$search = $client->Search()->create([
+]);
 ```
 
 
 ### Spending
 
-Create an instance: `const spending = client.spending`
+Create an instance: `$spending = $client->Spending();`
 
 #### Operations
 
@@ -419,8 +424,9 @@ Create an instance: `const spending = client.spending`
 
 #### Example: List
 
-```ts
-const spendings = await client.spending.list()
+```php
+// list() returns an array of Spending records (throws on error).
+$spendings = $client->Spending()->list();
 ```
 
 
@@ -495,7 +501,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$account = $client->account();
+$account = $client->Account();
 $account->load(["id" => "example_id"]);
 
 // $account->dataGet() now returns the loaded account data

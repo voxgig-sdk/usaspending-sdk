@@ -101,7 +101,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AccountEntity
 
 ```php
-$account = $client->account();
+$account = $client->Account();
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ $account = $client->account();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->account()->list([]);
+$results = $client->Account()->list([]);
 ```
 
 ### Common Methods
@@ -155,7 +155,7 @@ Return the entity name.
 ## AgencyEntity
 
 ```php
-$agency = $client->agency();
+$agency = $client->Agency();
 ```
 
 ### Fields
@@ -174,7 +174,7 @@ $agency = $client->agency();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->agency()->list([]);
+$results = $client->Agency()->list([]);
 ```
 
 ### Common Methods
@@ -210,7 +210,7 @@ Return the entity name.
 ## AwardEntity
 
 ```php
-$award = $client->award();
+$award = $client->Award();
 ```
 
 ### Fields
@@ -231,7 +231,7 @@ $award = $client->award();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->award()->list([]);
+$results = $client->Award()->list([]);
 ```
 
 ### Common Methods
@@ -267,7 +267,7 @@ Return the entity name.
 ## SearchEntity
 
 ```php
-$search = $client->search();
+$search = $client->Search();
 ```
 
 ### Fields
@@ -290,7 +290,7 @@ $search = $client->search();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->search()->create([
+$result = $client->Search()->create([
 ]);
 ```
 
@@ -327,7 +327,7 @@ Return the entity name.
 ## SpendingEntity
 
 ```php
-$spending = $client->spending();
+$spending = $client->Spending();
 ```
 
 ### Fields
@@ -345,7 +345,7 @@ $spending = $client->spending();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->spending()->list([]);
+$results = $client->Spending()->list([]);
 ```
 
 ### Common Methods

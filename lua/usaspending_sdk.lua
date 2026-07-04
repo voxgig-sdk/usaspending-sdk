@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:account():list() / client:account():load({ id = ... })
-function UsaspendingSDK:account(data)
+-- Idiomatic facade: client:Account():list() / client:Account():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UsaspendingSDK:Account(data)
   local EntityMod = require("entity.account_entity")
   if data == nil then
     if self._account == nil then
@@ -256,15 +257,10 @@ function UsaspendingSDK:account(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:account() instead.
-function UsaspendingSDK:Account(data)
-  local EntityMod = require("entity.account_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:agency():list() / client:agency():load({ id = ... })
-function UsaspendingSDK:agency(data)
+-- Idiomatic facade: client:Agency():list() / client:Agency():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UsaspendingSDK:Agency(data)
   local EntityMod = require("entity.agency_entity")
   if data == nil then
     if self._agency == nil then
@@ -275,15 +271,10 @@ function UsaspendingSDK:agency(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:agency() instead.
-function UsaspendingSDK:Agency(data)
-  local EntityMod = require("entity.agency_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:award():list() / client:award():load({ id = ... })
-function UsaspendingSDK:award(data)
+-- Idiomatic facade: client:Award():list() / client:Award():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UsaspendingSDK:Award(data)
   local EntityMod = require("entity.award_entity")
   if data == nil then
     if self._award == nil then
@@ -294,15 +285,10 @@ function UsaspendingSDK:award(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:award() instead.
-function UsaspendingSDK:Award(data)
-  local EntityMod = require("entity.award_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
-function UsaspendingSDK:search(data)
+-- Idiomatic facade: client:Search():list() / client:Search():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UsaspendingSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   if data == nil then
     if self._search == nil then
@@ -313,15 +299,10 @@ function UsaspendingSDK:search(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:search() instead.
-function UsaspendingSDK:Search(data)
-  local EntityMod = require("entity.search_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:spending():list() / client:spending():load({ id = ... })
-function UsaspendingSDK:spending(data)
+-- Idiomatic facade: client:Spending():list() / client:Spending():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UsaspendingSDK:Spending(data)
   local EntityMod = require("entity.spending_entity")
   if data == nil then
     if self._spending == nil then
@@ -329,12 +310,6 @@ function UsaspendingSDK:spending(data)
     end
     return self._spending
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:spending() instead.
-function UsaspendingSDK:Spending(data)
-  local EntityMod = require("entity.spending_entity")
   return EntityMod.new(self, data)
 end
 

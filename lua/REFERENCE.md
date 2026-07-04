@@ -99,7 +99,7 @@ same parameters as `direct()`.
 ## AccountEntity
 
 ```lua
-local account = client:account(nil)
+local account = client:Account(nil)
 ```
 
 ### Fields
@@ -117,7 +117,7 @@ local account = client:account(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:account():list()
+local results, err = client:Account():list()
 ```
 
 ### Common Methods
@@ -153,7 +153,7 @@ Return the entity name.
 ## AgencyEntity
 
 ```lua
-local agency = client:agency(nil)
+local agency = client:Agency(nil)
 ```
 
 ### Fields
@@ -172,7 +172,7 @@ local agency = client:agency(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:agency():list()
+local results, err = client:Agency():list()
 ```
 
 ### Common Methods
@@ -208,7 +208,7 @@ Return the entity name.
 ## AwardEntity
 
 ```lua
-local award = client:award(nil)
+local award = client:Award(nil)
 ```
 
 ### Fields
@@ -229,7 +229,7 @@ local award = client:award(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:award():list()
+local results, err = client:Award():list()
 ```
 
 ### Common Methods
@@ -265,7 +265,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:search(nil)
+local search = client:Search(nil)
 ```
 
 ### Fields
@@ -288,7 +288,7 @@ local search = client:search(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:search():create({
+local result, err = client:Search():create({
 })
 ```
 
@@ -325,7 +325,7 @@ Return the entity name.
 ## SpendingEntity
 
 ```lua
-local spending = client:spending(nil)
+local spending = client:Spending(nil)
 ```
 
 ### Fields
@@ -343,7 +343,7 @@ local spending = client:spending(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:spending():list()
+local results, err = client:Spending():list()
 ```
 
 ### Common Methods

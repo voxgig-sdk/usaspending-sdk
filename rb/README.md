@@ -28,16 +28,14 @@ require_relative "Usaspending_sdk"
 client = UsaspendingSDK.new
 ```
 
-### 2. List accounts
+### 2. List account records
 
 ```ruby
 begin
-  result = client.account.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Account records — iterate directly.
+  accounts = client.Account.list
+  accounts.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = UsaspendingSDK.test
+client = UsaspendingSDK.test({
+  "entity" => { "account" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.account.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+account = client.Account.load({ "id" => "test01" })
+puts account
 ```
 
 ### Use a custom fetch function
@@ -167,9 +169,9 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Account` | `(data) -> AccountEntity` | Create a Account entity instance. |
-| `Agency` | `(data) -> AgencyEntity` | Create a Agency entity instance. |
-| `Award` | `(data) -> AwardEntity` | Create a Award entity instance. |
+| `Account` | `(data) -> AccountEntity` | Create an Account entity instance. |
+| `Agency` | `(data) -> AgencyEntity` | Create an Agency entity instance. |
+| `Award` | `(data) -> AwardEntity` | Create an Award entity instance. |
 | `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 | `Spending` | `(data) -> SpendingEntity` | Create a Spending entity instance. |
 
@@ -286,7 +288,7 @@ API path: `/spending/`
 
 ### Account
 
-Create an instance: `const account = client.account`
+Create an instance: `account = client.Account`
 
 #### Operations
 
@@ -304,14 +306,15 @@ Create an instance: `const account = client.account`
 
 #### Example: List
 
-```ts
-const accounts = await client.account.list()
+```ruby
+# list returns an Array of Account records (raises on error).
+accounts = client.Account.list
 ```
 
 
 ### Agency
 
-Create an instance: `const agency = client.agency`
+Create an instance: `agency = client.Agency`
 
 #### Operations
 
@@ -330,14 +333,15 @@ Create an instance: `const agency = client.agency`
 
 #### Example: List
 
-```ts
-const agencys = await client.agency.list()
+```ruby
+# list returns an Array of Agency records (raises on error).
+agencys = client.Agency.list
 ```
 
 
 ### Award
 
-Create an instance: `const award = client.award`
+Create an instance: `award = client.Award`
 
 #### Operations
 
@@ -358,14 +362,15 @@ Create an instance: `const award = client.award`
 
 #### Example: List
 
-```ts
-const awards = await client.award.list()
+```ruby
+# list returns an Array of Award records (raises on error).
+awards = client.Award.list
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search`
 
 #### Operations
 
@@ -388,15 +393,15 @@ Create an instance: `const search = client.search`
 
 #### Example: Create
 
-```ts
-const search = await client.search.create({
+```ruby
+search = client.Search.create({
 })
 ```
 
 
 ### Spending
 
-Create an instance: `const spending = client.spending`
+Create an instance: `spending = client.Spending`
 
 #### Operations
 
@@ -414,8 +419,9 @@ Create an instance: `const spending = client.spending`
 
 #### Example: List
 
-```ts
-const spendings = await client.spending.list()
+```ruby
+# list returns an Array of Spending records (raises on error).
+spendings = client.Spending.list
 ```
 
 
@@ -490,7 +496,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-account = client.account
+account = client.Account
 account.load({ "id" => "example_id" })
 
 # account.data_get now returns the loaded account data

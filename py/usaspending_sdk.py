@@ -220,89 +220,39 @@ class UsaspendingSDK:
         }
 
 
-    @property
-    def account(self):
-        """Idiomatic facade: client.account.list() / client.account.load({"id": ...})."""
-        from entity.account_entity import AccountEntity
-        cached = getattr(self, "_account", None)
-        if cached is None:
-            cached = AccountEntity(self, None)
-            self._account = cached
-        return cached
-
-    def Account(self, data=None):
-        # Deprecated: use client.account instead.
+    def Account(self, data=None) -> "AccountEntity":
+        """Entity factory: client.Account().list({}) / client.Account().load({"id": ...})."""
         from entity.account_entity import AccountEntity
         return AccountEntity(self, data)
 
 
-    @property
-    def agency(self):
-        """Idiomatic facade: client.agency.list() / client.agency.load({"id": ...})."""
-        from entity.agency_entity import AgencyEntity
-        cached = getattr(self, "_agency", None)
-        if cached is None:
-            cached = AgencyEntity(self, None)
-            self._agency = cached
-        return cached
-
-    def Agency(self, data=None):
-        # Deprecated: use client.agency instead.
+    def Agency(self, data=None) -> "AgencyEntity":
+        """Entity factory: client.Agency().list({}) / client.Agency().load({"id": ...})."""
         from entity.agency_entity import AgencyEntity
         return AgencyEntity(self, data)
 
 
-    @property
-    def award(self):
-        """Idiomatic facade: client.award.list() / client.award.load({"id": ...})."""
-        from entity.award_entity import AwardEntity
-        cached = getattr(self, "_award", None)
-        if cached is None:
-            cached = AwardEntity(self, None)
-            self._award = cached
-        return cached
-
-    def Award(self, data=None):
-        # Deprecated: use client.award instead.
+    def Award(self, data=None) -> "AwardEntity":
+        """Entity factory: client.Award().list({}) / client.Award().load({"id": ...})."""
         from entity.award_entity import AwardEntity
         return AwardEntity(self, data)
 
 
-    @property
-    def search(self):
-        """Idiomatic facade: client.search.list() / client.search.load({"id": ...})."""
-        from entity.search_entity import SearchEntity
-        cached = getattr(self, "_search", None)
-        if cached is None:
-            cached = SearchEntity(self, None)
-            self._search = cached
-        return cached
-
-    def Search(self, data=None):
-        # Deprecated: use client.search instead.
+    def Search(self, data=None) -> "SearchEntity":
+        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
-    @property
-    def spending(self):
-        """Idiomatic facade: client.spending.list() / client.spending.load({"id": ...})."""
-        from entity.spending_entity import SpendingEntity
-        cached = getattr(self, "_spending", None)
-        if cached is None:
-            cached = SpendingEntity(self, None)
-            self._spending = cached
-        return cached
-
-    def Spending(self, data=None):
-        # Deprecated: use client.spending instead.
+    def Spending(self, data=None) -> "SpendingEntity":
+        """Entity factory: client.Spending().list({}) / client.Spending().load({"id": ...})."""
         from entity.spending_entity import SpendingEntity
         return SpendingEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "UsaspendingSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -322,3 +272,13 @@ class UsaspendingSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.account_entity import AccountEntity
+    from entity.agency_entity import AgencyEntity
+    from entity.award_entity import AwardEntity
+    from entity.search_entity import SearchEntity
+    from entity.spending_entity import SpendingEntity

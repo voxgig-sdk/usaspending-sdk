@@ -96,7 +96,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## AccountEntity
 
 ```python
-account = client.account
+account = client.Account()
 ```
 
 ### Fields
@@ -114,7 +114,9 @@ account = client.account
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.account.list({})
+results = client.Account().list({})
+for account in results:
+    print(account)
 ```
 
 ### Common Methods
@@ -149,7 +151,7 @@ Return the entity name.
 ## AgencyEntity
 
 ```python
-agency = client.agency
+agency = client.Agency()
 ```
 
 ### Fields
@@ -168,7 +170,9 @@ agency = client.agency
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.agency.list({})
+results = client.Agency().list({})
+for agency in results:
+    print(agency)
 ```
 
 ### Common Methods
@@ -203,7 +207,7 @@ Return the entity name.
 ## AwardEntity
 
 ```python
-award = client.award
+award = client.Award()
 ```
 
 ### Fields
@@ -224,7 +228,9 @@ award = client.award
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.award.list({})
+results = client.Award().list({})
+for award in results:
+    print(award)
 ```
 
 ### Common Methods
@@ -259,7 +265,7 @@ Return the entity name.
 ## SearchEntity
 
 ```python
-search = client.search
+search = client.Search()
 ```
 
 ### Fields
@@ -282,7 +288,7 @@ search = client.search
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.search.create({
+result = client.Search().create({
 })
 ```
 
@@ -318,7 +324,7 @@ Return the entity name.
 ## SpendingEntity
 
 ```python
-spending = client.spending
+spending = client.Spending()
 ```
 
 ### Fields
@@ -336,7 +342,9 @@ spending = client.spending
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.spending.list({})
+results = client.Spending().list({})
+for spending in results:
+    print(spending)
 ```
 
 ### Common Methods

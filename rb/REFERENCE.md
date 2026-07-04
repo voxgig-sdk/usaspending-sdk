@@ -102,7 +102,7 @@ same parameters as `direct()`. Raises on error.
 ## AccountEntity
 
 ```ruby
-account = client.account
+account = client.Account
 ```
 
 ### Fields
@@ -120,7 +120,7 @@ account = client.account
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.account.list(nil)
+results = client.Account.list(nil)
 ```
 
 ### Common Methods
@@ -156,7 +156,7 @@ Return the entity name.
 ## AgencyEntity
 
 ```ruby
-agency = client.agency
+agency = client.Agency
 ```
 
 ### Fields
@@ -175,7 +175,7 @@ agency = client.agency
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.agency.list(nil)
+results = client.Agency.list(nil)
 ```
 
 ### Common Methods
@@ -211,7 +211,7 @@ Return the entity name.
 ## AwardEntity
 
 ```ruby
-award = client.award
+award = client.Award
 ```
 
 ### Fields
@@ -232,7 +232,7 @@ award = client.award
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.award.list(nil)
+results = client.Award.list(nil)
 ```
 
 ### Common Methods
@@ -268,7 +268,7 @@ Return the entity name.
 ## SearchEntity
 
 ```ruby
-search = client.search
+search = client.Search
 ```
 
 ### Fields
@@ -291,7 +291,7 @@ search = client.search
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.search.create({
+result = client.Search.create({
 })
 ```
 
@@ -328,7 +328,7 @@ Return the entity name.
 ## SpendingEntity
 
 ```ruby
-spending = client.spending
+spending = client.Spending
 ```
 
 ### Fields
@@ -346,7 +346,7 @@ spending = client.spending
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.spending.list(nil)
+results = client.Spending.list(nil)
 ```
 
 ### Common Methods

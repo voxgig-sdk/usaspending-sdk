@@ -30,37 +30,33 @@ go mod edit -replace github.com/voxgig-sdk/usaspending-sdk/go=../usaspending-sdk
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/usaspending-sdk/go"
-    "github.com/voxgig-sdk/usaspending-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 2. List accounts
-
-```go
-    result, err := client.Account(nil).List(nil, nil)
+    // List account records — the value is the array of records itself.
+    accounts, err := client.Account(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range accounts.([]any) {
+        fmt.Println(item)
     }
+}
 ```
 
 
@@ -110,10 +106,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Account(nil).Load(
+account, err := client.Account(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(account) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -190,9 +189,9 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
-| `Account` | `(data map[string]any) UsaspendingEntity` | Create a Account entity instance. |
-| `Agency` | `(data map[string]any) UsaspendingEntity` | Create a Agency entity instance. |
-| `Award` | `(data map[string]any) UsaspendingEntity` | Create a Award entity instance. |
+| `Account` | `(data map[string]any) UsaspendingEntity` | Create an Account entity instance. |
+| `Agency` | `(data map[string]any) UsaspendingEntity` | Create an Agency entity instance. |
+| `Award` | `(data map[string]any) UsaspendingEntity` | Create an Award entity instance. |
 | `Search` | `(data map[string]any) UsaspendingEntity` | Create a Search entity instance. |
 | `Spending` | `(data map[string]any) UsaspendingEntity` | Create a Spending entity instance. |
 
@@ -214,17 +213,24 @@ All entities implement the `UsaspendingEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    account, err := client.Account(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // account is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -323,7 +329,11 @@ Create an instance: `account := client.Account(nil)`
 #### Example: List
 
 ```go
-results, err := client.Account(nil).List(nil, nil)
+accounts, err := client.Account(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(accounts) // the array of records
 ```
 
 
@@ -349,7 +359,11 @@ Create an instance: `agency := client.Agency(nil)`
 #### Example: List
 
 ```go
-results, err := client.Agency(nil).List(nil, nil)
+agencys, err := client.Agency(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(agencys) // the array of records
 ```
 
 
@@ -377,7 +391,11 @@ Create an instance: `award := client.Award(nil)`
 #### Example: List
 
 ```go
-results, err := client.Award(nil).List(nil, nil)
+awards, err := client.Award(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(awards) // the array of records
 ```
 
 
@@ -433,7 +451,11 @@ Create an instance: `spending := client.Spending(nil)`
 #### Example: List
 
 ```go
-results, err := client.Spending(nil).List(nil, nil)
+spendings, err := client.Spending(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(spendings) // the array of records
 ```
 
 

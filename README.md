@@ -26,9 +26,11 @@ import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
 
 const client = new UsaspendingSDK()
 
-// List all accounts
-const accounts = await client.account.list()
-console.log(accounts.data)
+// List all accounts (returns Account[])
+const accounts = await client.Account().list()
+for (const account of accounts) {
+  console.log(account)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -87,9 +89,10 @@ from usaspending_sdk import UsaspendingSDK
 
 client = UsaspendingSDK()
 
-# List all accounts
-accounts = client.account.list()
-print(accounts)
+# List all accounts (returns a list, raises on error)
+accounts = client.Account().list({})
+for account in accounts:
+    print(account)
 ```
 
 ### PHP
@@ -100,8 +103,8 @@ require_once 'usaspending_sdk.php';
 
 $client = new UsaspendingSDK();
 
-// List all accounts (throws on error)
-$accounts = $client->account()->list();
+// List all accounts (returns an array; throws on error)
+$accounts = $client->Account()->list();
 print_r($accounts);
 ```
 
@@ -124,8 +127,8 @@ require_relative "Usaspending_sdk"
 
 client = UsaspendingSDK.new
 
-# List all accounts
-accounts = client.account.list
+# List all accounts (returns an Array; raises on error)
+accounts = client.Account.list
 puts accounts
 ```
 
@@ -137,7 +140,7 @@ local sdk = require("usaspending_sdk")
 local client = sdk.new()
 
 -- List all accounts
-local accounts, err = client:account():list()
+local accounts, err = client:Account():list()
 print(accounts)
 ```
 
@@ -150,22 +153,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = UsaspendingSDK.test()
-const result = await client.account.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const account = await client.Account().load({ id: 'test01' })
+// account is a bare Account populated with mock data
+console.log(account)
 ```
 
 ### Python
 
 ```python
 client = UsaspendingSDK.test()
-result = client.account.load({"id": "test01"})
+account = client.Account().load({"id": "test01"})
+print(account)
 ```
 
 ### PHP
 
 ```php
-$client = UsaspendingSDK::test();
-$result = $client->account()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = UsaspendingSDK::test([
+    "entity" => ["account" => ["test01" => ["id" => "test01"]]],
+]);
+$account = $client->Account()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +188,18 @@ result, err := client.Account(nil).Load(
 ### Ruby
 
 ```ruby
-client = UsaspendingSDK.test
-result = client.account.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = UsaspendingSDK.test({
+  "entity" => { "account" => { "test01" => { "id" => "test01" } } },
+})
+account = client.Account.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:account():load({ id = "test01" })
+local result, err = client:Account():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +247,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
