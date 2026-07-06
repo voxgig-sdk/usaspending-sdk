@@ -61,11 +61,11 @@ Create a new `SearchEntity` instance. Pass `null` for no initial data.
 
 Create a new `SpendingEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): UsaspendingUtility`
 
 Return a copy of the SDK utility object.
 
@@ -108,35 +108,35 @@ $account = $client->Account();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | ``$STRING`` | No |  |
-| `account_number` | ``$STRING`` | No |  |
-| `total_budgetary_resource` | ``$NUMBER`` | No |  |
+| `account_name` | `string` | No |  |
+| `account_number` | `string` | No |  |
+| `total_budgetary_resource` | `float` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Account()->list([]);
+$results = $client->Account()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -145,7 +145,7 @@ Set the entity match criteria.
 Create a new `AccountEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -162,36 +162,36 @@ $agency = $client->Agency();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `total_obligation` | ``$NUMBER`` | No |  |
+| `code` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `total_obligation` | `float` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Agency()->list([]);
+$results = $client->Agency()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -200,7 +200,7 @@ Set the entity match criteria.
 Create a new `AgencyEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -217,38 +217,38 @@ $award = $client->Award();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `agency` | ``$OBJECT`` | No |  |
-| `amount` | ``$NUMBER`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `recipient` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `agency` | `array` | No |  |
+| `amount` | `float` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `recipient` | `array` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Award()->list([]);
+$results = $client->Award()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -257,7 +257,7 @@ Set the entity match criteria.
 Create a new `AwardEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -274,14 +274,14 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | ``$ARRAY`` | No |  |
-| `filter` | ``$OBJECT`` | No |  |
-| `geo_layer` | ``$STRING`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `page` | ``$INTEGER`` | No |  |
-| `page_metadata` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `scope` | ``$STRING`` | No |  |
+| `field` | `array` | No |  |
+| `filter` | `array` | No |  |
+| `geo_layer` | `string` | No |  |
+| `limit` | `int` | No |  |
+| `page` | `int` | No |  |
+| `page_metadata` | `array` | No |  |
+| `result` | `array` | No |  |
+| `scope` | `string` | No |  |
 
 ### Operations
 
@@ -296,19 +296,19 @@ $result = $client->Search()->create([
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -317,7 +317,7 @@ Set the entity match criteria.
 Create a new `SearchEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -334,35 +334,35 @@ $spending = $client->Spending();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `breakdown` | ``$ARRAY`` | No |  |
-| `fiscal_year` | ``$INTEGER`` | No |  |
-| `total_spending` | ``$NUMBER`` | No |  |
+| `breakdown` | `array` | No |  |
+| `fiscal_year` | `int` | No |  |
+| `total_spending` | `float` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Spending()->list([]);
+$results = $client->Spending()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -371,7 +371,7 @@ Set the entity match criteria.
 Create a new `SpendingEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

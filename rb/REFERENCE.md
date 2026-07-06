@@ -8,7 +8,7 @@ Complete API reference for the Usaspending Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'usaspending_sdk'
+require_relative 'Usaspending_sdk'
 
 client = UsaspendingSDK.new(options)
 ```
@@ -109,18 +109,18 @@ account = client.Account
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | ``$STRING`` | No |  |
-| `account_number` | ``$STRING`` | No |  |
-| `total_budgetary_resource` | ``$NUMBER`` | No |  |
+| `account_name` | `String` | No |  |
+| `account_number` | `String` | No |  |
+| `total_budgetary_resource` | `Float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Account.list(nil)
+results = client.Account.list
 ```
 
 ### Common Methods
@@ -163,19 +163,19 @@ agency = client.Agency
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `total_obligation` | ``$NUMBER`` | No |  |
+| `code` | `String` | No |  |
+| `id` | `String` | No |  |
+| `name` | `String` | No |  |
+| `total_obligation` | `Float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Agency.list(nil)
+results = client.Agency.list
 ```
 
 ### Common Methods
@@ -218,21 +218,21 @@ award = client.Award
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `agency` | ``$OBJECT`` | No |  |
-| `amount` | ``$NUMBER`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `recipient` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `agency` | `Hash` | No |  |
+| `amount` | `Float` | No |  |
+| `description` | `String` | No |  |
+| `id` | `String` | No |  |
+| `recipient` | `Hash` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Award.list(nil)
+results = client.Award.list
 ```
 
 ### Common Methods
@@ -275,14 +275,14 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | ``$ARRAY`` | No |  |
-| `filter` | ``$OBJECT`` | No |  |
-| `geo_layer` | ``$STRING`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `page` | ``$INTEGER`` | No |  |
-| `page_metadata` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `scope` | ``$STRING`` | No |  |
+| `field` | `Array` | No |  |
+| `filter` | `Hash` | No |  |
+| `geo_layer` | `String` | No |  |
+| `limit` | `Integer` | No |  |
+| `page` | `Integer` | No |  |
+| `page_metadata` | `Hash` | No |  |
+| `result` | `Array` | No |  |
+| `scope` | `String` | No |  |
 
 ### Operations
 
@@ -335,18 +335,18 @@ spending = client.Spending
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `breakdown` | ``$ARRAY`` | No |  |
-| `fiscal_year` | ``$INTEGER`` | No |  |
-| `total_spending` | ``$NUMBER`` | No |  |
+| `breakdown` | `Array` | No |  |
+| `fiscal_year` | `Integer` | No |  |
+| `total_spending` | `Float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Spending.list(nil)
+results = client.Spending.list
 ```
 
 ### Common Methods

@@ -25,7 +25,7 @@ Account = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Account#list (any subset of Account fields).
+# Request payload for Account#list.
 #
 # @!attribute [rw] account_name
 #   @return [String, nil]
@@ -63,7 +63,7 @@ Agency = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Agency#list (any subset of Agency fields).
+# Request payload for Agency#list.
 #
 # @!attribute [rw] code
 #   @return [String, nil]
@@ -113,7 +113,7 @@ Award = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Award#list (any subset of Award fields).
+# Request payload for Award#list.
 #
 # @!attribute [rw] agency
 #   @return [Hash, nil]
@@ -179,7 +179,7 @@ Search = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Search#create (any subset of Search fields).
+# Request payload for Search#create.
 #
 # @!attribute [rw] field
 #   @return [Array, nil]
@@ -233,7 +233,7 @@ Spending = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Spending#list (any subset of Spending fields).
+# Request payload for Spending#list.
 #
 # @!attribute [rw] breakdown
 #   @return [Array, nil]

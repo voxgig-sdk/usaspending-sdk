@@ -15,8 +15,7 @@ type Account struct {
 	TotalBudgetaryResource *float64 `json:"total_budgetary_resource,omitempty"`
 }
 
-// AccountListMatch mirrors the account fields as an all-optional match
-// filter (Go analog of Partial<Account>).
+// AccountListMatch is the typed request payload for Account.ListTyped.
 type AccountListMatch struct {
 	AccountName *string `json:"account_name,omitempty"`
 	AccountNumber *string `json:"account_number,omitempty"`
@@ -31,8 +30,7 @@ type Agency struct {
 	TotalObligation *float64 `json:"total_obligation,omitempty"`
 }
 
-// AgencyListMatch mirrors the agency fields as an all-optional match
-// filter (Go analog of Partial<Agency>).
+// AgencyListMatch is the typed request payload for Agency.ListTyped.
 type AgencyListMatch struct {
 	Code *string `json:"code,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -50,8 +48,7 @@ type Award struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// AwardListMatch mirrors the award fields as an all-optional match
-// filter (Go analog of Partial<Award>).
+// AwardListMatch is the typed request payload for Award.ListTyped.
 type AwardListMatch struct {
 	Agency *map[string]any `json:"agency,omitempty"`
 	Amount *float64 `json:"amount,omitempty"`
@@ -73,8 +70,7 @@ type Search struct {
 	Scope *string `json:"scope,omitempty"`
 }
 
-// SearchCreateData mirrors the search fields as an all-optional match
-// filter (Go analog of Partial<Search>).
+// SearchCreateData is the typed request payload for Search.CreateTyped.
 type SearchCreateData struct {
 	Field *[]any `json:"field,omitempty"`
 	Filter *map[string]any `json:"filter,omitempty"`
@@ -93,8 +89,7 @@ type Spending struct {
 	TotalSpending *float64 `json:"total_spending,omitempty"`
 }
 
-// SpendingListMatch mirrors the spending fields as an all-optional match
-// filter (Go analog of Partial<Spending>).
+// SpendingListMatch is the typed request payload for Spending.ListTyped.
 type SpendingListMatch struct {
 	Breakdown *[]any `json:"breakdown,omitempty"`
 	FiscalYear *int `json:"fiscal_year,omitempty"`

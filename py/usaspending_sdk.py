@@ -221,31 +221,31 @@ class UsaspendingSDK:
 
 
     def Account(self, data=None) -> "AccountEntity":
-        """Entity factory: client.Account().list({}) / client.Account().load({"id": ...})."""
+        """Entity factory: client.Account().list() / client.Account().load({"id": ...})."""
         from entity.account_entity import AccountEntity
         return AccountEntity(self, data)
 
 
     def Agency(self, data=None) -> "AgencyEntity":
-        """Entity factory: client.Agency().list({}) / client.Agency().load({"id": ...})."""
+        """Entity factory: client.Agency().list() / client.Agency().load({"id": ...})."""
         from entity.agency_entity import AgencyEntity
         return AgencyEntity(self, data)
 
 
     def Award(self, data=None) -> "AwardEntity":
-        """Entity factory: client.Award().list({}) / client.Award().load({"id": ...})."""
+        """Entity factory: client.Award().list() / client.Award().load({"id": ...})."""
         from entity.award_entity import AwardEntity
         return AwardEntity(self, data)
 
 
     def Search(self, data=None) -> "SearchEntity":
-        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
+        """Entity factory: client.Search().list() / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
     def Spending(self, data=None) -> "SpendingEntity":
-        """Entity factory: client.Spending().list({}) / client.Spending().load({"id": ...})."""
+        """Entity factory: client.Spending().list() / client.Spending().load({"id": ...})."""
         from entity.spending_entity import SpendingEntity
         return SpendingEntity(self, data)
 

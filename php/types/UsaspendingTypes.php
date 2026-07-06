@@ -20,7 +20,7 @@ class Account
     public ?float $total_budgetary_resource = null;
 }
 
-/** Match filter for Account#list (any subset of Account fields). */
+/** Request payload for Account#list. */
 class AccountListMatch
 {
     public ?string $account_name = null;
@@ -37,7 +37,7 @@ class Agency
     public ?float $total_obligation = null;
 }
 
-/** Match filter for Agency#list (any subset of Agency fields). */
+/** Request payload for Agency#list. */
 class AgencyListMatch
 {
     public ?string $code = null;
@@ -57,7 +57,7 @@ class Award
     public ?string $type = null;
 }
 
-/** Match filter for Award#list (any subset of Award fields). */
+/** Request payload for Award#list. */
 class AwardListMatch
 {
     public ?array $agency = null;
@@ -81,7 +81,7 @@ class Search
     public ?string $scope = null;
 }
 
-/** Match filter for Search#create (any subset of Search fields). */
+/** Request payload for Search#create. */
 class SearchCreateData
 {
     public ?array $field = null;
@@ -102,7 +102,7 @@ class Spending
     public ?float $total_spending = null;
 }
 
-/** Match filter for Spending#list (any subset of Spending fields). */
+/** Request payload for Spending#list. */
 class SpendingListMatch
 {
     public ?array $breakdown = null;

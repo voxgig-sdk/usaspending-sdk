@@ -103,18 +103,18 @@ account = client.Account()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | ``$STRING`` | No |  |
-| `account_number` | ``$STRING`` | No |  |
-| `total_budgetary_resource` | ``$NUMBER`` | No |  |
+| `account_name` | `str` | No |  |
+| `account_number` | `str` | No |  |
+| `total_budgetary_resource` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Account().list({})
+results = client.Account().list()
 for account in results:
     print(account)
 ```
@@ -158,19 +158,19 @@ agency = client.Agency()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `total_obligation` | ``$NUMBER`` | No |  |
+| `code` | `str` | No |  |
+| `id` | `str` | No |  |
+| `name` | `str` | No |  |
+| `total_obligation` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Agency().list({})
+results = client.Agency().list()
 for agency in results:
     print(agency)
 ```
@@ -214,21 +214,21 @@ award = client.Award()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `agency` | ``$OBJECT`` | No |  |
-| `amount` | ``$NUMBER`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `recipient` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `agency` | `dict` | No |  |
+| `amount` | `float` | No |  |
+| `description` | `str` | No |  |
+| `id` | `str` | No |  |
+| `recipient` | `dict` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Award().list({})
+results = client.Award().list()
 for award in results:
     print(award)
 ```
@@ -272,14 +272,14 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | ``$ARRAY`` | No |  |
-| `filter` | ``$OBJECT`` | No |  |
-| `geo_layer` | ``$STRING`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `page` | ``$INTEGER`` | No |  |
-| `page_metadata` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `scope` | ``$STRING`` | No |  |
+| `field` | `list` | No |  |
+| `filter` | `dict` | No |  |
+| `geo_layer` | `str` | No |  |
+| `limit` | `int` | No |  |
+| `page` | `int` | No |  |
+| `page_metadata` | `dict` | No |  |
+| `result` | `list` | No |  |
+| `scope` | `str` | No |  |
 
 ### Operations
 
@@ -331,18 +331,18 @@ spending = client.Spending()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `breakdown` | ``$ARRAY`` | No |  |
-| `fiscal_year` | ``$INTEGER`` | No |  |
-| `total_spending` | ``$NUMBER`` | No |  |
+| `breakdown` | `list` | No |  |
+| `fiscal_year` | `int` | No |  |
+| `total_spending` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Spending().list({})
+results = client.Spending().list()
 for spending in results:
     print(spending)
 ```

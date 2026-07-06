@@ -164,9 +164,9 @@ const account = client.Account()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `account_name` | ``$STRING`` | No |  |
-| `account_number` | ``$STRING`` | No |  |
-| `total_budgetary_resource` | ``$NUMBER`` | No |  |
+| `account_name` | `string` | No |  |
+| `account_number` | `string` | No |  |
+| `total_budgetary_resource` | `number` | No |  |
 
 ### Operations
 
@@ -216,10 +216,10 @@ const agency = client.Agency()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `total_obligation` | ``$NUMBER`` | No |  |
+| `code` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `total_obligation` | `number` | No |  |
 
 ### Operations
 
@@ -269,12 +269,12 @@ const award = client.Award()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `agency` | ``$OBJECT`` | No |  |
-| `amount` | ``$NUMBER`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `recipient` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `agency` | `Record<string, any>` | No |  |
+| `amount` | `number` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `recipient` | `Record<string, any>` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -324,14 +324,14 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | ``$ARRAY`` | No |  |
-| `filter` | ``$OBJECT`` | No |  |
-| `geo_layer` | ``$STRING`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `page` | ``$INTEGER`` | No |  |
-| `page_metadata` | ``$OBJECT`` | No |  |
-| `result` | ``$ARRAY`` | No |  |
-| `scope` | ``$STRING`` | No |  |
+| `field` | `any[]` | No |  |
+| `filter` | `Record<string, any>` | No |  |
+| `geo_layer` | `string` | No |  |
+| `limit` | `number` | No |  |
+| `page` | `number` | No |  |
+| `page_metadata` | `Record<string, any>` | No |  |
+| `result` | `any[]` | No |  |
+| `scope` | `string` | No |  |
 
 ### Operations
 
@@ -382,9 +382,9 @@ const spending = client.Spending()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `breakdown` | ``$ARRAY`` | No |  |
-| `fiscal_year` | ``$INTEGER`` | No |  |
-| `total_spending` | ``$NUMBER`` | No |  |
+| `breakdown` | `any[]` | No |  |
+| `fiscal_year` | `number` | No |  |
+| `total_spending` | `number` | No |  |
 
 ### Operations
 

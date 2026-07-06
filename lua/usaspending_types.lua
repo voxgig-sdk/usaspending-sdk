@@ -12,6 +12,9 @@
 ---@field total_budgetary_resource? number
 
 ---@class AccountListMatch
+---@field account_name? string
+---@field account_number? string
+---@field total_budgetary_resource? number
 
 ---@class Agency
 ---@field code? string
@@ -20,6 +23,10 @@
 ---@field total_obligation? number
 
 ---@class AgencyListMatch
+---@field code? string
+---@field id? string
+---@field name? string
+---@field total_obligation? number
 
 ---@class Award
 ---@field agency? table
@@ -30,6 +37,12 @@
 ---@field type? string
 
 ---@class AwardListMatch
+---@field agency? table
+---@field amount? number
+---@field description? string
+---@field id? string
+---@field recipient? table
+---@field type? string
 
 ---@class Search
 ---@field field? table
@@ -42,6 +55,14 @@
 ---@field scope? string
 
 ---@class SearchCreateData
+---@field field? table
+---@field filter? table
+---@field geo_layer? string
+---@field limit? number
+---@field page? number
+---@field page_metadata? table
+---@field result? table
+---@field scope? string
 
 ---@class Spending
 ---@field breakdown? table
@@ -49,6 +70,9 @@
 ---@field total_spending? number
 
 ---@class SpendingListMatch
+---@field breakdown? table
+---@field fiscal_year? number
+---@field total_spending? number
 
 local M = {}
 
