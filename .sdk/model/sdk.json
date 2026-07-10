@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -676,15 +673,18 @@
           "name": "Open Source",
           "url": "https://github.com/fedspendingtransparency/usaspending-api"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production API Server (Version 2)",
             "url": "https://api.usaspending.gov/api/v2"
           }
         ],
+        "summary": "The USAspending API provides public access to comprehensive U.S.",
         "termsOfService": "http://fedspendingtransparency.github.io",
         "title": "USAspending API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://usaspending.gov"
       },
       "option": {},
       "target": {
@@ -737,6 +737,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -787,6 +790,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

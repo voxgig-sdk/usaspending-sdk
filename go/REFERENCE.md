@@ -107,6 +107,7 @@ same parameters as `Direct()`.
 
 ```go
 account := client.Account(nil)
+fmt.Println(account.GetName()) // "account"
 ```
 
 ### Fields
@@ -125,6 +126,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Account(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -155,6 +160,7 @@ Return the entity name.
 
 ```go
 agency := client.Agency(nil)
+fmt.Println(agency.GetName()) // "agency"
 ```
 
 ### Fields
@@ -174,6 +180,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Agency(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -204,6 +214,7 @@ Return the entity name.
 
 ```go
 award := client.Award(nil)
+fmt.Println(award.GetName()) // "award"
 ```
 
 ### Fields
@@ -225,6 +236,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Award(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -255,6 +270,7 @@ Return the entity name.
 
 ```go
 search := client.Search(nil)
+fmt.Println(search.GetName()) // "search"
 ```
 
 ### Fields
@@ -279,6 +295,10 @@ Create a new entity with the given data.
 ```go
 result, err := client.Search(nil).Create(map[string]any{
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -309,6 +329,7 @@ Return the entity name.
 
 ```go
 spending := client.Spending(nil)
+fmt.Println(spending.GetName()) // "spending"
 ```
 
 ### Fields
@@ -327,6 +348,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Spending(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

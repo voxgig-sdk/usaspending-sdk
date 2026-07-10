@@ -455,6 +455,10 @@ Create an instance: `search := client.Search(nil)`
 ```go
 result, err := client.Search(nil).Create(map[string]any{
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
