@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Usaspending SDK configuration
 
 local function make_config()
   return {
