@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Usaspending SDK exists test
 
 import pytest
 from usaspending_sdk import UsaspendingSDK

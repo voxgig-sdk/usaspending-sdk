@@ -63,7 +63,7 @@ describe('AwardEntity', async () => {
     const award_ref01_ent = client.Award()
     const award_ref01_match: any = {}
 
-    const award_ref01_list = await award_ref01_ent.list(award_ref01_match)
+    const award_ref01_list = (await award_ref01_ent.list(award_ref01_match)).map((e: any) => e.data())
 
 
   })

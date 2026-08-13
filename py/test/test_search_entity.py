@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from usaspending_sdk.utility.voxgig_struct import voxgig_struct as vs
 from usaspending_sdk import UsaspendingSDK
-from core import helpers
+from usaspending_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestSearchEntity:
         search_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.search"), "search_ref01"))
 
-        search_ref01_data = helpers.to_map(search_ref01_ent.create(search_ref01_data, None))
+        search_ref01_data = helpers.to_map(runner.entity_data(search_ref01_ent.create(search_ref01_data, None)))
         assert search_ref01_data is not None
 
 

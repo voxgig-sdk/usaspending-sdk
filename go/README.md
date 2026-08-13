@@ -268,7 +268,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"account_name"` |  |
 | `"account_number"` |  |
-| `"total_budgetary_resource"` |  |
+| `"total_budgetary_resources"` |  |
 
 Operations: List.
 
@@ -281,7 +281,7 @@ API path: `/accounts/`
 | `"code"` |  |
 | `"id"` |  |
 | `"name"` |  |
-| `"total_obligation"` |  |
+| `"total_obligations"` |  |
 
 Operations: List.
 
@@ -306,13 +306,13 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `"field"` |  |
-| `"filter"` |  |
+| `"fields"` |  |
+| `"filters"` |  |
 | `"geo_layer"` |  |
 | `"limit"` |  |
 | `"page"` |  |
 | `"page_metadata"` |  |
-| `"result"` |  |
+| `"results"` |  |
 | `"scope"` |  |
 
 Operations: Create.
@@ -352,7 +352,7 @@ Create an instance: `account := client.Account(nil)`
 | --- | --- | --- |
 | `account_name` | `string` |  |
 | `account_number` | `string` |  |
-| `total_budgetary_resource` | `float64` |  |
+| `total_budgetary_resources` | `float64` |  |
 
 #### Example: List
 
@@ -382,7 +382,7 @@ Create an instance: `agency := client.Agency(nil)`
 | `code` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `total_obligation` | `float64` |  |
+| `total_obligations` | `float64` |  |
 
 #### Example: List
 
@@ -441,13 +441,13 @@ Create an instance: `search := client.Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `field` | `[]any` |  |
-| `filter` | `map[string]any` |  |
+| `fields` | `[]any` |  |
+| `filters` | `map[string]any` |  |
 | `geo_layer` | `string` |  |
 | `limit` | `int` |  |
 | `page` | `int` |  |
 | `page_metadata` | `map[string]any` |  |
-| `result` | `[]any` |  |
+| `results` | `[]any` |  |
 | `scope` | `string` |  |
 
 #### Example: Create

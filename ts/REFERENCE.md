@@ -166,7 +166,7 @@ const account = client.Account()
 | --- | --- | --- | --- |
 | `account_name` | `string` | No |  |
 | `account_number` | `string` | No |  |
-| `total_budgetary_resource` | `number` | No |  |
+| `total_budgetary_resources` | `number` | No |  |
 
 ### Operations
 
@@ -219,7 +219,7 @@ const agency = client.Agency()
 | `code` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `total_obligation` | `number` | No |  |
+| `total_obligations` | `number` | No |  |
 
 ### Operations
 
@@ -324,14 +324,35 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | `any[]` | No |  |
-| `filter` | `Record<string, any>` | No |  |
+| `fields` | `any[]` | No |  |
+| `filters` | `Record<string, any>` | No |  |
 | `geo_layer` | `string` | No |  |
 | `limit` | `number` | No |  |
 | `page` | `number` | No |  |
 | `page_metadata` | `Record<string, any>` | No |  |
-| `result` | `any[]` | No |  |
+| `results` | `any[]` | No |  |
 | `scope` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `spending_by_award` | `/search/spending_by_award/` | `client.Search().create({ $action: 'spending_by_award', ... })` |
+| `spending_by_geography` | `/search/spending_by_geography/` | `client.Search().create({ $action: 'spending_by_geography', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Search record — check the API definition for its shape.
+
+```ts
+const result = await client.Search().create({
+  $action: 'spending_by_award',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

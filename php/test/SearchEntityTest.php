@@ -44,7 +44,7 @@ class SearchEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.search"), "search_ref01"));
 
         $search_ref01_data_result = $search_ref01_ent->create($search_ref01_data, null);
-        $search_ref01_data = Helpers::to_map($search_ref01_data_result);
+        $search_ref01_data = Helpers::to_map(is_object($search_ref01_data_result) && method_exists($search_ref01_data_result, 'data_get') ? $search_ref01_data_result->data_get() : $search_ref01_data_result);
         $this->assertNotNull($search_ref01_data);
 
     }

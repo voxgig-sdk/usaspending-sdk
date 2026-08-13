@@ -16,11 +16,11 @@
 import pytest
 
 from usaspending_sdk import UsaspendingSDK
-from core.error import UsaspendingError
-from core.result import UsaspendingResult
-from core.response import UsaspendingResponse
-from core.spec import UsaspendingSpec
-from feature.base_feature import UsaspendingBaseFeature
+from usaspending_sdk.core.error import UsaspendingError
+from usaspending_sdk.core.result import UsaspendingResult
+from usaspending_sdk.core.response import UsaspendingResponse
+from usaspending_sdk.core.spec import UsaspendingSpec
+from usaspending_sdk.feature.base_feature import UsaspendingBaseFeature
 
 
 def _client():

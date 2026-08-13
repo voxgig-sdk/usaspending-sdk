@@ -9,24 +9,24 @@
 ---@class Account
 ---@field account_name? string
 ---@field account_number? string
----@field total_budgetary_resource? number
+---@field total_budgetary_resources? number
 
 ---@class AccountListMatch
 ---@field account_name? string
 ---@field account_number? string
----@field total_budgetary_resource? number
+---@field total_budgetary_resources? number
 
 ---@class Agency
 ---@field code? string
 ---@field id? string
 ---@field name? string
----@field total_obligation? number
+---@field total_obligations? number
 
 ---@class AgencyListMatch
 ---@field code? string
 ---@field id? string
 ---@field name? string
----@field total_obligation? number
+---@field total_obligations? number
 
 ---@class Award
 ---@field agency? table
@@ -45,23 +45,23 @@
 ---@field type? string
 
 ---@class Search
----@field field? table
----@field filter? table
+---@field fields? table
+---@field filters? table
 ---@field geo_layer? string
 ---@field limit? number
 ---@field page? number
 ---@field page_metadata? table
----@field result? table
+---@field results? table
 ---@field scope? string
 
 ---@class SearchCreateData
----@field field? table
----@field filter? table
+---@field fields? table
+---@field filters? table
 ---@field geo_layer? string
 ---@field limit? number
 ---@field page? number
 ---@field page_metadata? table
----@field result? table
+---@field results? table
 ---@field scope? string
 
 ---@class Spending

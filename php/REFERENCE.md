@@ -110,7 +110,7 @@ $account = $client->Account();
 | --- | --- | --- | --- |
 | `account_name` | `string` | No |  |
 | `account_number` | `string` | No |  |
-| `total_budgetary_resource` | `float` | No |  |
+| `total_budgetary_resources` | `float` | No |  |
 
 ### Operations
 
@@ -165,7 +165,7 @@ $agency = $client->Agency();
 | `code` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `total_obligation` | `float` | No |  |
+| `total_obligations` | `float` | No |  |
 
 ### Operations
 
@@ -274,13 +274,13 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | `array` | No |  |
-| `filter` | `array` | No |  |
+| `fields` | `array` | No |  |
+| `filters` | `array` | No |  |
 | `geo_layer` | `string` | No |  |
 | `limit` | `int` | No |  |
 | `page` | `int` | No |  |
 | `page_metadata` | `array` | No |  |
-| `result` | `array` | No |  |
+| `results` | `array` | No |  |
 | `scope` | `string` | No |  |
 
 ### Operations

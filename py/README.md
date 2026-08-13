@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = UsaspendingSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 account = client.Account().list()
 # account contains the mock response record
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -249,7 +250,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `account_name` |  |
 | `account_number` |  |
-| `total_budgetary_resource` |  |
+| `total_budgetary_resources` |  |
 
 Operations: List.
 
@@ -262,7 +263,7 @@ API path: `/accounts/`
 | `code` |  |
 | `id` |  |
 | `name` |  |
-| `total_obligation` |  |
+| `total_obligations` |  |
 
 Operations: List.
 
@@ -287,13 +288,13 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `field` |  |
-| `filter` |  |
+| `fields` |  |
+| `filters` |  |
 | `geo_layer` |  |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
-| `result` |  |
+| `results` |  |
 | `scope` |  |
 
 Operations: Create.
@@ -333,7 +334,7 @@ Create an instance: `account = client.Account()`
 | --- | --- | --- |
 | `account_name` | `str` |  |
 | `account_number` | `str` |  |
-| `total_budgetary_resource` | `float` |  |
+| `total_budgetary_resources` | `float` |  |
 
 #### Example: List
 
@@ -359,7 +360,7 @@ Create an instance: `agency = client.Agency()`
 | `code` | `str` |  |
 | `id` | `str` |  |
 | `name` | `str` |  |
-| `total_obligation` | `float` |  |
+| `total_obligations` | `float` |  |
 
 #### Example: List
 
@@ -410,13 +411,13 @@ Create an instance: `search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `field` | `list` |  |
-| `filter` | `dict` |  |
+| `fields` | `list` |  |
+| `filters` | `dict` |  |
 | `geo_layer` | `str` |  |
 | `limit` | `int` |  |
 | `page` | `int` |  |
 | `page_metadata` | `dict` |  |
-| `result` | `list` |  |
+| `results` | `list` |  |
 | `scope` | `str` |  |
 
 #### Example: Create

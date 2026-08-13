@@ -5,19 +5,19 @@
         "code": "s28",
         "id": "AGENCY00",
         "name": "s2a",
-        "total_obligation": 43
+        "total_obligations": 43
       },
       "AGENCY01": {
         "code": "s50",
         "id": "AGENCY01",
         "name": "s52",
-        "total_obligation": 83
+        "total_obligations": 83
       },
       "AGENCY02": {
         "code": "s78",
         "id": "AGENCY02",
         "name": "s7a",
-        "total_obligation": 123
+        "total_obligations": 123
       }
     }
   },
@@ -26,7 +26,7 @@
       "agency_ref01": {
         "code": "sa0",
         "name": "sa2",
-        "total_obligation": 163
+        "total_obligations": 163
       }
     }
   }

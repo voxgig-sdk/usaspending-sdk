@@ -8,27 +8,27 @@
 export interface Account {
   account_name?: string
   account_number?: string
-  total_budgetary_resource?: number
+  total_budgetary_resources?: number
 }
 
 export interface AccountListMatch {
   account_name?: string
   account_number?: string
-  total_budgetary_resource?: number
+  total_budgetary_resources?: number
 }
 
 export interface Agency {
   code?: string
   id?: string
   name?: string
-  total_obligation?: number
+  total_obligations?: number
 }
 
 export interface AgencyListMatch {
   code?: string
   id?: string
   name?: string
-  total_obligation?: number
+  total_obligations?: number
 }
 
 export interface Award {
@@ -50,25 +50,31 @@ export interface AwardListMatch {
 }
 
 export interface Search {
-  field?: any[]
-  filter?: Record<string, any>
+  fields?: any[]
+  filters?: Record<string, any>
   geo_layer?: string
   limit?: number
   page?: number
   page_metadata?: Record<string, any>
-  result?: any[]
+  results?: any[]
   scope?: string
 }
 
 export interface SearchCreateData {
-  field?: any[]
-  filter?: Record<string, any>
+  fields?: any[]
+  filters?: Record<string, any>
   geo_layer?: string
   limit?: number
   page?: number
   page_metadata?: Record<string, any>
-  result?: any[]
+  results?: any[]
   scope?: string
+
+  // Selects a custom action instead of the plain create:
+  //   'spending_by_award' | 'spending_by_geography'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Spending {

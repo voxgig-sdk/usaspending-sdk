@@ -8,12 +8,14 @@ guide: {
   entity: account: {
     path: "/accounts/": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
   entity: agency: {
     path: "/agencies/": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
@@ -37,6 +39,7 @@ guide: {
   entity: spending: {
     path: "/spending/": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.breakdown`")|top
     }
   }
 

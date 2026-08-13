@@ -35,7 +35,9 @@ const client = new UsaspendingSDK()
 
 ### 2. List account records
 
-`list()` resolves to an array of Account objects — iterate it directly:
+`list()` resolves to an array of Account ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const accounts = await client.Account().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = UsaspendingSDK.test()
 
 const account = await client.Account().list()
-// account is a bare entity populated with mock response data
+// account is the entity, populated with mock response data
+// — call account.data() for the record itself
 console.log(account)
 ```
 
@@ -292,7 +295,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `account_name` |  |
 | `account_number` |  |
-| `total_budgetary_resource` |  |
+| `total_budgetary_resources` |  |
 
 Operations: list.
 
@@ -305,7 +308,7 @@ API path: `/accounts/`
 | `code` |  |
 | `id` |  |
 | `name` |  |
-| `total_obligation` |  |
+| `total_obligations` |  |
 
 Operations: list.
 
@@ -330,13 +333,13 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `field` |  |
-| `filter` |  |
+| `fields` |  |
+| `filters` |  |
 | `geo_layer` |  |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
-| `result` |  |
+| `results` |  |
 | `scope` |  |
 
 Operations: create.
@@ -376,7 +379,7 @@ Create an instance: `const account = client.Account()`
 | --- | --- | --- |
 | `account_name` | `string` |  |
 | `account_number` | `string` |  |
-| `total_budgetary_resource` | `number` |  |
+| `total_budgetary_resources` | `number` |  |
 
 #### Example: List
 
@@ -402,7 +405,7 @@ Create an instance: `const agency = client.Agency()`
 | `code` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `total_obligation` | `number` |  |
+| `total_obligations` | `number` |  |
 
 #### Example: List
 
@@ -453,13 +456,13 @@ Create an instance: `const search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `field` | `any[]` |  |
-| `filter` | `Record<string, any>` |  |
+| `fields` | `any[]` |  |
+| `filters` | `Record<string, any>` |  |
 | `geo_layer` | `string` |  |
 | `limit` | `number` |  |
 | `page` | `number` |  |
 | `page_metadata` | `Record<string, any>` |  |
-| `result` | `any[]` |  |
+| `results` | `any[]` |  |
 | `scope` | `string` |  |
 
 #### Example: Create

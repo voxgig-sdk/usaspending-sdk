@@ -37,7 +37,7 @@ class AwardEntity extends UsaspendingEntityBase<Award> {
 
 
 
-  async list(this: any, reqmatch?: AwardListMatch, ctrl?: Control): Promise<Award[]> {
+  async list(this: any, reqmatch?: AwardListMatch, ctrl?: Control): Promise<AwardEntity[]> {
 
     const utility = this._utility
 

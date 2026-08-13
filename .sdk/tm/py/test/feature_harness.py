@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import UsaspendingControl
-from core.error import UsaspendingError
-from core.result import UsaspendingResult
-from core.spec import UsaspendingSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import UsaspendingControl
+from projectname_sdk.core.error import UsaspendingError
+from projectname_sdk.core.result import UsaspendingResult
+from projectname_sdk.core.spec import UsaspendingSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from usaspending_sdk.utility.voxgig_struct import voxgig_struct as vs
 from usaspending_sdk import UsaspendingSDK
-from core import helpers
+from usaspending_sdk.core import helpers
 from test import runner
 
 

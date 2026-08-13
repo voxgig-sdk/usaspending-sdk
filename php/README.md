@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = UsaspendingSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $account = $client->Account()->list();
 print_r($account);
 ```
@@ -229,7 +230,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -253,7 +254,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `account_name` |  |
 | `account_number` |  |
-| `total_budgetary_resource` |  |
+| `total_budgetary_resources` |  |
 
 Operations: List.
 
@@ -266,7 +267,7 @@ API path: `/accounts/`
 | `code` |  |
 | `id` |  |
 | `name` |  |
-| `total_obligation` |  |
+| `total_obligations` |  |
 
 Operations: List.
 
@@ -291,13 +292,13 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `field` |  |
-| `filter` |  |
+| `fields` |  |
+| `filters` |  |
 | `geo_layer` |  |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
-| `result` |  |
+| `results` |  |
 | `scope` |  |
 
 Operations: Create.
@@ -337,7 +338,7 @@ Create an instance: `$account = $client->Account();`
 | --- | --- | --- |
 | `account_name` | `string` |  |
 | `account_number` | `string` |  |
-| `total_budgetary_resource` | `float` |  |
+| `total_budgetary_resources` | `float` |  |
 
 #### Example: List
 
@@ -364,7 +365,7 @@ Create an instance: `$agency = $client->Agency();`
 | `code` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `total_obligation` | `float` |  |
+| `total_obligations` | `float` |  |
 
 #### Example: List
 
@@ -417,13 +418,13 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `field` | `array` |  |
-| `filter` | `array` |  |
+| `fields` | `array` |  |
+| `filters` | `array` |  |
 | `geo_layer` | `string` |  |
 | `limit` | `int` |  |
 | `page` | `int` |  |
 | `page_metadata` | `array` |  |
-| `result` | `array` |  |
+| `results` | `array` |  |
 | `scope` | `string` |  |
 
 #### Example: Create

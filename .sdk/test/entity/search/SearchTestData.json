@@ -2,35 +2,35 @@
   "existing": {
     "search": {
       "SEARCH00": {
-        "field": [],
-        "filter": {},
+        "fields": [],
+        "filters": {},
         "geo_layer": "s52",
         "limit": "s53",
         "page": "s54",
         "page_metadata": {},
-        "result": [],
+        "results": [],
         "scope": "s57",
         "id": "SEARCH00"
       },
       "SEARCH01": {
-        "field": [],
-        "filter": {},
+        "fields": [],
+        "filters": {},
         "geo_layer": "sa2",
         "limit": "sa3",
         "page": "sa4",
         "page_metadata": {},
-        "result": [],
+        "results": [],
         "scope": "sa7",
         "id": "SEARCH01"
       },
       "SEARCH02": {
-        "field": [],
-        "filter": {},
+        "fields": [],
+        "filters": {},
         "geo_layer": "sf2",
         "limit": "sf3",
         "page": "sf4",
         "page_metadata": {},
-        "result": [],
+        "results": [],
         "scope": "sf7",
         "id": "SEARCH02"
       }
@@ -39,13 +39,13 @@
   "new": {
     "search": {
       "search_ref01": {
-        "field": [],
-        "filter": {},
+        "fields": [],
+        "filters": {},
         "geo_layer": "s142",
         "limit": "s143",
         "page": "s144",
         "page_metadata": {},
-        "result": [],
+        "results": [],
         "scope": "s147"
       }
     }

@@ -16,7 +16,7 @@ main: kit: entity: account: {
       type: "`$STRING`"
     }
     {
-      name: "total_budgetary_resource"
+      name: "total_budgetary_resources"
       req: false
       type: "`$NUMBER`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: account: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

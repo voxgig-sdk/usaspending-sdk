@@ -17,7 +17,7 @@ class Account
 {
     public ?string $account_name = null;
     public ?string $account_number = null;
-    public ?float $total_budgetary_resource = null;
+    public ?float $total_budgetary_resources = null;
 }
 
 /** Request payload for Account#list. */
@@ -25,7 +25,7 @@ class AccountListMatch
 {
     public ?string $account_name = null;
     public ?string $account_number = null;
-    public ?float $total_budgetary_resource = null;
+    public ?float $total_budgetary_resources = null;
 }
 
 /** Agency entity data model. */
@@ -34,7 +34,7 @@ class Agency
     public ?string $code = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?float $total_obligation = null;
+    public ?float $total_obligations = null;
 }
 
 /** Request payload for Agency#list. */
@@ -43,7 +43,7 @@ class AgencyListMatch
     public ?string $code = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?float $total_obligation = null;
+    public ?float $total_obligations = null;
 }
 
 /** Award entity data model. */
@@ -71,26 +71,26 @@ class AwardListMatch
 /** Search entity data model. */
 class Search
 {
-    public ?array $field = null;
-    public ?array $filter = null;
+    public ?array $fields = null;
+    public ?array $filters = null;
     public ?string $geo_layer = null;
     public ?int $limit = null;
     public ?int $page = null;
     public ?array $page_metadata = null;
-    public ?array $result = null;
+    public ?array $results = null;
     public ?string $scope = null;
 }
 
 /** Request payload for Search#create. */
 class SearchCreateData
 {
-    public ?array $field = null;
-    public ?array $filter = null;
+    public ?array $fields = null;
+    public ?array $filters = null;
     public ?string $geo_layer = null;
     public ?int $limit = null;
     public ?int $page = null;
     public ?array $page_metadata = null;
-    public ?array $result = null;
+    public ?array $results = null;
     public ?string $scope = null;
 }
 

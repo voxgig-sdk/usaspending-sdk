@@ -224,9 +224,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local account, err = client:Account():load()
+    local account, err = client:Account():list()
     if err then error(err) end
-    -- account is the loaded record
+    -- account is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -239,7 +239,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `account_name` |  |
 | `account_number` |  |
-| `total_budgetary_resource` |  |
+| `total_budgetary_resources` |  |
 
 Operations: List.
 
@@ -252,7 +252,7 @@ API path: `/accounts/`
 | `code` |  |
 | `id` |  |
 | `name` |  |
-| `total_obligation` |  |
+| `total_obligations` |  |
 
 Operations: List.
 
@@ -277,13 +277,13 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `field` |  |
-| `filter` |  |
+| `fields` |  |
+| `filters` |  |
 | `geo_layer` |  |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
-| `result` |  |
+| `results` |  |
 | `scope` |  |
 
 Operations: Create.
@@ -323,7 +323,7 @@ Create an instance: `local account = client:Account(nil)`
 | --- | --- | --- |
 | `account_name` | `string` |  |
 | `account_number` | `string` |  |
-| `total_budgetary_resource` | `number` |  |
+| `total_budgetary_resources` | `number` |  |
 
 #### Example: List
 
@@ -349,7 +349,7 @@ Create an instance: `local agency = client:Agency(nil)`
 | `code` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `total_obligation` | `number` |  |
+| `total_obligations` | `number` |  |
 
 #### Example: List
 
@@ -400,13 +400,13 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `field` | `table` |  |
-| `filter` | `table` |  |
+| `fields` | `table` |  |
+| `filters` | `table` |  |
 | `geo_layer` | `string` |  |
 | `limit` | `number` |  |
 | `page` | `number` |  |
 | `page_metadata` | `table` |  |
-| `result` | `table` |  |
+| `results` | `table` |  |
 | `scope` | `string` |  |
 
 #### Example: Create

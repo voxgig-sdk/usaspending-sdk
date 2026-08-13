@@ -37,7 +37,7 @@ class SearchEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.search"), "search_ref01"))
 
     search_ref01_data_result = search_ref01_ent.create(search_ref01_data, nil)
-    search_ref01_data = Helpers.to_map(search_ref01_data_result)
+    search_ref01_data = Helpers.to_map(search_ref01_data_result.respond_to?(:data_get) ? search_ref01_data_result.data_get : search_ref01_data_result)
     assert !search_ref01_data.nil?
 
   end

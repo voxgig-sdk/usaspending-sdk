@@ -41,7 +41,7 @@ describe("SearchEntity", function()
 
     local search_ref01_data_result, err = search_ref01_ent:create(search_ref01_data, nil)
     assert.is_nil(err)
-    search_ref01_data = helpers.to_map(search_ref01_data_result)
+    search_ref01_data = helpers.to_map(type(search_ref01_data_result) == 'table' and search_ref01_data_result.data_get and search_ref01_data_result:data_get() or search_ref01_data_result)
     assert.is_not_nil(search_ref01_data)
 
   end)

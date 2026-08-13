@@ -6,12 +6,12 @@ main: kit: entity: search: {
 
   fields: [
     {
-      name: "field"
+      name: "fields"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "filter"
+      name: "filters"
       req: false
       type: "`$OBJECT`"
     }
@@ -36,7 +36,7 @@ main: kit: entity: search: {
       type: "`$OBJECT`"
     }
     {
-      name: "result"
+      name: "results"
       req: false
       type: "`$ARRAY`"
     }

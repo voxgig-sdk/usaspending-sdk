@@ -37,7 +37,7 @@ class SpendingEntity extends UsaspendingEntityBase<Spending> {
 
 
 
-  async list(this: any, reqmatch?: SpendingListMatch, ctrl?: Control): Promise<Spending[]> {
+  async list(this: any, reqmatch?: SpendingListMatch, ctrl?: Control): Promise<SpendingEntity[]> {
 
     const utility = this._utility
 

@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = UsaspendingSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = UsaspendingSDK.test({
+  entity: {
+    account: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const accounts = await client.Account().list()
-// accounts is an array of bare Account records populated with mock data
+// accounts is an array of Account entities, populated with mock data
+// — call accounts[0].data() for the record itself
 console.log(accounts)
 ```
 
@@ -110,7 +119,7 @@ import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
 
 const client = new UsaspendingSDK()
 
-// List all accounts (returns Account[])
+// List all accounts (returns AccountEntity[] — .data() for the record)
 const accounts = await client.Account().list()
 for (const account of accounts) {
   console.log(account)
@@ -347,6 +356,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.usaspending.gov/](https://api.usaspending.gov/)
 

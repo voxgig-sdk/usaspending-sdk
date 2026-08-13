@@ -37,7 +37,7 @@ class AccountEntity extends UsaspendingEntityBase<Account> {
 
 
 
-  async list(this: any, reqmatch?: AccountListMatch, ctrl?: Control): Promise<Account[]> {
+  async list(this: any, reqmatch?: AccountListMatch, ctrl?: Control): Promise<AccountEntity[]> {
 
     const utility = this._utility
 

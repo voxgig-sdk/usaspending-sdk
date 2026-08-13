@@ -37,7 +37,7 @@ class AgencyEntity extends UsaspendingEntityBase<Agency> {
 
 
 
-  async list(this: any, reqmatch?: AgencyListMatch, ctrl?: Control): Promise<Agency[]> {
+  async list(this: any, reqmatch?: AgencyListMatch, ctrl?: Control): Promise<AgencyEntity[]> {
 
     const utility = this._utility
 

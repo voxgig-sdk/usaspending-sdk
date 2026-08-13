@@ -111,7 +111,7 @@ account = client.Account
 | --- | --- | --- | --- |
 | `account_name` | `String` | No |  |
 | `account_number` | `String` | No |  |
-| `total_budgetary_resource` | `Float` | No |  |
+| `total_budgetary_resources` | `Float` | No |  |
 
 ### Operations
 
@@ -166,7 +166,7 @@ agency = client.Agency
 | `code` | `String` | No |  |
 | `id` | `String` | No |  |
 | `name` | `String` | No |  |
-| `total_obligation` | `Float` | No |  |
+| `total_obligations` | `Float` | No |  |
 
 ### Operations
 
@@ -275,13 +275,13 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | `Array` | No |  |
-| `filter` | `Hash` | No |  |
+| `fields` | `Array` | No |  |
+| `filters` | `Hash` | No |  |
 | `geo_layer` | `String` | No |  |
 | `limit` | `Integer` | No |  |
 | `page` | `Integer` | No |  |
 | `page_metadata` | `Hash` | No |  |
-| `result` | `Array` | No |  |
+| `results` | `Array` | No |  |
 | `scope` | `String` | No |  |
 
 ### Operations

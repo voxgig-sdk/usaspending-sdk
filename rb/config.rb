@@ -45,7 +45,7 @@ module UsaspendingConfig
             },
             {
               "active" => true,
-              "name" => "total_budgetary_resource",
+              "name" => "total_budgetary_resources",
               "req" => false,
               "type" => "`$NUMBER`",
               "index$" => 2,
@@ -71,6 +71,7 @@ module UsaspendingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/accounts/",
                   "parts" => [
@@ -83,7 +84,7 @@ module UsaspendingConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "index$" => 0,
                 },
@@ -120,7 +121,7 @@ module UsaspendingConfig
             },
             {
               "active" => true,
-              "name" => "total_obligation",
+              "name" => "total_obligations",
               "req" => false,
               "type" => "`$NUMBER`",
               "index$" => 3,
@@ -146,6 +147,7 @@ module UsaspendingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/agencies/",
                   "parts" => [
@@ -158,7 +160,7 @@ module UsaspendingConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "index$" => 0,
                 },
@@ -245,6 +247,7 @@ module UsaspendingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/awards/",
                   "parts" => [
@@ -274,14 +277,14 @@ module UsaspendingConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "field",
+              "name" => "fields",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
             },
             {
               "active" => true,
-              "name" => "filter",
+              "name" => "filters",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 1,
@@ -316,7 +319,7 @@ module UsaspendingConfig
             },
             {
               "active" => true,
-              "name" => "result",
+              "name" => "results",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 6,
@@ -338,6 +341,7 @@ module UsaspendingConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/search/spending_by_award/",
                   "parts" => [
@@ -356,6 +360,7 @@ module UsaspendingConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/search/spending_by_geography/",
                   "parts" => [
@@ -431,6 +436,7 @@ module UsaspendingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/spending/",
                   "parts" => [
@@ -444,7 +450,7 @@ module UsaspendingConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.breakdown`",
                   },
                   "index$" => 0,
                 },

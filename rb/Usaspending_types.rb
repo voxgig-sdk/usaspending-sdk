@@ -16,12 +16,12 @@
 # @!attribute [rw] account_number
 #   @return [String, nil]
 #
-# @!attribute [rw] total_budgetary_resource
+# @!attribute [rw] total_budgetary_resources
 #   @return [Float, nil]
 Account = Struct.new(
   :account_name,
   :account_number,
-  :total_budgetary_resource,
+  :total_budgetary_resources,
   keyword_init: true
 )
 
@@ -33,12 +33,12 @@ Account = Struct.new(
 # @!attribute [rw] account_number
 #   @return [String, nil]
 #
-# @!attribute [rw] total_budgetary_resource
+# @!attribute [rw] total_budgetary_resources
 #   @return [Float, nil]
 AccountListMatch = Struct.new(
   :account_name,
   :account_number,
-  :total_budgetary_resource,
+  :total_budgetary_resources,
   keyword_init: true
 )
 
@@ -53,13 +53,13 @@ AccountListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] total_obligation
+# @!attribute [rw] total_obligations
 #   @return [Float, nil]
 Agency = Struct.new(
   :code,
   :id,
   :name,
-  :total_obligation,
+  :total_obligations,
   keyword_init: true
 )
 
@@ -74,13 +74,13 @@ Agency = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] total_obligation
+# @!attribute [rw] total_obligations
 #   @return [Float, nil]
 AgencyListMatch = Struct.new(
   :code,
   :id,
   :name,
-  :total_obligation,
+  :total_obligations,
   keyword_init: true
 )
 
@@ -144,10 +144,10 @@ AwardListMatch = Struct.new(
 
 # Search entity data model.
 #
-# @!attribute [rw] field
+# @!attribute [rw] fields
 #   @return [Array, nil]
 #
-# @!attribute [rw] filter
+# @!attribute [rw] filters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] geo_layer
@@ -162,29 +162,29 @@ AwardListMatch = Struct.new(
 # @!attribute [rw] page_metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Array, nil]
 #
 # @!attribute [rw] scope
 #   @return [String, nil]
 Search = Struct.new(
-  :field,
-  :filter,
+  :fields,
+  :filters,
   :geo_layer,
   :limit,
   :page,
   :page_metadata,
-  :result,
+  :results,
   :scope,
   keyword_init: true
 )
 
 # Request payload for Search#create.
 #
-# @!attribute [rw] field
+# @!attribute [rw] fields
 #   @return [Array, nil]
 #
-# @!attribute [rw] filter
+# @!attribute [rw] filters
 #   @return [Hash, nil]
 #
 # @!attribute [rw] geo_layer
@@ -199,19 +199,19 @@ Search = Struct.new(
 # @!attribute [rw] page_metadata
 #   @return [Hash, nil]
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Array, nil]
 #
 # @!attribute [rw] scope
 #   @return [String, nil]
 SearchCreateData = Struct.new(
-  :field,
-  :filter,
+  :fields,
+  :filters,
   :geo_layer,
   :limit,
   :page,
   :page_metadata,
-  :result,
+  :results,
   :scope,
   keyword_init: true
 )

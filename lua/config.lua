@@ -44,7 +44,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "total_budgetary_resource",
+            ["name"] = "total_budgetary_resources",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 2,
@@ -70,6 +70,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/accounts/",
                 ["parts"] = {
@@ -82,7 +83,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.results`",
                 },
                 ["index$"] = 0,
               },
@@ -119,7 +120,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "total_obligation",
+            ["name"] = "total_obligations",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 3,
@@ -145,6 +146,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/agencies/",
                 ["parts"] = {
@@ -157,7 +159,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.results`",
                 },
                 ["index$"] = 0,
               },
@@ -244,6 +246,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/awards/",
                 ["parts"] = {
@@ -273,14 +276,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "field",
+            ["name"] = "fields",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "filter",
+            ["name"] = "filters",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 1,
@@ -315,7 +318,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "result",
+            ["name"] = "results",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 6,
@@ -337,6 +340,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/search/spending_by_award/",
                 ["parts"] = {
@@ -355,6 +359,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/search/spending_by_geography/",
                 ["parts"] = {
@@ -430,6 +435,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/spending/",
                 ["parts"] = {
@@ -443,7 +449,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.breakdown`",
                 },
                 ["index$"] = 0,
               },

@@ -58,7 +58,7 @@ func TestSearchEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		searchRef01Data = core.ToMapAny(searchRef01DataResult)
+		searchRef01Data = core.ToMapAny(entityData(searchRef01DataResult))
 		if searchRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

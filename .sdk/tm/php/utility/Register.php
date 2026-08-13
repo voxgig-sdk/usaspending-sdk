@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ UsaspendingUtility::setRegistrar(function (UsaspendingUtility $u): void {
     $u->prepare_params = [UsaspendingPrepareParams::class, 'call'];
     $u->prepare_path = [UsaspendingPreparePath::class, 'call'];
     $u->prepare_query = [UsaspendingPrepareQuery::class, 'call'];
+    $u->graphql_body = [UsaspendingGraphql::class, 'body'];
+    $u->graphql_errors = [UsaspendingGraphql::class, 'errors'];
     $u->result_basic = [UsaspendingResultBasic::class, 'call'];
     $u->result_body = [UsaspendingResultBody::class, 'call'];
     $u->result_headers = [UsaspendingResultHeaders::class, 'call'];

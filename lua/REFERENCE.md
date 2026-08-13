@@ -108,7 +108,7 @@ local account = client:Account(nil)
 | --- | --- | --- | --- |
 | `account_name` | `string` | No |  |
 | `account_number` | `string` | No |  |
-| `total_budgetary_resource` | `number` | No |  |
+| `total_budgetary_resources` | `number` | No |  |
 
 ### Operations
 
@@ -163,7 +163,7 @@ local agency = client:Agency(nil)
 | `code` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `total_obligation` | `number` | No |  |
+| `total_obligations` | `number` | No |  |
 
 ### Operations
 
@@ -272,13 +272,13 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | `table` | No |  |
-| `filter` | `table` | No |  |
+| `fields` | `table` | No |  |
+| `filters` | `table` | No |  |
 | `geo_layer` | `string` | No |  |
 | `limit` | `number` | No |  |
 | `page` | `number` | No |  |
 | `page_metadata` | `table` | No |  |
-| `result` | `table` | No |  |
+| `results` | `table` | No |  |
 | `scope` | `string` | No |  |
 
 ### Operations

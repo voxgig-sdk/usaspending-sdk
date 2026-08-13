@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ UsaspendingUtility.registrar = ->(u) {
   u.prepare_params = UsaspendingUtilities::PrepareParams
   u.prepare_path = UsaspendingUtilities::PreparePath
   u.prepare_query = UsaspendingUtilities::PrepareQuery
+  u.graphql_body = UsaspendingUtilities::GraphqlBody
+  u.graphql_errors = UsaspendingUtilities::GraphqlErrors
   u.result_basic = UsaspendingUtilities::ResultBasic
   u.result_body = UsaspendingUtilities::ResultBody
   u.result_headers = UsaspendingUtilities::ResultHeaders

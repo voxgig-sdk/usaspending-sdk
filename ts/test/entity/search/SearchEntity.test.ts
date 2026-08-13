@@ -62,7 +62,7 @@ describe('SearchEntity', async () => {
     const search_ref01_ent = client.Search()
     let search_ref01_data = setup.data.new.search['search_ref01']
 
-    search_ref01_data = await search_ref01_ent.create(search_ref01_data)
+    search_ref01_data = (await search_ref01_ent.create(search_ref01_data)).data()
     assert(null != search_ref01_data)
 
 

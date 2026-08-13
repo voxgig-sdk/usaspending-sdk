@@ -63,7 +63,7 @@ describe('SpendingEntity', async () => {
     const spending_ref01_ent = client.Spending()
     const spending_ref01_match: any = {}
 
-    const spending_ref01_list = await spending_ref01_ent.list(spending_ref01_match)
+    const spending_ref01_list = (await spending_ref01_ent.list(spending_ref01_match)).map((e: any) => e.data())
 
 
   })

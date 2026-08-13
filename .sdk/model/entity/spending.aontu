@@ -59,7 +59,7 @@ main: kit: entity: spending: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.breakdown`"
           }
         }
       ]

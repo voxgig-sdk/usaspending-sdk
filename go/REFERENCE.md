@@ -116,7 +116,7 @@ fmt.Println(account.GetName()) // "account"
 | --- | --- | --- | --- |
 | `account_name` | `string` | No |  |
 | `account_number` | `string` | No |  |
-| `total_budgetary_resource` | `float64` | No |  |
+| `total_budgetary_resources` | `float64` | No |  |
 
 ### Operations
 
@@ -170,7 +170,7 @@ fmt.Println(agency.GetName()) // "agency"
 | `code` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `total_obligation` | `float64` | No |  |
+| `total_obligations` | `float64` | No |  |
 
 ### Operations
 
@@ -277,13 +277,13 @@ fmt.Println(search.GetName()) // "search"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `field` | `[]any` | No |  |
-| `filter` | `map[string]any` | No |  |
+| `fields` | `[]any` | No |  |
+| `filters` | `map[string]any` | No |  |
 | `geo_layer` | `string` | No |  |
 | `limit` | `int` | No |  |
 | `page` | `int` | No |  |
 | `page_metadata` | `map[string]any` | No |  |
-| `result` | `[]any` | No |  |
+| `results` | `[]any` | No |  |
 | `scope` | `string` | No |  |
 
 ### Operations

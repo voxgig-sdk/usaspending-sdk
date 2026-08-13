@@ -21,7 +21,7 @@ main: kit: entity: agency: {
       type: "`$STRING`"
     }
     {
-      name: "total_obligation"
+      name: "total_obligations"
       req: false
       type: "`$NUMBER`"
     }
@@ -61,7 +61,7 @@ main: kit: entity: agency: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

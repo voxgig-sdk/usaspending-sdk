@@ -63,7 +63,7 @@ describe('AccountEntity', async () => {
     const account_ref01_ent = client.Account()
     const account_ref01_match: any = {}
 
-    const account_ref01_list = await account_ref01_ent.list(account_ref01_match)
+    const account_ref01_list = (await account_ref01_ent.list(account_ref01_match)).map((e: any) => e.data())
 
 
   })

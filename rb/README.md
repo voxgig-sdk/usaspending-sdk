@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = UsaspendingSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 account = client.Account.list()
 puts account
 ```
@@ -243,7 +244,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `account_name` |  |
 | `account_number` |  |
-| `total_budgetary_resource` |  |
+| `total_budgetary_resources` |  |
 
 Operations: List.
 
@@ -256,7 +257,7 @@ API path: `/accounts/`
 | `code` |  |
 | `id` |  |
 | `name` |  |
-| `total_obligation` |  |
+| `total_obligations` |  |
 
 Operations: List.
 
@@ -281,13 +282,13 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `field` |  |
-| `filter` |  |
+| `fields` |  |
+| `filters` |  |
 | `geo_layer` |  |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
-| `result` |  |
+| `results` |  |
 | `scope` |  |
 
 Operations: Create.
@@ -327,7 +328,7 @@ Create an instance: `account = client.Account`
 | --- | --- | --- |
 | `account_name` | `String` |  |
 | `account_number` | `String` |  |
-| `total_budgetary_resource` | `Float` |  |
+| `total_budgetary_resources` | `Float` |  |
 
 #### Example: List
 
@@ -354,7 +355,7 @@ Create an instance: `agency = client.Agency`
 | `code` | `String` |  |
 | `id` | `String` |  |
 | `name` | `String` |  |
-| `total_obligation` | `Float` |  |
+| `total_obligations` | `Float` |  |
 
 #### Example: List
 
@@ -407,13 +408,13 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `field` | `Array` |  |
-| `filter` | `Hash` |  |
+| `fields` | `Array` |  |
+| `filters` | `Hash` |  |
 | `geo_layer` | `String` |  |
 | `limit` | `Integer` |  |
 | `page` | `Integer` |  |
 | `page_metadata` | `Hash` |  |
-| `result` | `Array` |  |
+| `results` | `Array` |  |
 | `scope` | `String` |  |
 
 #### Example: Create
