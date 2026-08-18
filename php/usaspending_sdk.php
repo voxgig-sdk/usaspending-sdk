@@ -40,7 +40,7 @@ class UsaspendingSDK
         $utility = new UsaspendingUtility();
         $this->_utility = $utility;
 
-        $config = UsaspendingConfig::make_config();
+        $config = UsaspendingConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

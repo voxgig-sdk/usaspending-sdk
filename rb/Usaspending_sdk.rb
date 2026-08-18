@@ -28,7 +28,7 @@ class UsaspendingSDK
     utility = UsaspendingUtility.new
     @_utility = utility
 
-    config = UsaspendingConfig.make_config
+    config = UsaspendingConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
