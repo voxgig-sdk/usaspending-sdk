@@ -276,12 +276,12 @@ $search = $client->Search();
 | --- | --- | --- | --- |
 | `fields` | `array` | No |  |
 | `filters` | `array` | No |  |
-| `geo_layer` | `string` | No |  |
+| `geo_layer` | `string` | No | Geographic layer granularity |
 | `limit` | `int` | No |  |
 | `page` | `int` | No |  |
 | `page_metadata` | `array` | No |  |
 | `results` | `array` | No |  |
-| `scope` | `string` | No |  |
+| `scope` | `string` | No | Geographic scope for the search |
 
 ### Operations
 

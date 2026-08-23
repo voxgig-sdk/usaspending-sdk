@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -335,12 +335,12 @@ API path: `/awards/`
 | --- | --- |
 | `fields` |  |
 | `filters` |  |
-| `geo_layer` |  |
+| `geo_layer` | Geographic layer granularity |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
 | `results` |  |
-| `scope` |  |
+| `scope` | Geographic scope for the search |
 
 Operations: create.
 
@@ -458,12 +458,12 @@ Create an instance: `const search = client.Search()`
 | --- | --- | --- |
 | `fields` | `any[]` |  |
 | `filters` | `Record<string, any>` |  |
-| `geo_layer` | `string` |  |
+| `geo_layer` | `string` | Geographic layer granularity |
 | `limit` | `number` |  |
 | `page` | `number` |  |
 | `page_metadata` | `Record<string, any>` |  |
 | `results` | `any[]` |  |
-| `scope` | `string` |  |
+| `scope` | `string` | Geographic scope for the search |
 
 #### Example: Create
 

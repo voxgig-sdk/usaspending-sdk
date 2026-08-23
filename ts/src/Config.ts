@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Usaspending',
+        slug: "usaspending",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -266,6 +277,7 @@ class Config {
         },
         {
           "name": "geo_layer",
+          "short": "Geographic layer granularity",
           "type": "`$STRING`"
         },
         {
@@ -286,6 +298,7 @@ class Config {
         },
         {
           "name": "scope",
+          "short": "Geographic scope for the search",
           "type": "`$STRING`"
         }
       ],

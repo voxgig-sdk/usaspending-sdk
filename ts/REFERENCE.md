@@ -326,12 +326,12 @@ const search = client.Search()
 | --- | --- | --- | --- |
 | `fields` | `any[]` | No |  |
 | `filters` | `Record<string, any>` | No |  |
-| `geo_layer` | `string` | No |  |
+| `geo_layer` | `string` | No | Geographic layer granularity |
 | `limit` | `number` | No |  |
 | `page` | `number` | No |  |
 | `page_metadata` | `Record<string, any>` | No |  |
 | `results` | `any[]` | No |  |
-| `scope` | `string` | No |  |
+| `scope` | `string` | No | Geographic scope for the search |
 
 ### Actions
 

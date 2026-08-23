@@ -284,12 +284,12 @@ API path: `/awards/`
 | --- | --- |
 | `fields` |  |
 | `filters` |  |
-| `geo_layer` |  |
+| `geo_layer` | Geographic layer granularity |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
 | `results` |  |
-| `scope` |  |
+| `scope` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -410,12 +410,12 @@ Create an instance: `search = client.Search`
 | --- | --- | --- |
 | `fields` | `Array` |  |
 | `filters` | `Hash` |  |
-| `geo_layer` | `String` |  |
+| `geo_layer` | `String` | Geographic layer granularity |
 | `limit` | `Integer` |  |
 | `page` | `Integer` |  |
 | `page_metadata` | `Hash` |  |
 | `results` | `Array` |  |
-| `scope` | `String` |  |
+| `scope` | `String` | Geographic scope for the search |
 
 #### Example: Create
 

@@ -279,12 +279,12 @@ API path: `/awards/`
 | --- | --- |
 | `fields` |  |
 | `filters` |  |
-| `geo_layer` |  |
+| `geo_layer` | Geographic layer granularity |
 | `limit` |  |
 | `page` |  |
 | `page_metadata` |  |
 | `results` |  |
-| `scope` |  |
+| `scope` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -402,12 +402,12 @@ Create an instance: `local search = client:Search(nil)`
 | --- | --- | --- |
 | `fields` | `table` |  |
 | `filters` | `table` |  |
-| `geo_layer` | `string` |  |
+| `geo_layer` | `string` | Geographic layer granularity |
 | `limit` | `number` |  |
 | `page` | `number` |  |
 | `page_metadata` | `table` |  |
 | `results` | `table` |  |
-| `scope` | `string` |  |
+| `scope` | `string` | Geographic scope for the search |
 
 #### Example: Create
 

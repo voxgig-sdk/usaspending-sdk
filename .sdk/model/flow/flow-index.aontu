@@ -1,7 +1,0 @@
-# Flows
-
-@"BasicAccountFlow.aontu"
-@"BasicAgencyFlow.aontu"
-@"BasicAwardFlow.aontu"
-@"BasicSearchFlow.aontu"
-@"BasicSpendingFlow.aontu"

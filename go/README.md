@@ -6,7 +6,7 @@ The Golang SDK for the Usaspending API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Account(nil)` — each with the same small set of operations (`List`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -308,12 +308,12 @@ API path: `/awards/`
 | --- | --- |
 | `"fields"` |  |
 | `"filters"` |  |
-| `"geo_layer"` |  |
+| `"geo_layer"` | Geographic layer granularity |
 | `"limit"` |  |
 | `"page"` |  |
 | `"page_metadata"` |  |
 | `"results"` |  |
-| `"scope"` |  |
+| `"scope"` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -443,12 +443,12 @@ Create an instance: `search := client.Search(nil)`
 | --- | --- | --- |
 | `fields` | `[]any` |  |
 | `filters` | `map[string]any` |  |
-| `geo_layer` | `string` |  |
+| `geo_layer` | `string` | Geographic layer granularity |
 | `limit` | `int` |  |
 | `page` | `int` |  |
 | `page_metadata` | `map[string]any` |  |
 | `results` | `[]any` |  |
-| `scope` | `string` |  |
+| `scope` | `string` | Geographic scope for the search |
 
 #### Example: Create
 

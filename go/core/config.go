@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Usaspending",
+			"slug": "usaspending",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -235,6 +238,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "geo_layer",
+						"short": "Geographic layer granularity",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -255,6 +259,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "scope",
+						"short": "Geographic scope for the search",
 						"type": "`$STRING`",
 					},
 				},

@@ -295,6 +295,7 @@
               "active": true,
               "name": "geo_layer",
               "req": false,
+              "short": "Geographic layer granularity",
               "type": "`$STRING`"
             },
             {
@@ -325,6 +326,7 @@
               "active": true,
               "name": "scope",
               "req": false,
+              "short": "Geographic scope for the search",
               "type": "`$STRING`"
             }
           ],

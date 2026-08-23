@@ -18,6 +18,7 @@ main: kit: entity: search: {
     {
       name: "geo_layer"
       req: false
+      short: "Geographic layer granularity"
       type: "`$STRING`"
     }
     {
@@ -43,6 +44,7 @@ main: kit: entity: search: {
     {
       name: "scope"
       req: false
+      short: "Geographic scope for the search"
       type: "`$STRING`"
     }
   ]

@@ -274,12 +274,12 @@ local search = client:Search(nil)
 | --- | --- | --- | --- |
 | `fields` | `table` | No |  |
 | `filters` | `table` | No |  |
-| `geo_layer` | `string` | No |  |
+| `geo_layer` | `string` | No | Geographic layer granularity |
 | `limit` | `number` | No |  |
 | `page` | `number` | No |  |
 | `page_metadata` | `table` | No |  |
 | `results` | `table` | No |  |
-| `scope` | `string` | No |  |
+| `scope` | `string` | No | Geographic scope for the search |
 
 ### Operations
 

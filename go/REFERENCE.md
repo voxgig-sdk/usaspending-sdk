@@ -279,12 +279,12 @@ fmt.Println(search.GetName()) // "search"
 | --- | --- | --- | --- |
 | `fields` | `[]any` | No |  |
 | `filters` | `map[string]any` | No |  |
-| `geo_layer` | `string` | No |  |
+| `geo_layer` | `string` | No | Geographic layer granularity |
 | `limit` | `int` | No |  |
 | `page` | `int` | No |  |
 | `page_metadata` | `map[string]any` | No |  |
 | `results` | `[]any` | No |  |
-| `scope` | `string` | No |  |
+| `scope` | `string` | No | Geographic scope for the search |
 
 ### Operations
 

@@ -33,6 +33,9 @@ class UsaspendingConfig
         return [
             "main" => [
                 "name" => "Usaspending",
+                "slug" => "usaspending",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -257,6 +260,7 @@ class UsaspendingConfig
             ],
             [
               'name' => 'geo_layer',
+              'short' => 'Geographic layer granularity',
               'type' => '`$STRING`',
             ],
             [
@@ -277,6 +281,7 @@ class UsaspendingConfig
             ],
             [
               'name' => 'scope',
+              'short' => 'Geographic scope for the search',
               'type' => '`$STRING`',
             ],
           ],

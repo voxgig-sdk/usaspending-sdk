@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Usaspending",
+      slug = "usaspending",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -231,6 +234,7 @@ local function make_config()
           },
           {
             ["name"] = "geo_layer",
+            ["short"] = "Geographic layer granularity",
             ["type"] = "`$STRING`",
           },
           {
@@ -251,6 +255,7 @@ local function make_config()
           },
           {
             ["name"] = "scope",
+            ["short"] = "Geographic scope for the search",
             ["type"] = "`$STRING`",
           },
         },

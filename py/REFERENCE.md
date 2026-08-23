@@ -274,12 +274,12 @@ search = client.Search()
 | --- | --- | --- | --- |
 | `fields` | `list` | No |  |
 | `filters` | `dict` | No |  |
-| `geo_layer` | `str` | No |  |
+| `geo_layer` | `str` | No | Geographic layer granularity |
 | `limit` | `int` | No |  |
 | `page` | `int` | No |  |
 | `page_metadata` | `dict` | No |  |
 | `results` | `list` | No |  |
-| `scope` | `str` | No |  |
+| `scope` | `str` | No | Geographic scope for the search |
 
 ### Operations
 
