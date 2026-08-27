@@ -28,6 +28,7 @@ module UsaspendingConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
