@@ -12,9 +12,7 @@
 ---@field total_budgetary_resources? number
 
 ---@class AccountListMatch
----@field account_name? string
----@field account_number? string
----@field total_budgetary_resources? number
+---@field fiscal_year? number
 
 ---@class Agency
 ---@field code? string
@@ -23,10 +21,7 @@
 ---@field total_obligations? number
 
 ---@class AgencyListMatch
----@field code? string
----@field id? string
----@field name? string
----@field total_obligations? number
+---@field sort? string
 
 ---@class Award
 ---@field agency? table
@@ -37,12 +32,8 @@
 ---@field type? string
 
 ---@class AwardListMatch
----@field agency? table
----@field amount? number
----@field description? string
----@field id? string
----@field recipient? table
----@field type? string
+---@field limit? number
+---@field page? number
 
 ---@class Search
 ---@field fields? table
@@ -70,9 +61,8 @@
 ---@field total_spending? number
 
 ---@class SpendingListMatch
----@field breakdown? table
+---@field agency? string
 ---@field fiscal_year? number
----@field total_spending? number
 
 local M = {}
 

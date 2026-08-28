@@ -27,18 +27,10 @@ Account = Struct.new(
 
 # Request payload for Account#list.
 #
-# @!attribute [rw] account_name
-#   @return [String, nil]
-#
-# @!attribute [rw] account_number
-#   @return [String, nil]
-#
-# @!attribute [rw] total_budgetary_resources
-#   @return [Float, nil]
+# @!attribute [rw] fiscal_year
+#   @return [Integer, nil]
 AccountListMatch = Struct.new(
-  :account_name,
-  :account_number,
-  :total_budgetary_resources,
+  :fiscal_year,
   keyword_init: true
 )
 
@@ -65,22 +57,10 @@ Agency = Struct.new(
 
 # Request payload for Agency#list.
 #
-# @!attribute [rw] code
+# @!attribute [rw] sort
 #   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] total_obligations
-#   @return [Float, nil]
 AgencyListMatch = Struct.new(
-  :code,
-  :id,
-  :name,
-  :total_obligations,
+  :sort,
   keyword_init: true
 )
 
@@ -115,30 +95,14 @@ Award = Struct.new(
 
 # Request payload for Award#list.
 #
-# @!attribute [rw] agency
-#   @return [Hash, nil]
+# @!attribute [rw] limit
+#   @return [Integer, nil]
 #
-# @!attribute [rw] amount
-#   @return [Float, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] recipient
-#   @return [Hash, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 AwardListMatch = Struct.new(
-  :agency,
-  :amount,
-  :description,
-  :id,
-  :recipient,
-  :type,
+  :limit,
+  :page,
   keyword_init: true
 )
 
@@ -235,18 +199,14 @@ Spending = Struct.new(
 
 # Request payload for Spending#list.
 #
-# @!attribute [rw] breakdown
-#   @return [Array, nil]
+# @!attribute [rw] agency
+#   @return [String, nil]
 #
 # @!attribute [rw] fiscal_year
 #   @return [Integer, nil]
-#
-# @!attribute [rw] total_spending
-#   @return [Float, nil]
 SpendingListMatch = Struct.new(
-  :breakdown,
+  :agency,
   :fiscal_year,
-  :total_spending,
   keyword_init: true
 )
 

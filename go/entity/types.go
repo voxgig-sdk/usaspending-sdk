@@ -21,9 +21,7 @@ type Account struct {
 
 // AccountListMatch is the typed request payload for Account.ListTyped.
 type AccountListMatch struct {
-	AccountName *string `json:"account_name,omitempty"`
-	AccountNumber *string `json:"account_number,omitempty"`
-	TotalBudgetaryResources *float64 `json:"total_budgetary_resources,omitempty"`
+	FiscalYear *int `json:"fiscal_year,omitempty"`
 }
 
 // Agency is the typed data model for the agency entity.
@@ -36,10 +34,7 @@ type Agency struct {
 
 // AgencyListMatch is the typed request payload for Agency.ListTyped.
 type AgencyListMatch struct {
-	Code *string `json:"code,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	TotalObligations *float64 `json:"total_obligations,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // Award is the typed data model for the award entity.
@@ -54,12 +49,8 @@ type Award struct {
 
 // AwardListMatch is the typed request payload for Award.ListTyped.
 type AwardListMatch struct {
-	Agency *map[string]any `json:"agency,omitempty"`
-	Amount *float64 `json:"amount,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Recipient *map[string]any `json:"recipient,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // Search is the typed data model for the search entity.
@@ -95,9 +86,8 @@ type Spending struct {
 
 // SpendingListMatch is the typed request payload for Spending.ListTyped.
 type SpendingListMatch struct {
-	Breakdown *[]any `json:"breakdown,omitempty"`
+	Agency *string `json:"agency,omitempty"`
 	FiscalYear *int `json:"fiscal_year,omitempty"`
-	TotalSpending *float64 `json:"total_spending,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

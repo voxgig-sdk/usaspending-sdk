@@ -12,9 +12,7 @@ export interface Account {
 }
 
 export interface AccountListMatch {
-  account_name?: string
-  account_number?: string
-  total_budgetary_resources?: number
+  fiscal_year?: number
 }
 
 export interface Agency {
@@ -25,10 +23,7 @@ export interface Agency {
 }
 
 export interface AgencyListMatch {
-  code?: string
-  id?: string
-  name?: string
-  total_obligations?: number
+  sort?: string
 }
 
 export interface Award {
@@ -41,12 +36,8 @@ export interface Award {
 }
 
 export interface AwardListMatch {
-  agency?: Record<string, any>
-  amount?: number
-  description?: string
-  id?: string
-  recipient?: Record<string, any>
-  type?: string
+  limit?: number
+  page?: number
 }
 
 export interface Search {
@@ -84,8 +75,7 @@ export interface Spending {
 }
 
 export interface SpendingListMatch {
-  breakdown?: any[]
+  agency?: string
   fiscal_year?: number
-  total_spending?: number
 }
 

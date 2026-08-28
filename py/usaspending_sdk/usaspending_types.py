@@ -23,9 +23,7 @@ class Account(TypedDict, total=False):
 
 
 class AccountListMatch(TypedDict, total=False):
-    account_name: str
-    account_number: str
-    total_budgetary_resources: float
+    fiscal_year: int
 
 
 class Agency(TypedDict, total=False):
@@ -36,10 +34,7 @@ class Agency(TypedDict, total=False):
 
 
 class AgencyListMatch(TypedDict, total=False):
-    code: str
-    id: str
-    name: str
-    total_obligations: float
+    sort: str
 
 
 class Award(TypedDict, total=False):
@@ -52,12 +47,8 @@ class Award(TypedDict, total=False):
 
 
 class AwardListMatch(TypedDict, total=False):
-    agency: dict
-    amount: float
-    description: str
-    id: str
-    recipient: dict
-    type: str
+    limit: int
+    page: int
 
 
 class Search(TypedDict, total=False):
@@ -89,6 +80,5 @@ class Spending(TypedDict, total=False):
 
 
 class SpendingListMatch(TypedDict, total=False):
-    breakdown: list
+    agency: str
     fiscal_year: int
-    total_spending: float

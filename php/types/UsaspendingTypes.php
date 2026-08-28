@@ -23,9 +23,7 @@ class Account
 /** Request payload for Account#list. */
 class AccountListMatch
 {
-    public ?string $account_name = null;
-    public ?string $account_number = null;
-    public ?float $total_budgetary_resources = null;
+    public ?int $fiscal_year = null;
 }
 
 /** Agency entity data model. */
@@ -40,10 +38,7 @@ class Agency
 /** Request payload for Agency#list. */
 class AgencyListMatch
 {
-    public ?string $code = null;
-    public ?string $id = null;
-    public ?string $name = null;
-    public ?float $total_obligations = null;
+    public ?string $sort = null;
 }
 
 /** Award entity data model. */
@@ -60,12 +55,8 @@ class Award
 /** Request payload for Award#list. */
 class AwardListMatch
 {
-    public ?array $agency = null;
-    public ?float $amount = null;
-    public ?string $description = null;
-    public ?string $id = null;
-    public ?array $recipient = null;
-    public ?string $type = null;
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
 /** Search entity data model. */
@@ -105,8 +96,7 @@ class Spending
 /** Request payload for Spending#list. */
 class SpendingListMatch
 {
-    public ?array $breakdown = null;
+    public ?string $agency = null;
     public ?int $fiscal_year = null;
-    public ?float $total_spending = null;
 }
 
