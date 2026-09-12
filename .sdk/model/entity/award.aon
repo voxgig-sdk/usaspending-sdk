@@ -70,8 +70,10 @@ main: kit: entity: award: {
           }
           method: "GET"
           orig: "/awards/"
-          parts: [
-            "awards"
+          segments: [
+            {
+              lit: "awards"
+            }
           ]
           select: {
             exist: [

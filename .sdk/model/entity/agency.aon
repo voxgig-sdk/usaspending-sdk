@@ -51,8 +51,10 @@ main: kit: entity: agency: {
           }
           method: "GET"
           orig: "/agencies/"
-          parts: [
-            "agencies"
+          segments: [
+            {
+              lit: "agencies"
+            }
           ]
           select: {
             exist: [

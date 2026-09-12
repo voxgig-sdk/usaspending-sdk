@@ -52,7 +52,7 @@ func TestSearchEntity(t *testing.T) {
 		// CREATE
 		searchRef01Ent := client.Search(nil)
 		searchRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "search"}, setup.data), "search_ref01"))
+			vs.GetPath(setup.data, []any{"new", "search"}), "search_ref01"))
 
 		searchRef01DataResult, err := searchRef01Ent.Create(searchRef01Data, nil)
 		if err != nil {
@@ -90,7 +90,7 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"search01", "search02", "search03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -118,10 +118,22 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["USASPENDING_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewUsaspendingSDK(core.ToMapAny(mergedOpts))
 	}

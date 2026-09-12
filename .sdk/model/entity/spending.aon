@@ -48,8 +48,10 @@ main: kit: entity: spending: {
           }
           method: "GET"
           orig: "/spending/"
-          parts: [
-            "spending"
+          segments: [
+            {
+              lit: "spending"
+            }
           ]
           select: {
             exist: [

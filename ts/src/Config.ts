@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -111,8 +122,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/accounts/",
-              "parts": [
-                "accounts"
+              "segments": [
+                {
+                  "lit": "accounts"
+                }
               ],
               "select": {
                 "exist": [
@@ -122,7 +135,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.results`"
-              }
+              },
+              "parts": [
+                "accounts"
+              ]
             }
           ]
         }
@@ -150,6 +166,10 @@ class Config {
           "type": "`$NUMBER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "agency",
       "op": {
         "list": {
@@ -170,8 +190,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/agencies/",
-              "parts": [
-                "agencies"
+              "segments": [
+                {
+                  "lit": "agencies"
+                }
               ],
               "select": {
                 "exist": [
@@ -181,7 +203,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.results`"
-              }
+              },
+              "parts": [
+                "agencies"
+              ]
             }
           ]
         }
@@ -217,6 +242,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "award",
       "op": {
         "list": {
@@ -245,8 +274,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/awards/",
-              "parts": [
-                "awards"
+              "segments": [
+                {
+                  "lit": "awards"
+                }
               ],
               "select": {
                 "exist": [
@@ -257,7 +288,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "awards"
+              ]
             }
           ]
         }
@@ -314,9 +348,13 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/search/spending_by_award/",
-              "parts": [
-                "search",
-                "spending_by_award"
+              "segments": [
+                {
+                  "lit": "search"
+                },
+                {
+                  "lit": "spending_by_award"
+                }
               ],
               "select": {
                 "$action": "spending_by_award"
@@ -324,16 +362,24 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "search",
+                "spending_by_award"
+              ]
             },
             {
               "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/search/spending_by_geography/",
-              "parts": [
-                "search",
-                "spending_by_geography"
+              "segments": [
+                {
+                  "lit": "search"
+                },
+                {
+                  "lit": "spending_by_geography"
+                }
               ],
               "select": {
                 "$action": "spending_by_geography"
@@ -341,7 +387,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "search",
+                "spending_by_geography"
+              ]
             }
           ]
         }
@@ -391,8 +441,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/spending/",
-              "parts": [
-                "spending"
+              "segments": [
+                {
+                  "lit": "spending"
+                }
               ],
               "select": {
                 "exist": [
@@ -403,7 +455,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.breakdown`"
-              }
+              },
+              "parts": [
+                "spending"
+              ]
             }
           ]
         }
@@ -419,6 +474,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

@@ -1,6 +1,14 @@
 # Usaspending SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -89,8 +97,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/accounts/",
-                "parts": [
-                  "accounts",
+                "segments": [
+                  {
+                    "lit": "accounts",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -101,6 +111,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
+                "parts": [
+                  "accounts",
+                ],
               },
             ],
           },
@@ -128,6 +141,10 @@ def make_config():
             "type": "`$NUMBER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "agency",
         "op": {
           "list": {
@@ -148,8 +165,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/agencies/",
-                "parts": [
-                  "agencies",
+                "segments": [
+                  {
+                    "lit": "agencies",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -160,6 +179,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
+                "parts": [
+                  "agencies",
+                ],
               },
             ],
           },
@@ -195,6 +217,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "award",
         "op": {
           "list": {
@@ -223,8 +249,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/awards/",
-                "parts": [
-                  "awards",
+                "segments": [
+                  {
+                    "lit": "awards",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -236,6 +264,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "awards",
+                ],
               },
             ],
           },
@@ -292,9 +323,13 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/search/spending_by_award/",
-                "parts": [
-                  "search",
-                  "spending_by_award",
+                "segments": [
+                  {
+                    "lit": "search",
+                  },
+                  {
+                    "lit": "spending_by_award",
+                  },
                 ],
                 "select": {
                   "$action": "spending_by_award",
@@ -303,15 +338,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "search",
+                  "spending_by_award",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/search/spending_by_geography/",
-                "parts": [
-                  "search",
-                  "spending_by_geography",
+                "segments": [
+                  {
+                    "lit": "search",
+                  },
+                  {
+                    "lit": "spending_by_geography",
+                  },
                 ],
                 "select": {
                   "$action": "spending_by_geography",
@@ -320,6 +363,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "search",
+                  "spending_by_geography",
+                ],
               },
             ],
           },
@@ -369,8 +416,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/spending/",
-                "parts": [
-                  "spending",
+                "segments": [
+                  {
+                    "lit": "spending",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -382,6 +431,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.breakdown`",
                 },
+                "parts": [
+                  "spending",
+                ],
               },
             ],
           },

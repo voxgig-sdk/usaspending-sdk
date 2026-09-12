@@ -41,8 +41,10 @@ main: kit: entity: account: {
           }
           method: "GET"
           orig: "/accounts/"
-          parts: [
-            "accounts"
+          segments: [
+            {
+              lit: "accounts"
+            }
           ]
           select: {
             exist: [

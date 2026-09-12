@@ -68,8 +68,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/accounts/",
-                ["parts"] = {
-                  "accounts",
+                ["segments"] = {
+                  {
+                    ["lit"] = "accounts",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -79,6 +81,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
+                },
+                ["parts"] = {
+                  "accounts",
                 },
               },
             },
@@ -107,6 +112,10 @@ local function make_config()
             ["type"] = "`$NUMBER`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "agency",
         ["op"] = {
           ["list"] = {
@@ -127,8 +136,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/agencies/",
-                ["parts"] = {
-                  "agencies",
+                ["segments"] = {
+                  {
+                    ["lit"] = "agencies",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -138,6 +149,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
+                },
+                ["parts"] = {
+                  "agencies",
                 },
               },
             },
@@ -174,6 +188,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "award",
         ["op"] = {
           ["list"] = {
@@ -202,8 +220,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/awards/",
-                ["parts"] = {
-                  "awards",
+                ["segments"] = {
+                  {
+                    ["lit"] = "awards",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -214,6 +234,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "awards",
                 },
               },
             },
@@ -271,9 +294,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/search/spending_by_award/",
-                ["parts"] = {
-                  "search",
-                  "spending_by_award",
+                ["segments"] = {
+                  {
+                    ["lit"] = "search",
+                  },
+                  {
+                    ["lit"] = "spending_by_award",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "spending_by_award",
@@ -282,15 +309,23 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "search",
+                  "spending_by_award",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/search/spending_by_geography/",
-                ["parts"] = {
-                  "search",
-                  "spending_by_geography",
+                ["segments"] = {
+                  {
+                    ["lit"] = "search",
+                  },
+                  {
+                    ["lit"] = "spending_by_geography",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "spending_by_geography",
@@ -298,6 +333,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "search",
+                  "spending_by_geography",
                 },
               },
             },
@@ -348,8 +387,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/spending/",
-                ["parts"] = {
-                  "spending",
+                ["segments"] = {
+                  {
+                    ["lit"] = "spending",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -360,6 +401,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.breakdown`",
+                },
+                ["parts"] = {
+                  "spending",
                 },
               },
             },

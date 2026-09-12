@@ -94,8 +94,10 @@ class UsaspendingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/accounts/',
-                  'parts' => [
-                    'accounts',
+                  'segments' => [
+                    [
+                      'lit' => 'accounts',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -105,6 +107,9 @@ class UsaspendingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.results`',
+                  ],
+                  'parts' => [
+                    'accounts',
                   ],
                 ],
               ],
@@ -133,6 +138,10 @@ class UsaspendingConfig
               'type' => '`$NUMBER`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'agency',
           'op' => [
             'list' => [
@@ -153,8 +162,10 @@ class UsaspendingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/agencies/',
-                  'parts' => [
-                    'agencies',
+                  'segments' => [
+                    [
+                      'lit' => 'agencies',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -164,6 +175,9 @@ class UsaspendingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.results`',
+                  ],
+                  'parts' => [
+                    'agencies',
                   ],
                 ],
               ],
@@ -200,6 +214,10 @@ class UsaspendingConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'award',
           'op' => [
             'list' => [
@@ -228,8 +246,10 @@ class UsaspendingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/awards/',
-                  'parts' => [
-                    'awards',
+                  'segments' => [
+                    [
+                      'lit' => 'awards',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -240,6 +260,9 @@ class UsaspendingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'awards',
                   ],
                 ],
               ],
@@ -297,9 +320,13 @@ class UsaspendingConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/search/spending_by_award/',
-                  'parts' => [
-                    'search',
-                    'spending_by_award',
+                  'segments' => [
+                    [
+                      'lit' => 'search',
+                    ],
+                    [
+                      'lit' => 'spending_by_award',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'spending_by_award',
@@ -308,15 +335,23 @@ class UsaspendingConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'search',
+                    'spending_by_award',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/search/spending_by_geography/',
-                  'parts' => [
-                    'search',
-                    'spending_by_geography',
+                  'segments' => [
+                    [
+                      'lit' => 'search',
+                    ],
+                    [
+                      'lit' => 'spending_by_geography',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'spending_by_geography',
@@ -324,6 +359,10 @@ class UsaspendingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'search',
+                    'spending_by_geography',
                   ],
                 ],
               ],
@@ -374,8 +413,10 @@ class UsaspendingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/spending/',
-                  'parts' => [
-                    'spending',
+                  'segments' => [
+                    [
+                      'lit' => 'spending',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -386,6 +427,9 @@ class UsaspendingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.breakdown`',
+                  ],
+                  'parts' => [
+                    'spending',
                   ],
                 ],
               ],

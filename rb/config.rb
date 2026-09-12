@@ -80,8 +80,10 @@ module UsaspendingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/accounts/",
-                  "parts" => [
-                    "accounts",
+                  "segments" => [
+                    {
+                      "lit" => "accounts",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -92,6 +94,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "accounts",
+                  ],
                 },
               ],
             },
@@ -119,6 +124,10 @@ module UsaspendingConfig
               "type" => "`$NUMBER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "agency",
           "op" => {
             "list" => {
@@ -139,8 +148,10 @@ module UsaspendingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/agencies/",
-                  "parts" => [
-                    "agencies",
+                  "segments" => [
+                    {
+                      "lit" => "agencies",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -151,6 +162,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "agencies",
+                  ],
                 },
               ],
             },
@@ -186,6 +200,10 @@ module UsaspendingConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "award",
           "op" => {
             "list" => {
@@ -214,8 +232,10 @@ module UsaspendingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/awards/",
-                  "parts" => [
-                    "awards",
+                  "segments" => [
+                    {
+                      "lit" => "awards",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -227,6 +247,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "awards",
+                  ],
                 },
               ],
             },
@@ -283,9 +306,13 @@ module UsaspendingConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/search/spending_by_award/",
-                  "parts" => [
-                    "search",
-                    "spending_by_award",
+                  "segments" => [
+                    {
+                      "lit" => "search",
+                    },
+                    {
+                      "lit" => "spending_by_award",
+                    },
                   ],
                   "select" => {
                     "$action" => "spending_by_award",
@@ -294,15 +321,23 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "search",
+                    "spending_by_award",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/search/spending_by_geography/",
-                  "parts" => [
-                    "search",
-                    "spending_by_geography",
+                  "segments" => [
+                    {
+                      "lit" => "search",
+                    },
+                    {
+                      "lit" => "spending_by_geography",
+                    },
                   ],
                   "select" => {
                     "$action" => "spending_by_geography",
@@ -311,6 +346,10 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "search",
+                    "spending_by_geography",
+                  ],
                 },
               ],
             },
@@ -360,8 +399,10 @@ module UsaspendingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/spending/",
-                  "parts" => [
-                    "spending",
+                  "segments" => [
+                    {
+                      "lit" => "spending",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -373,6 +414,9 @@ module UsaspendingConfig
                     "req" => "`reqdata`",
                     "res" => "`body.breakdown`",
                   },
+                  "parts" => [
+                    "spending",
+                  ],
                 },
               ],
             },

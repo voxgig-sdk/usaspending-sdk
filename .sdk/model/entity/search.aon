@@ -57,9 +57,13 @@ main: kit: entity: search: {
         {
           method: "POST"
           orig: "/search/spending_by_award/"
-          parts: [
-            "search"
-            "spending_by_award"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "spending_by_award"
+            }
           ]
           select: {
             "$action": "spending_by_award"
@@ -72,9 +76,13 @@ main: kit: entity: search: {
         {
           method: "POST"
           orig: "/search/spending_by_geography/"
-          parts: [
-            "search"
-            "spending_by_geography"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "spending_by_geography"
+            }
           ]
           select: {
             "$action": "spending_by_geography"
