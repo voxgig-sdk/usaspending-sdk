@@ -105,7 +105,7 @@ local results, err = client:Account():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
+| TypeScript | `@voxgig-sdk/usaspending-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
 | Python | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
 | PHP | `voxgig-sdk/usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/usaspending-sdk/go` | `go get github.com/voxgig-sdk/usaspending-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Account():list()
 ### TypeScript
 
 ```ts
-import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
+import { UsaspendingSDK } from '@voxgig-sdk/usaspending-sdk'
 
 const client = new UsaspendingSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
+import { UsaspendingSDK } from '@voxgig-sdk/usaspending-sdk'
 
 const client = new UsaspendingSDK()
 ```
@@ -580,7 +580,7 @@ usaspending/
 Import the SDK from the package root:
 
 ```ts
-import { UsaspendingSDK } from '@voxgig-sdk/usaspending'
+import { UsaspendingSDK } from '@voxgig-sdk/usaspending-sdk'
 ```
 
 ### Entity state
