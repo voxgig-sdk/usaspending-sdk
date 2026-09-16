@@ -1,12 +1,18 @@
 # Usaspending SDK feature factory
 
 from usaspending_sdk.feature.base_feature import UsaspendingBaseFeature
+from usaspending_sdk.feature.ratelimit_feature import UsaspendingRatelimitFeature
+from usaspending_sdk.feature.retry_feature import UsaspendingRetryFeature
 from usaspending_sdk.feature.test_feature import UsaspendingTestFeature
+from usaspending_sdk.feature.timeout_feature import UsaspendingTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: UsaspendingBaseFeature(),
+    "ratelimit": lambda: UsaspendingRatelimitFeature(),
+    "retry": lambda: UsaspendingRetryFeature(),
     "test": lambda: UsaspendingTestFeature(),
+    "timeout": lambda: UsaspendingTimeoutFeature(),
 }
 
 

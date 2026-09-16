@@ -5,8 +5,8 @@
         "fields": [],
         "filters": {},
         "geo_layer": "s52",
-        "limit": "s53",
-        "page": "s54",
+        "limit": 83,
+        "page": 84,
         "page_metadata": {},
         "results": [],
         "scope": "s57",
@@ -16,8 +16,8 @@
         "fields": [],
         "filters": {},
         "geo_layer": "sa2",
-        "limit": "sa3",
-        "page": "sa4",
+        "limit": 163,
+        "page": 164,
         "page_metadata": {},
         "results": [],
         "scope": "sa7",
@@ -27,8 +27,8 @@
         "fields": [],
         "filters": {},
         "geo_layer": "sf2",
-        "limit": "sf3",
-        "page": "sf4",
+        "limit": 243,
+        "page": 244,
         "page_metadata": {},
         "results": [],
         "scope": "sf7",
@@ -42,11 +42,220 @@
         "fields": [],
         "filters": {},
         "geo_layer": "s142",
-        "limit": "s143",
-        "page": "s144",
+        "limit": 323,
+        "page": 324,
         "page_metadata": {},
         "results": [],
         "scope": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /search/spending_by_award/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "searchSpendingByAward",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "fields": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "filters": {
+                    "properties": {
+                      "agencies": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "award_type_codes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "keywords": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "time_period": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "limit": {
+                    "default": 10,
+                    "type": "integer"
+                  },
+                  "page": {
+                    "default": 1,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "page_metadata": {
+                      "type": "object"
+                    },
+                    "results": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with filtered awards"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "description": "Error message describing what went wrong",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /search/spending_by_geography/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "searchSpendingByGeography",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "filters": {
+                    "properties": {
+                      "time_period": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "geo_layer": {
+                    "description": "Geographic layer granularity",
+                    "enum": [
+                      "state",
+                      "county",
+                      "district"
+                    ],
+                    "type": "string"
+                  },
+                  "scope": {
+                    "description": "Geographic scope for the search",
+                    "enum": [
+                      "place_of_performance",
+                      "recipient_location"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "aggregated_amount": {
+                            "type": "number"
+                          },
+                          "display_name": {
+                            "type": "string"
+                          },
+                          "shape_code": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with geographic spending breakdown"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "description": "Error message describing what went wrong",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

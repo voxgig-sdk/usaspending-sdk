@@ -26,5 +26,77 @@
         "total_budgetary_resources": 122
       }
     }
+  },
+  "requests": {
+    "GET /accounts/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "listAccounts",
+        "parameters": [
+          {
+            "description": "Federal fiscal year",
+            "in": "query",
+            "name": "fiscal_year",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "account_name": {
+                            "type": "string"
+                          },
+                          "account_number": {
+                            "type": "string"
+                          },
+                          "total_budgetary_resources": {
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with account data"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "description": "Error message describing what went wrong",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

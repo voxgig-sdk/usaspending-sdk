@@ -3,17 +3,17 @@
     "spending": {
       "SPENDING00": {
         "breakdown": [],
-        "fiscal_year": "s1f",
+        "fiscal_year": 31,
         "total_spending": 32
       },
       "SPENDING01": {
         "breakdown": [],
-        "fiscal_year": "s3d",
+        "fiscal_year": 61,
         "total_spending": 62
       },
       "SPENDING02": {
         "breakdown": [],
-        "fiscal_year": "s5b",
+        "fiscal_year": 91,
         "total_spending": 92
       }
     }
@@ -22,8 +22,84 @@
     "spending": {
       "spending_ref01": {
         "breakdown": [],
-        "fiscal_year": "s79",
+        "fiscal_year": 121,
         "total_spending": 122
+      }
+    }
+  },
+  "requests": {
+    "GET /spending/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getSpending",
+        "parameters": [
+          {
+            "description": "Federal fiscal year for the spending data",
+            "in": "query",
+            "name": "fiscal_year",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by agency code or name",
+            "in": "query",
+            "name": "agency",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "breakdown": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "fiscal_year": {
+                      "type": "integer"
+                    },
+                    "total_spending": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with spending data"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "description": "Error message describing what went wrong",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }
