@@ -41,25 +41,9 @@ export interface AwardListMatch {
 }
 
 export interface Search {
-  fields?: any[]
-  filters?: Record<string, any>
-  geo_layer?: string
-  limit?: number
-  page?: number
-  page_metadata?: Record<string, any>
-  results?: any[]
-  scope?: string
 }
 
 export interface SearchCreateData {
-  fields?: any[]
-  filters?: Record<string, any>
-  geo_layer?: string
-  limit?: number
-  page?: number
-  page_metadata?: Record<string, any>
-  results?: any[]
-  scope?: string
 
   // Selects a custom action instead of the plain create:
   //   'spending_by_award' | 'spending_by_geography'

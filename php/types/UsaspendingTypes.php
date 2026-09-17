@@ -62,27 +62,11 @@ class AwardListMatch
 /** Search entity data model. */
 class Search
 {
-    public ?array $fields = null;
-    public ?array $filters = null;
-    public ?string $geo_layer = null;
-    public ?int $limit = null;
-    public ?int $page = null;
-    public ?array $page_metadata = null;
-    public ?array $results = null;
-    public ?string $scope = null;
 }
 
 /** Request payload for Search#create. */
 class SearchCreateData
 {
-    public ?array $fields = null;
-    public ?array $filters = null;
-    public ?string $geo_layer = null;
-    public ?int $limit = null;
-    public ?int $page = null;
-    public ?array $page_metadata = null;
-    public ?array $results = null;
-    public ?string $scope = null;
 }
 
 /** Spending entity data model. */

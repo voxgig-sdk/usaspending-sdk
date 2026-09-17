@@ -107,78 +107,12 @@ AwardListMatch = Struct.new(
 )
 
 # Search entity data model.
-#
-# @!attribute [rw] fields
-#   @return [Array, nil]
-#
-# @!attribute [rw] filters
-#   @return [Hash, nil]
-#
-# @!attribute [rw] geo_layer
-#   @return [String, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page_metadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] results
-#   @return [Array, nil]
-#
-# @!attribute [rw] scope
-#   @return [String, nil]
-Search = Struct.new(
-  :fields,
-  :filters,
-  :geo_layer,
-  :limit,
-  :page,
-  :page_metadata,
-  :results,
-  :scope,
-  keyword_init: true
-)
+class Search
+end
 
 # Request payload for Search#create.
-#
-# @!attribute [rw] fields
-#   @return [Array, nil]
-#
-# @!attribute [rw] filters
-#   @return [Hash, nil]
-#
-# @!attribute [rw] geo_layer
-#   @return [String, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page_metadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] results
-#   @return [Array, nil]
-#
-# @!attribute [rw] scope
-#   @return [String, nil]
-SearchCreateData = Struct.new(
-  :fields,
-  :filters,
-  :geo_layer,
-  :limit,
-  :page,
-  :page_metadata,
-  :results,
-  :scope,
-  keyword_init: true
-)
+class SearchCreateData
+end
 
 # Spending entity data model.
 #

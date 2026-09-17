@@ -270,19 +270,6 @@ Return the entity name.
 $search = $client->Search();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | `array` | No |  |
-| `filters` | `array` | No |  |
-| `geo_layer` | `string` | No | Geographic layer granularity |
-| `limit` | `int` | No |  |
-| `page` | `int` | No |  |
-| `page_metadata` | `array` | No |  |
-| `results` | `array` | No |  |
-| `scope` | `string` | No | Geographic scope for the search |
-
 ### Operations
 
 #### `create(array $reqdata, ?array $ctrl = null): mixed`

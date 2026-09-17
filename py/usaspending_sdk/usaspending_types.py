@@ -51,26 +51,12 @@ class AwardListMatch(TypedDict, total=False):
     page: int
 
 
-class Search(TypedDict, total=False):
-    fields: list
-    filters: dict
-    geo_layer: str
-    limit: int
-    page: int
-    page_metadata: dict
-    results: list
-    scope: str
+class Search(TypedDict):
+    pass
 
 
-class SearchCreateData(TypedDict, total=False):
-    fields: list
-    filters: dict
-    geo_layer: str
-    limit: int
-    page: int
-    page_metadata: dict
-    results: list
-    scope: str
+class SearchCreateData(TypedDict):
+    pass
 
 
 class Spending(TypedDict, total=False):

@@ -306,14 +306,6 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `"fields"` |  |
-| `"filters"` |  |
-| `"geo_layer"` | Geographic layer granularity |
-| `"limit"` |  |
-| `"page"` |  |
-| `"page_metadata"` |  |
-| `"results"` |  |
-| `"scope"` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -436,19 +428,6 @@ Create an instance: `search := client.Search(nil)`
 | Method | Description |
 | --- | --- |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `fields` | `[]any` |  |
-| `filters` | `map[string]any` |  |
-| `geo_layer` | `string` | Geographic layer granularity |
-| `limit` | `int` |  |
-| `page` | `int` |  |
-| `page_metadata` | `map[string]any` |  |
-| `results` | `[]any` |  |
-| `scope` | `string` | Geographic scope for the search |
 
 #### Example: Create
 

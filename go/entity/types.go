@@ -55,26 +55,10 @@ type AwardListMatch struct {
 
 // Search is the typed data model for the search entity.
 type Search struct {
-	Fields *[]any `json:"fields,omitempty"`
-	Filters *map[string]any `json:"filters,omitempty"`
-	GeoLayer *string `json:"geo_layer,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-	PageMetadata *map[string]any `json:"page_metadata,omitempty"`
-	Results *[]any `json:"results,omitempty"`
-	Scope *string `json:"scope,omitempty"`
 }
 
 // SearchCreateData is the typed request payload for Search.CreateTyped.
 type SearchCreateData struct {
-	Fields *[]any `json:"fields,omitempty"`
-	Filters *map[string]any `json:"filters,omitempty"`
-	GeoLayer *string `json:"geo_layer,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-	PageMetadata *map[string]any `json:"page_metadata,omitempty"`
-	Results *[]any `json:"results,omitempty"`
-	Scope *string `json:"scope,omitempty"`
 }
 
 // Spending is the typed data model for the spending entity.

@@ -268,19 +268,6 @@ Return the entity name.
 local search = client:Search(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | `table` | No |  |
-| `filters` | `table` | No |  |
-| `geo_layer` | `string` | No | Geographic layer granularity |
-| `limit` | `number` | No |  |
-| `page` | `number` | No |  |
-| `page_metadata` | `table` | No |  |
-| `results` | `table` | No |  |
-| `scope` | `string` | No | Geographic scope for the search |
-
 ### Operations
 
 #### `create(reqdata, ctrl) -> any, err`

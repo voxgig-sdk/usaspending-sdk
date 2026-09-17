@@ -320,19 +320,6 @@ Return a copy of the entity options.
 const search = client.Search()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | `any[]` | No |  |
-| `filters` | `Record<string, any>` | No |  |
-| `geo_layer` | `string` | No | Geographic layer granularity |
-| `limit` | `number` | No |  |
-| `page` | `number` | No |  |
-| `page_metadata` | `Record<string, any>` | No |  |
-| `results` | `any[]` | No |  |
-| `scope` | `string` | No | Geographic scope for the search |
-
 ### Actions
 
 This entity exposes custom API actions in addition to the standard

@@ -273,19 +273,6 @@ search := client.Search(nil)
 fmt.Println(search.GetName()) // "search"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | `[]any` | No |  |
-| `filters` | `map[string]any` | No |  |
-| `geo_layer` | `string` | No | Geographic layer granularity |
-| `limit` | `int` | No |  |
-| `page` | `int` | No |  |
-| `page_metadata` | `map[string]any` | No |  |
-| `results` | `[]any` | No |  |
-| `scope` | `string` | No | Geographic scope for the search |
-
 ### Operations
 
 #### `Create(reqdata, ctrl map[string]any) (any, error)`

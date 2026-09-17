@@ -4,51 +4,6 @@ main: kit: entity: search: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "fields"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "filters"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "geo_layer"
-      req: false
-      short: "Geographic layer granularity"
-      type: "`$STRING`"
-    }
-    {
-      name: "limit"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "page"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "page_metadata"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "results"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "scope"
-      req: false
-      short: "Geographic scope for the search"
-      type: "`$STRING`"
-    }
-  ]
-
   name: "search"
   op: {
     create: {

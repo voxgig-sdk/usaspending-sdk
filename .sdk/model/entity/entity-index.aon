@@ -1,7 +1,7 @@
 # Entity Models
 
-@"account.aon"
-@"agency.aon"
-@"award.aon"
-@"search.aon"
-@"spending.aon"
+@"./account.aon"
+@"./agency.aon"
+@"./award.aon"
+@"./search.aon"
+@"./spending.aon"

@@ -36,24 +36,8 @@
 ---@field page? number
 
 ---@class Search
----@field fields? table
----@field filters? table
----@field geo_layer? string
----@field limit? number
----@field page? number
----@field page_metadata? table
----@field results? table
----@field scope? string
 
 ---@class SearchCreateData
----@field fields? table
----@field filters? table
----@field geo_layer? string
----@field limit? number
----@field page? number
----@field page_metadata? table
----@field results? table
----@field scope? string
 
 ---@class Spending
 ---@field breakdown? table

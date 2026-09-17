@@ -271,19 +271,6 @@ Return the entity name.
 search = client.Search
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | `Array` | No |  |
-| `filters` | `Hash` | No |  |
-| `geo_layer` | `String` | No | Geographic layer granularity |
-| `limit` | `Integer` | No |  |
-| `page` | `Integer` | No |  |
-| `page_metadata` | `Hash` | No |  |
-| `results` | `Array` | No |  |
-| `scope` | `String` | No | Geographic scope for the search |
-
 ### Operations
 
 #### `create(reqdata, ctrl = nil) -> result`

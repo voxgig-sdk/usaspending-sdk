@@ -207,15 +207,7 @@ declare class Config {
             };
         };
         search: {
-            fields: ({
-                name: string;
-                type: string;
-                short?: undefined;
-            } | {
-                name: string;
-                short: string;
-                type: string;
-            })[];
+            fields: never[];
             name: string;
             op: {
                 create: {

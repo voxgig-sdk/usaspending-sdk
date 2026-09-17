@@ -127,21 +127,21 @@ class Config {
 
     entity: {
       
-      account: {
-      },
-
-      agency: {
-      },
-
-      award: {
-      },
-
-      search: {
-      },
-
-      spending: {
-      },
-
+        account: {
+        },
+  
+        agency: {
+        },
+  
+        award: {
+        },
+  
+        search: {
+        },
+  
+        spending: {
+        },
+  
     }
   }
 
@@ -361,42 +361,7 @@ class Config {
       }
     },
     "search": {
-      "fields": [
-        {
-          "name": "fields",
-          "type": "`$ARRAY`"
-        },
-        {
-          "name": "filters",
-          "type": "`$OBJECT`"
-        },
-        {
-          "name": "geo_layer",
-          "short": "Geographic layer granularity",
-          "type": "`$STRING`"
-        },
-        {
-          "name": "limit",
-          "type": "`$INTEGER`"
-        },
-        {
-          "name": "page",
-          "type": "`$INTEGER`"
-        },
-        {
-          "name": "page_metadata",
-          "type": "`$OBJECT`"
-        },
-        {
-          "name": "results",
-          "type": "`$ARRAY`"
-        },
-        {
-          "name": "scope",
-          "short": "Geographic scope for the search",
-          "type": "`$STRING`"
-        }
-      ],
+      "fields": [],
       "name": "search",
       "op": {
         "create": {

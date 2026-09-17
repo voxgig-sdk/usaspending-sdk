@@ -288,14 +288,6 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `fields` |  |
-| `filters` |  |
-| `geo_layer` | Geographic layer granularity |
-| `limit` |  |
-| `page` |  |
-| `page_metadata` |  |
-| `results` |  |
-| `scope` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -406,19 +398,6 @@ Create an instance: `search = client.Search()`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `fields` | `list` |  |
-| `filters` | `dict` |  |
-| `geo_layer` | `str` | Geographic layer granularity |
-| `limit` | `int` |  |
-| `page` | `int` |  |
-| `page_metadata` | `dict` |  |
-| `results` | `list` |  |
-| `scope` | `str` | Geographic scope for the search |
 
 #### Example: Create
 
@@ -595,6 +574,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── usaspending_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

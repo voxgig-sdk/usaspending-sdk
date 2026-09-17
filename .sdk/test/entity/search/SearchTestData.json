@@ -2,52 +2,19 @@
   "existing": {
     "search": {
       "SEARCH00": {
-        "fields": [],
-        "filters": {},
-        "geo_layer": "s52",
-        "limit": 83,
-        "page": 84,
-        "page_metadata": {},
-        "results": [],
-        "scope": "s57",
         "id": "SEARCH00"
       },
       "SEARCH01": {
-        "fields": [],
-        "filters": {},
-        "geo_layer": "sa2",
-        "limit": 163,
-        "page": 164,
-        "page_metadata": {},
-        "results": [],
-        "scope": "sa7",
         "id": "SEARCH01"
       },
       "SEARCH02": {
-        "fields": [],
-        "filters": {},
-        "geo_layer": "sf2",
-        "limit": 243,
-        "page": 244,
-        "page_metadata": {},
-        "results": [],
-        "scope": "sf7",
         "id": "SEARCH02"
       }
     }
   },
   "new": {
     "search": {
-      "search_ref01": {
-        "fields": [],
-        "filters": {},
-        "geo_layer": "s142",
-        "limit": 323,
-        "page": 324,
-        "page_metadata": {},
-        "results": [],
-        "scope": "s147"
-      }
+      "search_ref01": {}
     }
   },
   "requests": {

@@ -277,14 +277,6 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `fields` |  |
-| `filters` |  |
-| `geo_layer` | Geographic layer granularity |
-| `limit` |  |
-| `page` |  |
-| `page_metadata` |  |
-| `results` |  |
-| `scope` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -395,19 +387,6 @@ Create an instance: `local search = client:Search(nil)`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `fields` | `table` |  |
-| `filters` | `table` |  |
-| `geo_layer` | `string` | Geographic layer granularity |
-| `limit` | `number` |  |
-| `page` | `number` |  |
-| `page_metadata` | `table` |  |
-| `results` | `table` |  |
-| `scope` | `string` | Geographic scope for the search |
 
 #### Example: Create
 
@@ -584,6 +563,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── usaspending_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

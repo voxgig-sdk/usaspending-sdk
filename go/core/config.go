@@ -305,42 +305,7 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"search": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "fields",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "filters",
-						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "geo_layer",
-						"short": "Geographic layer granularity",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "limit",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "page",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "page_metadata",
-						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "results",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "scope",
-						"short": "Geographic scope for the search",
-						"type": "`$STRING`",
-					},
-				},
+				"fields": []any{},
 				"name": "search",
 				"op": map[string]any{
 					"create": map[string]any{

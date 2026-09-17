@@ -338,14 +338,6 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `fields` |  |
-| `filters` |  |
-| `geo_layer` | Geographic layer granularity |
-| `limit` |  |
-| `page` |  |
-| `page_metadata` |  |
-| `results` |  |
-| `scope` | Geographic scope for the search |
 
 Operations: create.
 
@@ -456,19 +448,6 @@ Create an instance: `const search = client.Search()`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `fields` | `any[]` |  |
-| `filters` | `Record<string, any>` |  |
-| `geo_layer` | `string` | Geographic layer granularity |
-| `limit` | `number` |  |
-| `page` | `number` |  |
-| `page_metadata` | `Record<string, any>` |  |
-| `results` | `any[]` |  |
-| `scope` | `string` | Geographic scope for the search |
 
 #### Example: Create
 

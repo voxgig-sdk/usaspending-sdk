@@ -282,14 +282,6 @@ API path: `/awards/`
 
 | Field | Description |
 | --- | --- |
-| `fields` |  |
-| `filters` |  |
-| `geo_layer` | Geographic layer granularity |
-| `limit` |  |
-| `page` |  |
-| `page_metadata` |  |
-| `results` |  |
-| `scope` | Geographic scope for the search |
 
 Operations: Create.
 
@@ -403,19 +395,6 @@ Create an instance: `search = client.Search`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `fields` | `Array` |  |
-| `filters` | `Hash` |  |
-| `geo_layer` | `String` | Geographic layer granularity |
-| `limit` | `Integer` |  |
-| `page` | `Integer` |  |
-| `page_metadata` | `Hash` |  |
-| `results` | `Array` |  |
-| `scope` | `String` | Geographic scope for the search |
 
 #### Example: Create
 
@@ -593,6 +572,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── Usaspending_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

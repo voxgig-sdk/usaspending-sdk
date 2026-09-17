@@ -268,19 +268,6 @@ Return the entity name.
 search = client.Search()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fields` | `list` | No |  |
-| `filters` | `dict` | No |  |
-| `geo_layer` | `str` | No | Geographic layer granularity |
-| `limit` | `int` | No |  |
-| `page` | `int` | No |  |
-| `page_metadata` | `dict` | No |  |
-| `results` | `list` | No |  |
-| `scope` | `str` | No | Geographic scope for the search |
-
 ### Operations
 
 #### `create(reqdata, ctrl=None) -> dict`

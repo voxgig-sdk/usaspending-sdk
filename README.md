@@ -105,12 +105,12 @@ local results, err = client:Account():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/usaspending-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
-| Python | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
-| PHP | `voxgig-sdk/usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
+| TypeScript | `@voxgig-sdk/usaspending-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/tags) |
+| Python | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/tags) |
+| PHP | `voxgig-sdk/usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/usaspending-sdk/go` | `go get github.com/voxgig-sdk/usaspending-sdk/go@latest` |
-| Ruby | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
-| Lua | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/releases) |
+| Ruby | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/tags) |
+| Lua | `voxgig-sdk-usaspending` | publish pending — [install from git tag](https://github.com/voxgig-sdk/usaspending-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/usaspending-sdk/go-cli` | `go install github.com/voxgig-sdk/usaspending-sdk/go-cli/cmd/usaspending@latest` |
 | Go MCP server | `github.com/voxgig-sdk/usaspending-sdk/go-mcp` | `go get github.com/voxgig-sdk/usaspending-sdk/go-mcp@latest` |
 
